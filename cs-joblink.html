@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JobLink — Job Search App — Paux Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner" id="site-nav">
+    <div class="nav-brand">
+      <a href="./paux_design_website_2.html"><img class="nav-brand-logo" src="./Public/Images/logo-name.png" alt="Paux Design"></a>
+    </div>
+    <ul class="nav-links" aria-label="Primary">
+      <li><a href="./paux_design_website_2.html#about">About</a></li>
+      <li><a href="./paux_design_website_2.html#services">Services</a></li>
+      <li><a href="./paux_design_website_2.html#process">Process</a></li>
+      <li><a href="./paux_design_website_2.html#work">Work</a></li>
+      <li><a href="./paux_design_website_2.html#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" class="btn btn-dark nav-cta-btn" style="padding:12px 18px;">Let's talk</a>
+      <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobileOverlay">
+  <a href="./paux_design_website_2.html#about" onclick="closeMobileNav()">About</a>
+  <a href="./paux_design_website_2.html#services" onclick="closeMobileNav()">Services</a>
+  <a href="./paux_design_website_2.html#process" onclick="closeMobileNav()">Process</a>
+  <a href="./paux_design_website_2.html#work" onclick="closeMobileNav()">Work</a>
+  <a href="./paux_design_website_2.html#faq" onclick="closeMobileNav()">FAQ</a>
+  <div class="nav-mobile-divider"></div>
+  <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" onclick="closeMobileNav()" class="btn btn-dark nav-mobile-cta">Let's talk</a>
+</div>
+
+<div class="cs-page">
+<div class="cs-hero"><div class="container"><a class="cs-back" href="./paux_design_website_2.html#work"><svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg> Back to work</a><div class="cs-htags"><span class="cs-htag">UX Research</span><span class="cs-htag">Mobile · iOS</span><span class="cs-htag">A/B Testing</span></div><div class="cs-title">JobLink — Multi-Profile Job Search App</div><p class="cs-subtitle">Redesigning job search for the 43% of people who apply across two or more industries — but have only ever been offered one career identity.</p><div class="cs-meta"><div><div class="cs-meta-label">Role</div><div class="cs-meta-value">UX Designer (end-to-end)</div></div><div><div class="cs-meta-label">Scope</div><div class="cs-meta-value">Research, UX strategy, UI design</div></div><div><div class="cs-meta-label">Platform</div><div class="cs-meta-value">iOS mobile app</div></div><div><div class="cs-meta-label">Year</div><div class="cs-meta-value">2023</div></div></div></div></div>
+<div class="cs-hero-cover">
+  <img src="./Public/Images/joblink.png" alt="JobLink multi-profile job search app">
+</div>
+<div class="cs-body">
+  <div class="cs-metrics"><div class="cs-metric"><div class="cs-metric-num">60%</div><div class="cs-metric-label">Task success rate vs competing platforms</div></div><div class="cs-metric"><div class="cs-metric-num">98%</div><div class="cs-metric-label">Rated intuitive — vs 67% for Indeed</div></div><div class="cs-metric"><div class="cs-metric-num">3 min</div><div class="cs-metric-label">To set up a second profile and apply (vs 8+ min)</div></div></div>
+  <div class="cs-section"><div class="cs-section-title">Overview</div><p class="cs-text">JobLink lets users manage multiple career profiles and apply across industries without switching accounts. The key insight: <strong>43% of job seekers apply across 2+ industries but every platform assumes one career identity.</strong></p><p class="cs-text">I ran the full process — user research, competitive analysis, card sorting, wireframing, A/B testing and high-fidelity iOS UI.</p></div>
+  <div class="cs-section"><div class="cs-section-title">The problem</div><div class="cs-quote">"Users were spending 15+ hours a week just customising applications. Many gave up on roles they were qualified for — it was simply too much work."</div><div class="cs-two"><div class="cs-col before"><div class="cs-col-label">User pain points</div><ul><li>Creating multiple accounts (against platform policies)</li><li>Rewriting profiles for every industry</li><li>One-size-fits-all CV that stands out nowhere</li><li>15+ hours/week lost to customisation</li><li>Abandoning qualified roles — too much friction</li></ul></div><div class="cs-col after"><div class="cs-col-label">Research findings</div><ul><li>59% wanted multiple career profiles</li><li>70% passively job hunting — time is scarce</li><li>98% search for jobs near their location</li><li>Users want quick-scan cards, not descriptions upfront</li><li>Profile switching mental model already known (Instagram)</li></ul></div></div></div>
+  <div class="cs-img-ref">
+    <img src="./Public/Images/joblink.png" alt="JobLink job search app — reference screenshot">
+    <div class="cs-img-caption">Reference image — JobLink multi-profile iOS app · Replace with final design</div>
+  </div>
+
+  <div class="cs-section"><div class="cs-section-title">Design process</div><div class="cs-steps"><div class="cs-step"><div class="cs-step-num">Phase 01</div><div class="cs-step-title">User research &amp; surveys</div><p class="cs-step-desc">Key insight: the biggest pain wasn't finding jobs — it was the time cost of tailoring each application.</p></div><div class="cs-step"><div class="cs-step-num">Phase 02</div><div class="cs-step-title">Competitive analysis</div><p class="cs-step-desc">Analysed Indeed and TotalJobs. Gaps: no multi-profile support, poor tracking, no distance search — these became JobLink's differentiators.</p></div><div class="cs-step"><div class="cs-step-num">Phase 03</div><div class="cs-step-title">Card sorting &amp; IA</div><p class="cs-step-desc">Organised into four sections: Home, Applications, Messages, Profile. Flowcharts and wireframes to validate navigation before visuals.</p></div><div class="cs-step"><div class="cs-step-num">Phase 04</div><div class="cs-step-title">A/B testing</div><p class="cs-step-desc">My assumption — detailed descriptions upfront — was wrong. Users wanted quick-scan cards to filter fast. This changed the entire IA.</p></div></div></div>
+  <div class="cs-section"><div class="cs-section-title">Impact on behaviour</div><div class="cs-two"><div class="cs-col before"><div class="cs-col-label">Before JobLink</div><ul><li>3 resumes in Google Drive, manually managed</li><li>20+ minutes per application, customising everything</li><li>Often abandoned mid-application — decision fatigue</li></ul></div><div class="cs-col after"><div class="cs-col-label">After JobLink</div><ul><li>2 profiles created once, one-tap apply</li><li>5 jobs applied in the time it used to take for 1</li><li>Users reported feeling "in control" of their search</li></ul></div></div></div>
+  <div class="cs-section"><div class="cs-section-title">Key learnings</div><div class="cs-insight"><div class="cs-insight-i">🔍</div><div class="cs-insight-t"><strong>Design for the exception, not the average:</strong> Identify the underserved edge case and design for them first — career changers, multi-skilled professionals.</div></div><div class="cs-insight"><div class="cs-insight-i">🧪</div><div class="cs-insight-t"><strong>A/B testing proved my assumptions wrong:</strong> Always test before committing to an IA decision.</div></div><div class="cs-insight"><div class="cs-insight-i">✂️</div><div class="cs-insight-t"><strong>Reducing cognitive load beats adding features:</strong> Profile switching and one-tap apply were loved. Smart suggestions were ignored. Simplicity is the feature.</div></div></div>
+  <div class="cs-cta"><h3>Need a smarter product experience?</h3><p>From research to high-fidelity design — I run the full UX process so you ship something that actually works for your users.</p><a href="mailto:paulaalonso.design@gmail.com?subject=Project enquiry" class="btn btn-dark">Book a free call <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+</div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="./paux_design_website_2.html"><img src="./Public/Images/logo.png" alt="Paux Design"></a>
+      <p class="footer-brand-tagline">Product Designer for high-growth startups &amp; digital products. London · Remote.</p>
+    </div>
+    <div class="footer-sitemap">
+      <div class="footer-sitemap-label">Site map</div>
+      <div class="footer-sitemap-grid">
+        <a href="./paux_design_website_2.html#about">About</a>
+        <a href="./paux_design_website_2.html#work">Work</a>
+        <a href="./paux_design_website_2.html#services">Services</a>
+        <a href="./paux_design_website_2.html#faq">FAQ</a>
+        <a href="./paux_design_website_2.html#process">Process</a>
+        <a href="mailto:paulaalonso.design@gmail.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-social-links">
+        <a class="footer-social-link" href="https://www.linkedin.com/in/paula-alonso-design/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="footer-social-link" href="https://www.instagram.com/pauxdesign/" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Paula Alonso · Paux Design</div>
+    <div class="footer-rights">All rights reserved</div>
+  </div>
+</footer>
+<script>
+function toggleMobileNav() {
+  const btn = document.getElementById('navHamburger');
+  const overlay = document.getElementById('navMobileOverlay');
+  const isOpen = overlay.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  overlay.classList.toggle('open', !isOpen);
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+function closeMobileNav() {
+  document.getElementById('navHamburger').classList.remove('open');
+  document.getElementById('navMobileOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function initReveal() {
+  const els = document.querySelectorAll('.reveal, .reveal-fade, .reveal-scale');
+  const ob = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ob.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => ob.observe(el));
+}
+window.addEventListener('load', () => {
+  document.querySelectorAll('.reveal, .reveal-scale, .reveal-fade').forEach(el => el.classList.add('visible'));
+  initReveal();
+});
+(() => {
+  const nav = document.getElementById('site-nav');
+  if (!nav) return;
+  const s = () => nav.classList.toggle('nav--scrolled', window.scrollY > 8);
+  s(); window.addEventListener('scroll', s, { passive: true });
+})();
+</script>
+</body>
+</html>
