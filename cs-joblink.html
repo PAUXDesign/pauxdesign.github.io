@@ -11,14 +11,14 @@
 <nav>
   <div class="nav-inner" id="site-nav">
     <div class="nav-brand">
-      <a href="./paux_design_website_2.html"><img class="nav-brand-logo" src="./Public/Images/logo-name.png" alt="Paux Design"></a>
+      <a href="./index.html"><img class="nav-brand-logo" src="./Public/Images/logo-name.png" alt="Paux Design"></a>
     </div>
     <ul class="nav-links" aria-label="Primary">
-      <li><a href="./paux_design_website_2.html#about">About</a></li>
-      <li><a href="./paux_design_website_2.html#services">Services</a></li>
-      <li><a href="./paux_design_website_2.html#process">Process</a></li>
-      <li><a href="./paux_design_website_2.html#work">Work</a></li>
-      <li><a href="./paux_design_website_2.html#faq">FAQ</a></li>
+      <li><a href="./index.html#about">About</a></li>
+      <li><a href="./index.html#services">Services</a></li>
+      <li><a href="./index.html#process">Process</a></li>
+      <li><a href="./index.html#work">Work</a></li>
+      <li><a href="./index.html#faq">FAQ</a></li>
     </ul>
     <div class="nav-cta">
       <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" class="btn btn-dark nav-cta-btn" style="padding:12px 18px;">Let's talk</a>
@@ -30,50 +30,205 @@
 </nav>
 
 <div class="nav-mobile-overlay" id="navMobileOverlay">
-  <a href="./paux_design_website_2.html#about" onclick="closeMobileNav()">About</a>
-  <a href="./paux_design_website_2.html#services" onclick="closeMobileNav()">Services</a>
-  <a href="./paux_design_website_2.html#process" onclick="closeMobileNav()">Process</a>
-  <a href="./paux_design_website_2.html#work" onclick="closeMobileNav()">Work</a>
-  <a href="./paux_design_website_2.html#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="./index.html#about" onclick="closeMobileNav()">About</a>
+  <a href="./index.html#services" onclick="closeMobileNav()">Services</a>
+  <a href="./index.html#process" onclick="closeMobileNav()">Process</a>
+  <a href="./index.html#work" onclick="closeMobileNav()">Work</a>
+  <a href="./index.html#faq" onclick="closeMobileNav()">FAQ</a>
   <div class="nav-mobile-divider"></div>
   <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" onclick="closeMobileNav()" class="btn btn-dark nav-mobile-cta">Let's talk</a>
 </div>
 
 <div class="cs-page">
-<div class="cs-hero"><div class="container"><a class="cs-back" href="./paux_design_website_2.html#work"><svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg> Back to work</a><div class="cs-htags"><span class="cs-htag">UX Research</span><span class="cs-htag">Mobile · iOS</span><span class="cs-htag">A/B Testing</span></div><div class="cs-title">JobLink — Multi-Profile Job Search App</div><p class="cs-subtitle">Redesigning job search for the 43% of people who apply across two or more industries — but have only ever been offered one career identity.</p><div class="cs-meta"><div><div class="cs-meta-label">Role</div><div class="cs-meta-value">UX Designer (end-to-end)</div></div><div><div class="cs-meta-label">Scope</div><div class="cs-meta-value">Research, UX strategy, UI design</div></div><div><div class="cs-meta-label">Platform</div><div class="cs-meta-value">iOS mobile app</div></div><div><div class="cs-meta-label">Year</div><div class="cs-meta-value">2023</div></div></div></div></div>
-<div class="cs-hero-cover">
-  <img src="./Public/Images/joblink.png" alt="JobLink multi-profile job search app">
-</div>
-<div class="cs-body">
-  <div class="cs-metrics"><div class="cs-metric"><div class="cs-metric-num">60%</div><div class="cs-metric-label">Task success rate vs competing platforms</div></div><div class="cs-metric"><div class="cs-metric-num">98%</div><div class="cs-metric-label">Rated intuitive — vs 67% for Indeed</div></div><div class="cs-metric"><div class="cs-metric-num">3 min</div><div class="cs-metric-label">To set up a second profile and apply (vs 8+ min)</div></div></div>
-  <div class="cs-section"><div class="cs-section-title">Overview</div><p class="cs-text">JobLink lets users manage multiple career profiles and apply across industries without switching accounts. The key insight: <strong>43% of job seekers apply across 2+ industries but every platform assumes one career identity.</strong></p><p class="cs-text">I ran the full process — user research, competitive analysis, card sorting, wireframing, A/B testing and high-fidelity iOS UI.</p></div>
-  <div class="cs-section"><div class="cs-section-title">The problem</div><div class="cs-quote">"Users were spending 15+ hours a week just customising applications. Many gave up on roles they were qualified for — it was simply too much work."</div><div class="cs-two"><div class="cs-col before"><div class="cs-col-label">User pain points</div><ul><li>Creating multiple accounts (against platform policies)</li><li>Rewriting profiles for every industry</li><li>One-size-fits-all CV that stands out nowhere</li><li>15+ hours/week lost to customisation</li><li>Abandoning qualified roles — too much friction</li></ul></div><div class="cs-col after"><div class="cs-col-label">Research findings</div><ul><li>59% wanted multiple career profiles</li><li>70% passively job hunting — time is scarce</li><li>98% search for jobs near their location</li><li>Users want quick-scan cards, not descriptions upfront</li><li>Profile switching mental model already known (Instagram)</li></ul></div></div></div>
-  <div class="cs-img-ref">
-    <img src="./Public/Images/joblink.png" alt="JobLink job search app — reference screenshot">
-    <div class="cs-img-caption">Reference image — JobLink multi-profile iOS app · Replace with final design</div>
+
+  <!-- Hero -->
+  <div class="cs-hero">
+    <div class="container">
+      <a class="cs-back" href="./index.html#work">
+        <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg> Back to work
+      </a>
+      <div class="cs-htags">
+        <span class="cs-htag">UX Research</span>
+        <span class="cs-htag">Mobile · iOS</span>
+        <span class="cs-htag">A/B Testing</span>
+      </div>
+      <div class="cs-title">JobLink — Multi-Profile Job Search App</div>
+      <p class="cs-subtitle">Redesigning job search for the 43% of people who apply across two or more industries — but have only ever been offered one career identity.</p>
+      <div class="cs-meta">
+        <div><div class="cs-meta-label">Role</div><div class="cs-meta-value">UX Designer (end-to-end)</div></div>
+        <div><div class="cs-meta-label">Scope</div><div class="cs-meta-value">Research, UX strategy, UI design</div></div>
+        <div><div class="cs-meta-label">Platform</div><div class="cs-meta-value">iOS mobile app</div></div>
+        <div><div class="cs-meta-label">Year</div><div class="cs-meta-value">2023</div></div>
+      </div>
+    </div>
   </div>
 
-  <div class="cs-section"><div class="cs-section-title">Design process</div><div class="cs-steps"><div class="cs-step"><div class="cs-step-num">Phase 01</div><div class="cs-step-title">User research &amp; surveys</div><p class="cs-step-desc">Key insight: the biggest pain wasn't finding jobs — it was the time cost of tailoring each application.</p></div><div class="cs-step"><div class="cs-step-num">Phase 02</div><div class="cs-step-title">Competitive analysis</div><p class="cs-step-desc">Analysed Indeed and TotalJobs. Gaps: no multi-profile support, poor tracking, no distance search — these became JobLink's differentiators.</p></div><div class="cs-step"><div class="cs-step-num">Phase 03</div><div class="cs-step-title">Card sorting &amp; IA</div><p class="cs-step-desc">Organised into four sections: Home, Applications, Messages, Profile. Flowcharts and wireframes to validate navigation before visuals.</p></div><div class="cs-step"><div class="cs-step-num">Phase 04</div><div class="cs-step-title">A/B testing</div><p class="cs-step-desc">My assumption — detailed descriptions upfront — was wrong. Users wanted quick-scan cards to filter fast. This changed the entire IA.</p></div></div></div>
-  <div class="cs-section"><div class="cs-section-title">Impact on behaviour</div><div class="cs-two"><div class="cs-col before"><div class="cs-col-label">Before JobLink</div><ul><li>3 resumes in Google Drive, manually managed</li><li>20+ minutes per application, customising everything</li><li>Often abandoned mid-application — decision fatigue</li></ul></div><div class="cs-col after"><div class="cs-col-label">After JobLink</div><ul><li>2 profiles created once, one-tap apply</li><li>5 jobs applied in the time it used to take for 1</li><li>Users reported feeling "in control" of their search</li></ul></div></div></div>
-  <div class="cs-section"><div class="cs-section-title">Key learnings</div><div class="cs-insight"><div class="cs-insight-i">🔍</div><div class="cs-insight-t"><strong>Design for the exception, not the average:</strong> Identify the underserved edge case and design for them first — career changers, multi-skilled professionals.</div></div><div class="cs-insight"><div class="cs-insight-i">🧪</div><div class="cs-insight-t"><strong>A/B testing proved my assumptions wrong:</strong> Always test before committing to an IA decision.</div></div><div class="cs-insight"><div class="cs-insight-i">✂️</div><div class="cs-insight-t"><strong>Reducing cognitive load beats adding features:</strong> Profile switching and one-tap apply were loved. Smart suggestions were ignored. Simplicity is the feature.</div></div></div>
-  <div class="cs-cta"><h3>Need a smarter product experience?</h3><p>From research to high-fidelity design — I run the full UX process so you ship something that actually works for your users.</p><a href="mailto:paulaalonso.design@gmail.com?subject=Project enquiry" class="btn btn-dark">Book a free call <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
-</div>
+  <!-- Hero cover -->
+  <div class="cs-hero-cover">
+    <img src="./Public/Images/joblink.png" alt="JobLink — multi-profile job search app">
+  </div>
+
+  <div class="cs-body">
+
+    <!-- Metrics -->
+    <div class="cs-metrics">
+      <div class="cs-metric">
+        <div class="cs-metric-num">60%</div>
+        <div class="cs-metric-label">Higher task success rate vs competing platforms</div>
+      </div>
+      <div class="cs-metric">
+        <div class="cs-metric-num">98%</div>
+        <div class="cs-metric-label">Rated intuitive in usability testing — vs 67% for Indeed</div>
+      </div>
+      <div class="cs-metric">
+        <div class="cs-metric-num">3 min</div>
+        <div class="cs-metric-label">To set up a second profile and apply (vs 8+ min elsewhere)</div>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="cs-section">
+      <div class="cs-section-title">Overview</div>
+      <p class="cs-text">JobLink lets users manage multiple career profiles and apply across industries — without creating multiple accounts or rewriting their CV for every role. The key insight: <strong>43% of job seekers apply across 2+ industries, but every platform assumes a single career identity.</strong></p>
+      <p class="cs-text">I ran the full process — user research, competitive analysis, card sorting, wireframing, A/B testing and high-fidelity iOS UI — to design and validate the product end-to-end.</p>
+    </div>
+
+    <!-- The problem -->
+    <div class="cs-section">
+      <div class="cs-section-title">The problem</div>
+      <div class="cs-quote">"Users were spending 15+ hours a week just customising applications. Many gave up on roles they were qualified for — it was simply too much work."</div>
+      <div class="cs-two">
+        <div class="cs-col before">
+          <div class="cs-col-label">User pain points</div>
+          <ul>
+            <li>Creating multiple accounts (against platform policies)</li>
+            <li>Rewriting profiles manually for every industry</li>
+            <li>One-size-fits-all CV that stands out nowhere</li>
+            <li>15+ hours/week lost to application customisation</li>
+            <li>Abandoning qualified roles — too much friction</li>
+          </ul>
+        </div>
+        <div class="cs-col after">
+          <div class="cs-col-label">Research findings</div>
+          <ul>
+            <li>59% of users wanted multiple career profiles</li>
+            <li>70% passively job hunting — time is extremely scarce</li>
+            <li>98% search for jobs near their location</li>
+            <li>Users want quick-scan cards, not long descriptions upfront</li>
+            <li>Profile switching mental model already known from Instagram</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mockup showcase -->
+  <div class="cs-mockup-full">
+    <img src="./Public/Images/joblink.png" alt="JobLink — iOS app screens">
+    <div class="cs-mockup-caption">
+      <span class="cs-mockup-label">iOS App</span>
+      <p>Multi-profile switching, quick-scan job cards and one-tap apply — designed around the mental models users already have, so the learning curve is near zero.</p>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+    <!-- Design process -->
+    <div class="cs-section">
+      <div class="cs-section-title">Design process</div>
+      <div class="cs-steps">
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 01</div>
+          <div class="cs-step-title">User research &amp; surveys</div>
+          <p class="cs-step-desc">Key insight: the biggest pain wasn't finding jobs — it was the time cost of tailoring each application. Users weren't lazy; the tools were broken.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 02</div>
+          <div class="cs-step-title">Competitive analysis</div>
+          <p class="cs-step-desc">Analysed Indeed and TotalJobs in depth. Gaps: no multi-profile support, poor application tracking, no distance search. Each gap became a JobLink differentiator.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 03</div>
+          <div class="cs-step-title">Card sorting &amp; IA</div>
+          <p class="cs-step-desc">Organised into four sections: Home, Applications, Messages, Profile. Validated navigation with flowcharts and wireframes before committing to visual design.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 04</div>
+          <div class="cs-step-title">A/B testing</div>
+          <p class="cs-step-desc">My assumption — detailed descriptions upfront — was wrong. Users wanted quick-scan cards to filter fast. This A/B result changed the entire IA direction.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Impact -->
+    <div class="cs-section">
+      <div class="cs-section-title">Impact on behaviour</div>
+      <div class="cs-two">
+        <div class="cs-col before">
+          <div class="cs-col-label">Before JobLink</div>
+          <ul>
+            <li>3 resumes in Google Drive, manually managed</li>
+            <li>20+ minutes per application — customising everything</li>
+            <li>Often abandoned mid-application due to decision fatigue</li>
+            <li>Missed opportunities in secondary industries</li>
+          </ul>
+        </div>
+        <div class="cs-col after">
+          <div class="cs-col-label">After JobLink</div>
+          <ul>
+            <li>2 profiles created once, one-tap apply from there</li>
+            <li>5 jobs applied in the time it used to take for one</li>
+            <li>Users felt "in control" of their search for the first time</li>
+            <li>Secondary industry applications opened up naturally</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key learnings -->
+    <div class="cs-section">
+      <div class="cs-section-title">Key learnings</div>
+      <div class="cs-insight">
+        <div class="cs-insight-i">🔍</div>
+        <div class="cs-insight-t"><strong>Design for the exception, not the average:</strong> The most valuable opportunity was the underserved edge case — career changers and multi-skilled professionals — not the mainstream single-track job hunter.</div>
+      </div>
+      <div class="cs-insight">
+        <div class="cs-insight-i">🧪</div>
+        <div class="cs-insight-t"><strong>A/B testing proved my assumptions wrong:</strong> I was convinced detailed upfront descriptions were more useful. Users proved the opposite. Always test before committing to an IA decision.</div>
+      </div>
+      <div class="cs-insight">
+        <div class="cs-insight-i">✂️</div>
+        <div class="cs-insight-t"><strong>Simplicity is the feature:</strong> Profile switching and one-tap apply were loved. Smart suggestion features were ignored entirely. Reducing cognitive load beats adding functionality every time.</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cs-cta">
+      <h3>Need a smarter product experience?</h3>
+      <p>From research to high-fidelity design — I run the full UX process so you ship something that actually works for your users.</p>
+      <a href="mailto:paulaalonso.design@gmail.com?subject=Project enquiry" class="btn btn-dark">
+        Book a free call <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+      </a>
+    </div>
+
+  </div>
 </div>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="./paux_design_website_2.html"><img src="./Public/Images/logo.png" alt="Paux Design"></a>
+      <a href="./index.html"><img src="./Public/Images/logo.png" alt="Paux Design"></a>
       <p class="footer-brand-tagline">Product Designer for high-growth startups &amp; digital products. London · Remote.</p>
     </div>
     <div class="footer-sitemap">
       <div class="footer-sitemap-label">Site map</div>
       <div class="footer-sitemap-grid">
-        <a href="./paux_design_website_2.html#about">About</a>
-        <a href="./paux_design_website_2.html#work">Work</a>
-        <a href="./paux_design_website_2.html#services">Services</a>
-        <a href="./paux_design_website_2.html#faq">FAQ</a>
-        <a href="./paux_design_website_2.html#process">Process</a>
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#work">Work</a>
+        <a href="./index.html#services">Services</a>
+        <a href="./index.html#faq">FAQ</a>
+        <a href="./index.html#process">Process</a>
         <a href="mailto:paulaalonso.design@gmail.com">Contact</a>
       </div>
     </div>
