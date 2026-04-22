@@ -482,6 +482,19 @@ h2 em {
   backdrop-filter: blur(18px);
   box-shadow: 0 4px 14px rgba(112,89,220,0.07), 0 1px 3px rgba(112,89,220,0.04);
 }
+.hs-card-tag {
+  font-family: var(--font-meta);
+  font-size: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(112, 89, 220, 0.6); opacity: 30%;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  display: inline-block;
+  border: 1px solid rgba(112, 89, 220, 0.1);
+}
 /* skeleton atoms */
 .sk   { height: 3px; border-radius: 2px; background: rgba(112,89,220,0.10); margin-bottom: 5px; }
 .sk-d { height: 3px; border-radius: 2px; background: rgba(112,89,220,0.20); margin-bottom: 5px; }
@@ -1528,7 +1541,7 @@ footer {
   letter-spacing: -1px; line-height: 1;
 }
 .cs-metric-label { font-family: var(--font-meta); font-size: 11.5px; color: var(--mid); font-weight: 400; margin-top: 6px; line-height: 1.4; }
-.cs-section { margin-bottom: 48px; }
+.cs-section { margin-bottom: 80px; }
 .cs-section-title {
   font-family: var(--font-meta);
   font-size: 18px; font-weight: 700; color: var(--dark);
@@ -1749,4 +1762,53 @@ footer {
   .step-num { margin-bottom: 0; flex-shrink: 0; position: relative; z-index: 1; }
   .step-title { text-align: left; margin-top: 10px; }
   .step-desc { text-align: left; }
+}
+
+
+// Actualiza los estilos de .cs-prototype-card
+
+.cs-prototype-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px; /* Ajusta el padding interno */
+  margin: 48px auto; /* Centra la card horizontalmente */
+  max-width: 1200px; /* Limita el ancho máximo */
+  width: calc(100% - 40px); /* Asegura que se ajuste al viewport en pantallas pequeñas */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Añade un ligero sombreado */
+}
+
+.cs-prototype-header {
+  margin-bottom: 20px;
+  text-align: center; /* Centra el texto del header */
+}
+
+.cs-prototype-meta {
+  display: flex;
+  gap: 12px;
+  justify-content: left; /* Centra las etiquetas */
+  margin-bottom: 16px;
+}
+
+.cs-prototype-embed {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  width: 1200px; /* Asegura que el iframe ocupe todo el ancho disponible */
+  height: 600px; /* Ajusta la altura del iframe */
+}
+
+.cs-prototype-footer {
+  margin-top: 40px;
+  text-align: center; /* Centra el texto del footer */
+}
+
+@media (max-width: 900px) {
+  .cs-prototype-card {
+    padding: 16px; /* Reduce el padding en pantallas pequeñas */
+    width: calc(100% - 20px); /* Ajusta el ancho en pantallas pequeñas */
+  }
+  .cs-prototype-embed {
+    height: 400px; /* Ajusta la altura del iframe en pantallas pequeñas */
+  }
 }

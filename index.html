@@ -424,7 +424,7 @@ h2 em {
 
 /* ─── HERO ─── */
 .hero {
-  padding-top: 160px; padding-bottom: 120px;
+  padding-top: 220px; padding-bottom: 84px;
   background: var(--bg);
   position: relative; overflow: hidden;
 }
@@ -439,7 +439,7 @@ h2 em {
 /* Two-column hero layout */
 .hero .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   gap: 64px;
 }
@@ -725,7 +725,7 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 .marquee-track { display: flex; animation: marquee 80s linear infinite; white-space: nowrap; }
 .marquee-item {
   display: inline-flex; align-items: center; gap: 14px;
-  padding: 18px 32px;
+  padding: 34px 32px;
   font-family: var(--font-meta);
   font-size: 10.5px; font-weight: 400;
   letter-spacing: 0.18em; text-transform: uppercase;
@@ -1681,20 +1681,38 @@ footer {
   .step-desc { text-align: left; }
 }
 </style>
-</head>
+</head> <!-- Primary Meta Tags -->
+<title>PAUX Design — Freelance Product Designer | UX Audit & SaaS Design, London</title>
+<meta name="description" content="Freelance product designer based in London. UX audits, SaaS product design, mobile apps and AI-powered workflows. Fixed scope, senior quality, no agency overhead.">
+<meta name="keywords" content="freelance product designer London, UX audit service, SaaS UX designer, product design for startups, UI UX designer freelance, dashboard design, B2B SaaS designer">
+<meta name="author" content="Paula Alonso — PAUX Design">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph (LinkedIn, WhatsApp, Slack previews) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pauxdesign.com/">
+<meta property="og:title" content="PAUX Design — Freelance Product Designer">
+<meta property="og:description" content="UX audits, SaaS product design and AI-powered workflows. Senior product design without the agency overhead. Based in London, working globally.">
+<meta property="og:image" content="https://pauxdesign.com/Public/Images/og-image.jpg">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PAUX Design — Freelance Product Designer">
+<meta name="twitter:description" content="UX audits, SaaS product design and AI-powered workflows. Senior quality, no agency overhead.">
+<meta name="twitter:image" content="https://pauxdesign.com/Public/Images/og-image.jpg">
+
 <body>
 
 <nav>
   <div class="nav-inner" id="site-nav">
     <div class="nav-brand" onclick="showPage('home')">
-      <img class="nav-brand-logo" src="./Public/Images/logo-name.png" alt="Paux Design">
+      <img class="nav-brand-logo" src="./Public/Images/logo-name.png" alt="PAUX Design logo">
       <div class="nav-brand-meta">
       </div>
     </div>
     <ul class="nav-links" aria-label="Primary">
       <li><a onclick="showPage('home'); goTo('about')">About</a></li>
       <li><a onclick="showPage('home'); goTo('services')">Services</a></li>
-      <li><a onclick="showPage('home'); goTo('process')">Process</a></li>
       <li><a onclick="showPage('home'); goTo('work')">Work</a></li>
       <li><a onclick="showPage('home'); goTo('faq')">FAQ</a></li>
     </ul>
@@ -1710,7 +1728,6 @@ footer {
 <div class="nav-mobile-overlay" id="navMobileOverlay">
   <span onclick="closeMobileNav(); showPage('home'); goTo('about')">About</span>
   <span onclick="closeMobileNav(); showPage('home'); goTo('services')">Services</span>
-  <span onclick="closeMobileNav(); showPage('home'); goTo('process')">Process</span>
   <span onclick="closeMobileNav(); showPage('home'); goTo('work')">Work</span>
   <span onclick="closeMobileNav(); showPage('home'); goTo('faq')">FAQ</span>
   <div class="nav-mobile-divider"></div>
@@ -1726,8 +1743,8 @@ footer {
     <!-- Left: text content -->
     <div class="hero-content">
       <div class="hero-badge reveal"><div class="nav-dot"></div>Available for new projects - London - Remote</div>
-            <h1 class="reveal reveal-d1">Product Designer <br>for high-growth <br><em>digital experience</em></h1>
-      <p class="hero-sub reveal reveal-d2">From <em>SaaS platforms</em> to <em>mobile apps</em> and <em>AI-powered workflows</em>, I design products that convert, retain and scale. Whether you're launching something new or fixing what's broken, I'll make the experience work.</p>
+            <h1 class="reveal reveal-d1">Design for users<br>Strategy for <br><em>your business.</em></h1>
+      <p class="hero-sub reveal reveal-d2">From <em>SaaS platforms</em> to <em>mobile apps</em> and <em>AI-powered workflows</em>, I design products that convert, retain and scale. Whether you're building from scratch or fixing what's already live, I'll find what's broken and fix it right.</p>
       <div class="hero-actions reveal reveal-d3">
         <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" class="btn btn-dark">Start a project</a>
         <span class="btn btn-outline" onclick="goTo('work')">See my work</span>
@@ -2403,10 +2420,10 @@ footer {
         <div class="about-flip reveal">
           <div class="about-flip-inner">
             <div class="about-flip-front">
-              <img src="./Public/Images/photo.png" alt="Paula Alonso">
+              <img src="./Public/Images/photo.png" alt="Paula Alonso, freelance product designer based in London">
             </div>
             <div class="about-flip-back">
-              <img src="./Public/Images/avatar.png" alt="Paula Alonso">
+              <img src="./Public/Images/avatar.png" alt="Paula Alonso, freelance product designer based in London">
             </div>
           </div>
         </div>
