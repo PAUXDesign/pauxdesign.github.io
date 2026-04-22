@@ -1774,6 +1774,7 @@ footer {
   padding: 24px; /* Ajusta el padding interno */
   margin: 48px auto; /* Centra la card horizontalmente */
   max-width: 1200px; /* Limita el ancho máximo */
+  height: 900px;
   width: calc(100% - 40px); /* Asegura que se ajuste al viewport en pantallas pequeñas */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Añade un ligero sombreado */
 }
@@ -1795,7 +1796,7 @@ footer {
   overflow: hidden;
   border: 1px solid var(--border);
   width: 1200px; /* Asegura que el iframe ocupe todo el ancho disponible */
-  height: 600px; /* Ajusta la altura del iframe */
+  height: 1200px; /* Ajusta la altura del iframe */
 }
 
 .cs-prototype-footer {
