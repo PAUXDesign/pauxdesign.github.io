@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design for users. Strategy for your business.</title>
+<link rel="icon" href="./Public/Images/icon.png" type="image/png">
+<title>PAUX ┃ Product Designer - Design for users. Strategy for your business.</title>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -389,6 +390,31 @@ h2 em {
 .btn-outline:hover {
   background: #eaecfd;
   transform: none;
+}
+.btn-tertiary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid);
+  background: transparent;
+  border: 1px solid var(--border2);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.btn-tertiary:hover {
+  color: var(--accent);
+  border-color: rgba(112,89,220,0.35);
+  background: rgba(112,89,220,0.06);
+}
+.work-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
 }
 .btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
 
@@ -1838,8 +1864,7 @@ footer {
     <ul class="nav-links" aria-label="Primary">
       <li><a onclick="showPage('home'); goTo('about')">About</a></li>
       <li><a onclick="showPage('home'); goTo('services')">Services</a></li>
-      <li><a onclick="showPage('home'); goTo('work')">Work</a></li>
-      <li><a onclick="showPage('home'); goTo('faq')">FAQ</a></li>
+      <li><a href="./work.html">Work</a></li>
       <li><a href="./contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
@@ -1854,8 +1879,7 @@ footer {
 <div class="nav-mobile-overlay" id="navMobileOverlay">
   <span onclick="closeMobileNav(); showPage('home'); goTo('about')">About</span>
   <span onclick="closeMobileNav(); showPage('home'); goTo('services')">Services</span>
-  <span onclick="closeMobileNav(); showPage('home'); goTo('work')">Work</span>
-  <span onclick="closeMobileNav(); showPage('home'); goTo('faq')">FAQ</span>
+  <a href="./work.html" onclick="closeMobileNav()">Work</a>
   <a href="./contact.html" onclick="closeMobileNav()">Contact</a>
   <div class="nav-mobile-divider"></div>
   <a href="./contact.html" onclick="closeMobileNav()" class="btn btn-dark nav-mobile-cta" style="max-width:260px;justify-content:center">Let's talk</a>
@@ -2501,19 +2525,22 @@ footer {
     <p class="sub reveal reveal-d2" style="margin-bottom:0">Each project focused on a real problem, real users, and a measurable outcome.</p>
     <div class="work-featured">
       <div class="wcard reveal-scale" onclick="window.location.href='./cs-saas.html'">
-        <div class="wthumb t1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></div>
+        <div class="wthumb t1"></div>
         <div class="wcbody"><div class="wc-tags"><span class="wc-tag ac">Enterprise SaaS</span><span class="wc-tag ac">Lead Designer</span><span class="wc-tag">2024–2025</span></div><div class="wc-title">Compliance &amp; Business Management Platform</div><p class="wc-desc">850 rows of Excel and dense legal documents → an enterprise SaaS non-technical users navigate with confidence. GDPR, HR, occupational health, training and more.</p><div class="wc-metrics"><div><div class="wc-mn">10</div><div class="wc-ml">Modules designed</div></div><div><div class="wc-mn">0</div><div class="wc-ml">Non-compliant paths</div></div></div></div>
       </div>
       <div class="wcard reveal-scale reveal-d1" onclick="window.location.href='./cs-mila.html'">
-        <div class="wthumb t2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></div>
+        <div class="wthumb t2"></div>
         <div class="wcbody"><div class="wc-tags"><span class="wc-tag bl">AI · Mobile</span><span class="wc-tag bl">iOS</span><span class="wc-tag">2024</span></div><div class="wc-title">Mila AI — Language Learning App</div><p class="wc-desc">Redesigned a web platform into an AI-driven iOS app. Rebuilt full IA, adaptive learning roadmap and personalised onboarding — making AI visible, not hidden.</p><div class="wc-metrics"><div><div class="wc-mn">85%</div><div class="wc-ml">Usability improvement</div></div><div><div class="wc-mn">AI</div><div class="wc-ml">Personalisation made visible</div></div></div></div>
       </div>
     </div>
     <div class="work-row">
       <div class="wcard reveal-scale" onclick="window.location.href='./cs-joblink.html'">
-        <div class="wthumb t3"><path d="M21 21l-4.35-4.35"/></div>
+        <div class="wthumb t3"></div>
         <div class="wcbody"><div class="wc-tags"><span class="wc-tag gr">UX Research</span><span class="wc-tag gr">Mobile</span><span class="wc-tag">2023</span></div><div class="wc-title">JobLink — Multi-Profile Job Search</div><p class="wc-desc">43% of job seekers apply across 2+ industries. Full UX research, A/B testing and iOS design for a smarter job app that respects their time.</p><div class="wc-metrics"><div><div class="wc-mn">60%</div><div class="wc-ml">Task success rate</div></div><div><div class="wc-mn">98%</div><div class="wc-ml">Rated intuitive</div></div></div></div>
       </div>
+    </div>
+    <div class="work-more-wrap">
+      <a href="./work.html" class="btn-tertiary">View more</a>
     </div>
   </div>
 </section>
@@ -2603,7 +2630,7 @@ footer {
       <div class="footer-sitemap-label">Site map</div>
       <div class="footer-sitemap-grid">
         <span onclick="goTo('about')">About</span>
-        <span onclick="goTo('work')">Work</span>
+        <a href="./work.html">Work</a>
         <span onclick="goTo('services')">Services</span>
         <span onclick="goTo('process')">Process</span>
         <span onclick="goTo('faq')">FAQ</span>

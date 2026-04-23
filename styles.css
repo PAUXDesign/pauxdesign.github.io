@@ -1389,6 +1389,84 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 .wc-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
 .wcard:hover .wc-link { gap: 10px; }
 
+.work-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+.btn-tertiary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid);
+  background: transparent;
+  border: 1px solid var(--border2);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.btn-tertiary:hover {
+  color: var(--accent);
+  border-color: rgba(112,89,220,0.35);
+  background: rgba(112,89,220,0.06);
+}
+
+/* ─── More UI Designs (work page gallery) ─── */
+.more-ui-section {
+  background: var(--bg);
+  padding: 72px 52px 96px;
+}
+.more-ui-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.more-ui-head {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.more-ui-sub {
+  font-size: 14px;
+  color: var(--mid);
+  max-width: 520px;
+  line-height: 1.65;
+}
+.more-ui-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+.more-ui-item {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 4 / 3;
+  opacity: 0.7;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+.more-ui-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.more-ui-item:hover {
+  opacity: 1;
+  transform: scale(1.50);
+  box-shadow: 0 14px 36px rgba(112,89,220,0.14);
+  z-index: 1;
+  position: relative;
+}
+
 
 /* ─── FAQ ─── */
 .faq { background: var(--bg-soft); }
@@ -1575,7 +1653,7 @@ footer {
 }
 .cs-mockup-full img {
   display: block; width: 100%;
-  max-width: 1080px; margin: 0 auto;
+  max-width: 860px; margin: 0 auto;
   border-radius: 16px; border: 1px solid var(--border2);
   object-fit: cover; object-position: center top;
   box-shadow: 0 20px 60px rgba(112, 89, 220, 0.10);
@@ -1669,7 +1747,7 @@ footer {
 }
 .cs-nda { background: #fffbee; border: 1px solid #f0dca0; border-radius: 10px; padding: 14px 18px; font-size: 13px; color: #8a7020; margin-bottom: 28px; line-height: 1.6; }
 .cs-cta {
-  background: #fffffff77;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 24px;
   padding: 64px 56px;
@@ -1743,6 +1821,8 @@ footer {
   /* ── Work cards tablet ── */
   .wcard { grid-template-columns: 240px 1fr; }
 
+  .more-ui-grid { grid-template-columns: repeat(2, 1fr); }
+
   /* ── Footer ── */
   footer { padding: 40px 20px 24px; }
   .footer-inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
@@ -1768,6 +1848,8 @@ footer {
   /* Work cards */
   .wcard { grid-template-columns: 1fr; }
   .wthumb { height: 200px; border-right: none; border-bottom: 1px solid var(--border); opacity: 1; }
+
+  .more-ui-grid { grid-template-columns: 1fr; }
 
   /* Hero scene smaller */
   .hero-scene { width: 260px; height: 260px; }
@@ -1822,7 +1904,7 @@ footer {
 }
 
 .cs-prototype-meta {
-  display: flex;
+  display: flex
   gap: 12px;
   justify-content: left; /* Centra las etiquetas */
   margin-bottom: 16px;
@@ -1834,6 +1916,7 @@ footer {
   border: 1px solid var(--border);
   width: 1200px; /* Asegura que el iframe ocupe todo el ancho disponible */
   height: 1200px; /* Ajusta la altura del iframe */
+  justify-content: center; object-fit: cover;
 }
 
 .cs-prototype-footer {
