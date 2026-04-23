@@ -544,26 +544,37 @@ h2 em {
   background: rgba(255,255,255,0.76);
   border: 1px solid rgba(112,89,220,0.10);
   border-radius: 10px;
-  padding: 9px 10px;
+  padding: 4px 10px;
   backdrop-filter: blur(18px);
   box-shadow: 0 4px 14px rgba(112,89,220,0.07), 0 1px 3px rgba(112,89,220,0.04);
+}
+.hs-mini-label {
+  font-family: var(--font-meta);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(112, 89, 220, 0.36);
+  margin-bottom: 5px;
+  display: inline-block;
+  white-space: nowrap;
 }
 /* skeleton atoms */
 .sk   { height: 3px; border-radius: 2px; background: rgba(112,89,220,0.10); margin-bottom: 5px; }
 .sk-d { height: 3px; border-radius: 2px; background: rgba(112,89,220,0.20); margin-bottom: 5px; }
 .sk-a { height: 5px; border-radius: 999px; background: rgba(112,89,220,0.22); }
 .sk-box { border-radius: 5px; background: rgba(112,89,220,0.09); }
-.sk-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(112,89,220,0.22); flex-shrink: 0; }
+.sk-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(113, 89, 220, 0.39); flex-shrink: 0; }
 .sk-row { display: flex; align-items: center; gap: 5px; margin-bottom: 5px; }
 .sk-row:last-child { margin-bottom: 0; }
 
 /* Card placement */
-.hs-tl { top: 52px;    left: 22px;   width: 82px; }
-.hs-tr { top: 34px;    right: 20px;  width: 78px; }
-.hs-ml { top: 198px;   left: 6px;    width: 82px; }
+.hs-tl { top: 52px;    left: 22px;   width: 100px; }
+.hs-tr { top: 34px;    right: 20px;  width: 100px; }
+.hs-ml { top: 198px;   left: 6px;    width: 100px; }
 .hs-mr { top: 190px;   right: 10px;  width: 78px; }
-.hs-bl { bottom: 54px; left: 22px;   width: 82px; }
-.hs-br { bottom: 46px; right: 14px;  width: 74px; }
+.hs-bl { bottom: 54px; left: 22px;   width: 100px; }
+.hs-br { bottom: 46px; right: 14px;  width: 100px; }
 
 /* Staggered float so cards don't all bob together */
 .hs-f1 { animation: hsF1 5.2s ease-in-out infinite; }
@@ -617,7 +628,7 @@ h2 em {
   /* Layered glass backgrounds */
   background:
     linear-gradient(135deg, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0.04) 52%, rgba(255,255,255,0) 100%),
-    linear-gradient(170deg, rgba(255,255,255,0.97) 0%, rgba(234,236,255,0.88) 100%);
+    linear-gradient(170deg, rgba(255, 255, 255, 0.737) 0%, rgba(234, 236, 255, 0.478) 100%);
 
   backdrop-filter: blur(46px) saturate(2.0) brightness(1.04);
   -webkit-backdrop-filter: blur(46px) saturate(2.0) brightness(1.04);
@@ -638,6 +649,18 @@ h2 em {
   justify-content: center;
   overflow: hidden;
   animation: hsPulse 3.8s ease-in-out infinite;
+}
+.hs-main-layer {
+  position: absolute;
+  inset: 12px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.891);
+  border: 1px solid rgba(112, 89, 220, 0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 18px rgba(70,50,170,0.10);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Top-half inner shine — light refracting through frosted glass */
@@ -680,7 +703,7 @@ h2 em {
 .hs-logo {
   width: 98px; height: 98px;
   object-fit: contain;
-  position: relative; z-index: 1;
+  position: relative; z-index: 2;
   mix-blend-mode: multiply;  /* removes white bg, shows only the mark */
 }
 
@@ -1817,9 +1840,10 @@ footer {
       <li><a onclick="showPage('home'); goTo('services')">Services</a></li>
       <li><a onclick="showPage('home'); goTo('work')">Work</a></li>
       <li><a onclick="showPage('home'); goTo('faq')">FAQ</a></li>
+      <li><a href="./contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" class="btn btn-dark nav-cta-btn" style="padding:12px 18px;">Let's talk</a>
+      <a href="./contact.html" class="btn btn-dark nav-cta-btn" style="padding:12px 18px;">Let's talk</a>
       <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -1832,8 +1856,9 @@ footer {
   <span onclick="closeMobileNav(); showPage('home'); goTo('services')">Services</span>
   <span onclick="closeMobileNav(); showPage('home'); goTo('work')">Work</span>
   <span onclick="closeMobileNav(); showPage('home'); goTo('faq')">FAQ</span>
+  <a href="./contact.html" onclick="closeMobileNav()">Contact</a>
   <div class="nav-mobile-divider"></div>
-  <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" onclick="closeMobileNav()" class="btn btn-dark nav-mobile-cta" style="max-width:260px;justify-content:center">Let's talk</a>
+  <a href="./contact.html" onclick="closeMobileNav()" class="btn btn-dark nav-mobile-cta" style="max-width:260px;justify-content:center">Let's talk</a>
 </div>
 
 <!-- ══════════════ HOME ══════════════ -->
@@ -1848,7 +1873,7 @@ footer {
             <h1 class="reveal reveal-d1">Design for users. <br>Strategy for <br><em> your business.</em></h1>
       <p class="hero-sub reveal reveal-d2">From <em>SaaS platforms</em> to <em>mobile apps</em> and <em>AI-powered workflows</em>, I design products that convert, retain and scale. Whether you're building from scratch or fixing what's already live, I'll find what's broken and fix it right.</p>
       <div class="hero-actions reveal reveal-d3">
-        <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" class="btn btn-dark">Start a project</a>
+        <a href="./contact.html?topic=start-project" class="btn btn-dark">Start a project</a>
         <span class="btn btn-outline" onclick="goTo('work')">See my work</span>
       </div>
     </div>
@@ -1880,6 +1905,7 @@ footer {
 
           <!-- TL card: browser window -->
           <div class="hs-card hs-tl hs-f2">
+            <span class="hs-mini-label">UX research</span>
             <div style="display:flex;gap:3px;margin-bottom:6px">
               <div style="width:4px;height:4px;border-radius:50%;background:rgba(112,89,220,0.22)"></div>
               <div style="width:4px;height:4px;border-radius:50%;background:rgba(112,89,220,0.22)"></div>
@@ -1893,6 +1919,7 @@ footer {
 
           <!-- TR card: card with CTA -->
           <div class="hs-card hs-tr hs-f1">
+            <span class="hs-mini-label">Client satisfaction</span>
             <div class="sk sk-d" style="width:32px;margin-bottom:7px"></div>
             <div class="sk" style="width:62px"></div>
             <div class="sk" style="width:50px"></div>
@@ -1901,6 +1928,7 @@ footer {
 
           <!-- ML card: user / avatar row -->
           <div class="hs-card hs-ml hs-f3">
+            <span class="hs-mini-label">Tasks completed</span>
             <div class="sk-row">
               <div class="sk-box" style="width:20px;height:20px;flex-shrink:0;border-radius:50%"></div>
               <div style="flex:1">
@@ -1913,6 +1941,7 @@ footer {
 
           <!-- MR card: metric -->
           <div class="hs-card hs-mr hs-f2">
+            <span class="hs-mini-label">UX audit</span>
             <div class="sk" style="width:40px;margin-bottom:6px"></div>
             <div style="font-family:var(--font-meta);font-size:16px;font-weight:700;color:rgba(112,89,220,0.68);line-height:1;margin-bottom:5px">94%</div>
             <div class="sk" style="width:54px;margin-bottom:0"></div>
@@ -1920,6 +1949,7 @@ footer {
 
           <!-- BL card: checklist -->
           <div class="hs-card hs-bl hs-f1">
+            <span class="hs-mini-label">Design system</span>
             <div class="sk sk-d" style="width:52px;margin-bottom:7px"></div>
             <div class="sk-row"><div class="sk-dot"></div><div class="sk" style="flex:1;margin:0"></div></div>
             <div class="sk-row"><div class="sk-dot"></div><div class="sk" style="flex:1;margin:0"></div></div>
@@ -1928,6 +1958,7 @@ footer {
 
           <!-- BR card: form rows -->
           <div class="hs-card hs-br hs-f3">
+            <span class="hs-mini-label">Product strategy</span>
             <div class="sk" style="width:62px;margin-bottom:5px"></div>
             <div class="sk" style="width:52px;margin-bottom:5px"></div>
             <div class="sk-a" style="width:66px;margin-top:5px"></div>
@@ -1937,6 +1968,7 @@ footer {
           <div class="hs-main-wrap">
             <div class="hs-main-glow"></div>
             <div class="hs-main" id="hsMain">
+              <div class="hs-main-layer"></div>
               <img class="hs-logo" src="./Public/Images/logo.png" alt="Paux Design mark">
             </div>
           </div>
@@ -2232,7 +2264,7 @@ footer {
           <li>Prioritised action report</li>
           <li>30-min walkthrough call</li>
         </ul>
-        <a href="mailto:paulaalonso.design@gmail.com?subject=UX Audit" class="svc-cta">Get an audit <span class="svc-cta-arrow">→</span></a>
+        <a href="./contact.html?topic=ux-audit" class="svc-cta">Get an audit <span class="svc-cta-arrow">→</span></a>
       </div>
 
       <!-- Card 2: Product Design (featured) -->
@@ -2250,7 +2282,7 @@ footer {
           <li>High-fidelity UI — desktop &amp; mobile</li>
           <li>Design system &amp; developer handoff</li>
         </ul>
-        <a href="mailto:paulaalonso.design@gmail.com?subject=Product Design" class="svc-cta">Start a project <span class="svc-cta-arrow">→</span></a>
+        <a href="./contact.html?topic=product-design" class="svc-cta">Start a project <span class="svc-cta-arrow">→</span></a>
       </div>
 
       <!-- Card 3: Web Design -->
@@ -2266,7 +2298,7 @@ footer {
           <li>Framer build with animations</li>
           <li>SEO setup &amp; performance</li>
         </ul>
-        <a href="mailto:paulaalonso.design@gmail.com?subject=Web Design" class="svc-cta">Get a website <span class="svc-cta-arrow">→</span></a>
+        <a href="./contact.html?topic=web-design" class="svc-cta">Get a website <span class="svc-cta-arrow">→</span></a>
       </div>
 
     </div>
@@ -2499,7 +2531,7 @@ footer {
         <p class="about-body reveal reveal-d3">Most designers open Figma and start with the interface. I start with the organisation: who makes the decisions, where the friction is, what the compliance constraints are, and what will actually get built.</p>
         <p class="about-body reveal reveal-d4">Right now I'm focused on SaaS platforms, enterprise tools and legal-process products, the kind of complex, regulated systems where bad UX has real consequences. 
         <p class="about-body reveal reveal-d4">I'm also building expertise in AI and workflow automation, which means I can help you design not just the product, but the logic behind it.</p>
-        <p class="about-body reveal reveal-d4"><strong>Based in London. Working with founders and teams globally.</strong></p>
+        <p class="about-body reveal reveal-d4"><strong>Based in London. Working with founders across Europe — Spain, Italy, remote.</strong></p>
         <div class="about-tools reveal reveal-d5">
           <span class="about-tool">Figma</span>
           <span class="about-tool">FigJam</span>
@@ -2513,7 +2545,7 @@ footer {
           <span class="about-tool">HTML / CSS</span>
         </div>
         <div class="reveal reveal-d5">
-          <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" class="btn btn-dark">Let's talk</a>
+          <a href="./contact.html" class="btn btn-dark">Let's talk</a>
         </div>
       </div>
 
@@ -2555,7 +2587,7 @@ footer {
     <div class="cta-box reveal">
       <h2>Ready to fix your UX?</h2>
       <p>Tell me about your product idea or what you're trying to improve. <br>I'll get back to you within 24 hours, no sales pressure.<br></p>
-      <a href="mailto:paulaalonso.design@gmail.com?subject=Let's talk" class="btn btn-dark">Let's talk <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      <a href="./contact.html" class="btn btn-dark">Let's talk <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
     </div>
   </div>
 </section>
@@ -2575,7 +2607,7 @@ footer {
         <span onclick="goTo('services')">Services</span>
         <span onclick="goTo('process')">Process</span>
         <span onclick="goTo('faq')">FAQ</span>
-        <a href="mailto:paulaalonso.design@gmail.com">Contact</a>
+        <a href="./contact.html">Contact</a>
         <a href="./cs-saas.html">Enterprise SaaS</a>
         <a href="./cs-mila.html">Mila AI</a>
         <a href="./cs-joblink.html">JobLink</a>
