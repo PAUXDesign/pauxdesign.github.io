@@ -180,7 +180,7 @@
       <h1 class="contact-title">Tell me about your project</h1>
       <p class="contact-sub">Fill in the form and I will receive it directly in my email. I normally reply within 24 hours.</p>
 
-      <form class="contact-form" action="https://formsubmit.co/paulaalonso.design@gmail.com" method="POST" novalidate>
+      <form class="contact-form" action="https://formsubmit.co/paulaalonso.design@gmail.com" method="POST" target="contact_submit_iframe" novalidate>
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_subject" id="formSubject" value="New project enquiry from pauxdesign.com">
         <input type="hidden" name="_next" id="formNext" value="">
@@ -223,6 +223,7 @@
           <button type="submit" class="btn btn-dark" id="contactSubmit">Send enquiry</button>
         </div>
       </form>
+      <iframe name="contact_submit_iframe" title="contact submit" style="display:none;"></iframe>
     </div>
   </div>
 </main>
@@ -310,6 +311,9 @@ function closeMobileNav() {
       }
 
       clearError();
+      setTimeout(() => {
+        window.location.href = './thank-you.html';
+      }, 350);
       return true;
     };
 
