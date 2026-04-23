@@ -288,7 +288,7 @@ function closeMobileNav() {
 
   if (nextField) {
     const isHttp = window.location.protocol === 'http:' || window.location.protocol === 'https:';
-    nextField.value = isHttp ? `${window.location.origin}/thank-you.html` : './thank-you.html';
+    nextField.value = `${window.location.pathname.replace(/\/[^\/]*$/, '')}/thank-you.html`;
   }
 
   if (form && emailInput && errorBox) {
