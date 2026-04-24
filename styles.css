@@ -872,6 +872,28 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
   padding-top: 16px;
   margin-top: auto;
 }
+.pain-actions {
+  margin-top: 18px;
+}
+.pain-actions .btn {
+  width: auto;
+  padding: 12px 22px;
+}
+.pain-card--closing {
+  grid-template-columns: 1fr;
+  min-height: 240px;
+}
+.pain-card--closing .pain-card-body {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.pain-card--closing .pain-headline {
+  max-width: 22ch;
+}
+.pain-card--closing .pain-footer {
+  justify-content: center;
+}
 
 /* ─── PAIN ILLUSTRATION KEYFRAMES ─── */
 @keyframes piBlinkA { 0%,100%{opacity:.1} 20%,42%{opacity:1} }
@@ -995,6 +1017,11 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
   color: white; border-top-color: rgba(255,255,255,0.10);
 }
 .svc-cta-arrow { font-size: 15px; line-height: 1; }
+.audit-cta-wrap {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-start;
+}
 
 /* ─── PROCESS ─── */
 .process { background: var(--bg-soft); }
@@ -1845,6 +1872,13 @@ footer {
 }
 .cs-cta h3 { font-family: var(--font-meta); font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
 .cs-cta p { font-size: 14px; color: var(--mid); margin-bottom: 24px; line-height: 1.65; }
+.cs-cta .btn {
+  width: min(100%, 320px);
+  box-sizing: border-box;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 14px 20px;
+}
 
 @media (max-width: 900px) {
   /* ── Nav ── */
