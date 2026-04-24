@@ -1914,11 +1914,11 @@ footer {
   .stat { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 20px; padding-right: 0; margin-right: 0; }
 
   /* ── Problems / Stack cards ── */
-  .problems-scroll-space { min-height: 320vh; }
-  .problems-inner { position: sticky; top: 0; height: 100vh; padding: 0 20px; }
-  .problems-inner .container { flex-direction: column; gap: 28px; padding: 0; }
-  .problems-stack { height: 260px; }
-  .stack-card { position: absolute; margin-bottom: 0; }
+  .problems-scroll-space { min-height: auto; }
+  .problems-inner { position: static; height: auto; padding: 64px 20px; }
+  .problems-inner .container { flex-direction: column; gap: 32px; padding: 0; }
+  .problems-stack { height: auto !important; }
+  .stack-card { position: static !important; opacity: 1 !important; transform: none !important; margin-bottom: 16px; }
   .pain-card { grid-template-columns: 1fr; }
   .pain-illo-panel { min-height: 180px; border-left: none; border-top: 1px solid rgba(112,89,220,0.09); }
 
