@@ -2014,7 +2014,7 @@ footer {
   /* ── Audit ── */
   .audit-inner { grid-template-columns: 1fr; gap: 40px; }
   .audit-photo-wrap { position: static; display: flex; justify-content: center; }
-  .audit-content .audit-photo-wrap { margin: 0 0 86px; }
+  .audit-content .audit-photo-wrap { margin: 0 0 56px; }
   .ail-wrap { width: 100%; max-width: 320px; height: 380px; }
   .audit-cards-grid { grid-template-columns: 1fr; }
 
