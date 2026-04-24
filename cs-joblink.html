@@ -308,8 +308,9 @@
     </ul>
     <div class="nav-cta">
       <a href="./contact.html" class="btn btn-dark nav-cta-btn" style="padding:12px 18px;">Let's talk</a>
-      <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
-        <span></span><span></span><span></span>
+      <button type="button" class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Open menu" aria-expanded="false" aria-controls="navMobileOverlay">
+        <span class="nav-hamburger-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="nav-hamburger-label">Menu</span>
       </button>
     </div>
   </div>
@@ -767,10 +768,13 @@ function toggleMobileNav() {
   const isOpen = overlay.classList.contains('open');
   btn.classList.toggle('open', !isOpen);
   overlay.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
   document.body.style.overflow = isOpen ? '' : 'hidden';
 }
 function closeMobileNav() {
-  document.getElementById('navHamburger').classList.remove('open');
+  const btn = document.getElementById('navHamburger');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
   document.getElementById('navMobileOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
