@@ -1229,17 +1229,11 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 .audit { background: var(--bg); }
 .audit-inner {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 500px;
   gap: 64px;
   align-items: start;
 }
 .audit-content { }
-.audit-content .audit-photo-wrap {
-  position: static;
-  top: auto;
-  align-self: auto;
-  margin: 0 0 84px;
-}
 .audit-cards-grid {
   display: flex;
   flex-direction: column;
@@ -1875,6 +1869,7 @@ footer {
   /* ── Audit ── */
   .audit-inner { grid-template-columns: 1fr; gap: 40px; }
   .audit-photo-wrap { position: static; display: flex; justify-content: center; }
+  .audit-content .audit-photo-wrap { margin: 0 0 56px; }
   .ail-wrap { width: 100%; max-width: 320px; height: 380px; }
   .audit-cards-grid { grid-template-columns: 1fr; }
 
@@ -3164,11 +3159,18 @@ function initProcessSteps() {
 
 // ─── AUDIT ILLUSTRATION ENTRY ───
 function initAuditIllustration() {
+  const auditInner = document.querySelector('.audit .audit-inner');
   const auditContent = document.querySelector('.audit .audit-content');
-  const auditVisual = document.querySelector('.audit > .container > .audit-inner > .audit-photo-wrap');
+  const auditVisual = document.querySelector('.audit .audit-photo-wrap');
   const auditCards = auditContent ? auditContent.querySelector('.audit-cards-grid') : null;
-  if (auditContent && auditVisual && auditCards && auditVisual.parentElement !== auditContent) {
-    auditContent.insertBefore(auditVisual, auditCards);
+  const mobileAuditLayout = window.innerWidth <= 900;
+
+  if (auditInner && auditContent && auditVisual && auditCards) {
+    if (mobileAuditLayout && auditVisual.parentElement !== auditContent) {
+      auditContent.insertBefore(auditVisual, auditCards);
+    } else if (!mobileAuditLayout && auditVisual.parentElement !== auditInner) {
+      auditInner.appendChild(auditVisual);
+    }
   }
 
   const wrap = document.getElementById('ailWrap');

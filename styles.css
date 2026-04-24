@@ -53,6 +53,52 @@ body {
   overflow-x: hidden;
 }
 
+body.page-grid-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+body.page-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(227, 229, 243, 0.34) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(227, 229, 243, 0.34) 1px, transparent 1px),
+    linear-gradient(to right, rgba(206, 213, 239, 0.46) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(206, 213, 239, 0.46) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 246, 255, 0.12) 0%, rgba(245, 246, 255, 0.55) 100%);
+  background-size: 44px 44px, 44px 44px, 220px 220px, 220px 220px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  opacity: 0.34;
+}
+
+/* Stack page content above the grid — do NOT target fixed layers (nav / mobile menu). */
+body.page-grid-bg > *:not(nav):not(.nav-mobile-overlay) {
+  position: relative;
+  z-index: 1;
+}
+
+body.page-grid-bg > nav {
+  position: fixed;
+  z-index: 100;
+}
+
+body.page-grid-bg > .nav-mobile-overlay {
+  position: fixed;
+  z-index: 98;
+}
+
+/* Let the body grid show through (same idea as #page-home on index). */
+body.page-grid-bg .cs-page,
+body.page-grid-bg .work,
+body.page-grid-bg .more-ui-section,
+body.page-grid-bg footer {
+  background: transparent;
+}
+
 a { text-decoration: none; color: inherit; }
 
 /* ─── SCROLL ANIMATIONS ─── */
@@ -1128,17 +1174,11 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 .audit { background: var(--bg-soft); }
 .audit-inner {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 500px;
   gap: 64px;
   align-items: start;
 }
 .audit-content { }
-.audit-content .audit-photo-wrap {
-  position: static;
-  top: auto;
-  align-self: auto;
-  margin: 0 0 56px;
-}
 .audit-cards-grid {
   display: flex;
   flex-direction: column;
@@ -1371,7 +1411,7 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 .ail-marker.gn .ail-tag { border-left: 3px solid #22c55e; }
 
 /* ─── WORK (reference-inspired: copy left, visual right) ─── */
-.work { background: var(--bg-soft); }
+.work { background: var(--bg); }
 .work-featured { display: flex; flex-direction: column; gap: 24px; margin-top: 52px; margin-bottom: 0; }
 .work-row { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
 .wcard {
@@ -1942,6 +1982,7 @@ footer {
   /* ── Audit ── */
   .audit-inner { grid-template-columns: 1fr; gap: 40px; }
   .audit-photo-wrap { position: static; display: flex; justify-content: center; }
+  .audit-content .audit-photo-wrap { margin: 0 0 56px; }
   .ail-wrap { width: 100%; max-width: 320px; height: 380px; }
   .audit-cards-grid { grid-template-columns: 1fr; }
 
