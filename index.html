@@ -2894,7 +2894,16 @@ function initStackCards() {
   }
 
   // On mobile the cards are static — skip scroll logic
-  if (window.innerWidth <= 900) return;
+  if (window.innerWidth <= 900) {
+    const stackEl = scrollSpace.querySelector('.problems-stack');
+    if (stackEl) stackEl.style.height = '';
+    cards.forEach((card) => {
+      card.style.opacity = '';
+      card.style.transform = '';
+      card.style.zIndex = '';
+    });
+    return;
+  }
 
   // Measure actual card height once rendered
   function getStackHeight() {
@@ -2968,6 +2977,7 @@ window.addEventListener('load', () => {
 
   initReveal();
   initStackCards();
+  window.addEventListener('resize', initStackCards, { passive: true });
   initHeroParallax();
   initHeroParticles();
   initHeroInteraction();
