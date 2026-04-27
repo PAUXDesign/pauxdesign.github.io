@@ -307,6 +307,14 @@ nav {
 }
 .nav-mobile-overlay a:hover,
 .nav-mobile-overlay span:hover { color: var(--accent); }
+/* CTA in overlay is also an <a>; overlay link rules win over .btn-dark by specificity — force readable label */
+.nav-mobile-overlay .btn-dark {
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0;
+}
+.nav-mobile-overlay .btn-dark:hover { color: #fff !important; }
 .nav-mobile-divider { width: 40px; height: 1px; background: var(--border); margin: 12px 0; }
 .nav-mobile-cta { margin-top: 8px; }
 
