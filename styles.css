@@ -2213,6 +2213,8 @@ footer {
 }
 .cs-page .cta-scroll-wrap {
   margin-top: 52px;
+  width: 100%;
+  max-width: none;
 }
 .cta-sticky {
   position: sticky;
