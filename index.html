@@ -1015,7 +1015,7 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 /* ─── MARQUEE ─── */
 .marquee-wrap {
   padding: 0; overflow: hidden;
-  background: var(--bg 0.1%);
+  background: var(--bg);
 
 }
 .marquee-track { display: flex; animation: marquee 80s linear infinite; white-space: nowrap; }
@@ -2632,7 +2632,7 @@ footer {
   <div class="hero-orb hero-orb-3"></div>
   <div class="hero-orb hero-orb-4"></div>
 
-  <!-- Ambient left cards -->
+  <!-- Ambient side cards -->
   <div class="ha-outer ha-o1">
     <div class="hs-card ha-card">
       <span class="hs-mini-label">UX research</span>
@@ -2671,7 +2671,6 @@ footer {
     </div>
   </div>
 
-  <!-- Ambient right cards -->
   <div class="ha-outer ha-o4">
     <div class="hs-card ha-card">
       <span class="hs-mini-label">Client satisfaction</span>
@@ -2702,13 +2701,13 @@ footer {
 
   <!-- Centered content -->
   <div class="container">
-    <div class="hero-badge reveal"><div class="nav-dot"></div>Available for new projects — London · Remote</div>
+    <div class="hero-badge reveal"><div class="nav-dot"></div>Available for new projects · London · Remote</div>
 
     <h1 class="reveal reveal-d1">Design for users,<br>structure for<br><em>digital products.</em></h1>
 
     <div class="persona-switch reveal reveal-d2">
-      <button class="persona-btn active" data-persona="founder">For founders</button>
-      <button class="persona-btn" data-persona="company">For companies</button>
+      <button type="button" class="persona-btn active" data-persona="founder">For founders</button>
+      <button type="button" class="persona-btn" data-persona="company">For companies</button>
     </div>
 
     <p class="hero-sub reveal reveal-d2" id="heroSub"></p>
@@ -3176,7 +3175,7 @@ footer {
         </div>
         <div class="svc-item-body">
           <div class="svc-item-desc">
-            <p>For businesses that need a website that actually does work — sharp messaging, strong visual identity, ready to launch.</p>
+            <p>For businesses that need a website that actually does work — sharp messaging, strong visual identity, and a Framer build that's ready to launch.</p>
             <a href="/contact/?topic=web-design" class="svc-item-link">Get a website →</a>
           </div>
           <div>
@@ -3184,6 +3183,7 @@ footer {
             <ul class="svc-items">
               <li>Brand direction &amp; visual identity</li>
               <li>Copy structure &amp; messaging</li>
+              <li>Framer build with animations</li>
               <li>SEO setup &amp; performance</li>
             </ul>
           </div>
