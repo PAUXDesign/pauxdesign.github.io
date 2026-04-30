@@ -782,6 +782,7 @@ h2 em {
   .hero { padding: 120px 24px 90px; }
   .hero-stats-bottom { padding: 18px 20px; }
   .hero-stats-bottom .stat { padding: 0 20px; }
+  .marquee-wrap { margin-top: -18px; }
   .hero-actions { flex-direction: column; gap: 10px; width: 100%; }
   .hero-actions .btn { width: 100%; justify-content: center; padding: 16px 24px; }
   .btn { width: 100%; justify-content: center; }
@@ -844,9 +845,13 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 
 /* ─── MARQUEE ─── */
 .marquee-wrap {
+  margin-top: -28px;
   padding: 0; overflow: hidden;
-  background: var(--bg);
+  background: var(--bg 0.1);
 
+}
+@media (min-width: 901px) {
+  .marquee-wrap { margin-top: -84px; }
 }
 .marquee-track { display: flex; animation: marquee 80s linear infinite; white-space: nowrap; }
 .marquee-item {
@@ -2422,7 +2427,7 @@ footer {
   h1 { font-size: 32px; letter-spacing: -0.8px; }
 
   /* ── Hero ── */
-  .hero { padding-top: 120px; padding-bottom: 48px; }
+  .hero { padding-top: 120px; padding-bottom: 32px; }
   .hero-stats { flex-direction: column; gap: 20px; }
   .stat { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 20px; padding-right: 0; margin-right: 0; }
 
