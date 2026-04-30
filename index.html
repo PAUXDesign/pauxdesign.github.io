@@ -547,6 +547,7 @@ h2 em {
 @media (max-width: 900px) {
   .about-inner { grid-template-columns: 1fr; gap: 48px; }
   .about-flip { width: 220px; height: 220px; }
+  .about-text .about-photo-wrap { margin: 8px 0 22px; }
 }
 
 /* ─── HERO ─── */
@@ -734,15 +735,6 @@ h2 em {
 .hmf-5 .hs-card { animation: haCardIn 0.85s 0.42s cubic-bezier(0.22,1,0.36,1) both; }
 .hmf-6 .hs-card { animation: haCardIn 0.85s 0.55s cubic-bezier(0.22,1,0.36,1) both; }
 
-/* ─── PERSONA SWITCHER ─── */
-.persona-switch {
-  display: inline-flex;
-  background: rgba(38,30,72,0.05);
-  border-radius: 999px;
-  padding: 3px;
-  gap: 2px;
-
-
 /* ─── STATS BAR (pinned to bottom of hero) ─── */
 .hero-stats-bottom {
   position: absolute;
@@ -798,7 +790,7 @@ h2 em {
 }
 @media (max-width: 560px) {
   .hero-stats-bottom { display: none; }
-  .persona-btn { padding: 8px 14px; font-size: 12px; }
+  
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
@@ -823,7 +815,7 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 .hero-sub {
   font-family: var(--font-sans);
   font-size: 14px; color: var(--mid);
-  line-height: 1.8; max-width: 520px;
+  line-height: 1.8; max-width: 600px;
   margin-bottom: 36px;
   text-align: center;
   margin-left: auto;
@@ -895,7 +887,7 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 .audience-final { background: var(--bg); }
 .audience-panel-bg-num {
   font-family: var(--font-serif);
-  font-size: 200px;
+  font-size: clamp(200px, 22vw, 340px);
   font-weight: 800;
   line-height: 1;
   position: absolute;
@@ -903,23 +895,41 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
   letter-spacing: -10px;
   pointer-events: none;
   user-select: none;
-  opacity: 0.05;
+  opacity: 0.10;
 }
 .audience-company .audience-panel-bg-num { color: white; }
-.audience-founder .audience-panel-bg-num { color: var(--dark); }
-.audience-final .audience-panel-bg-num { color: var(--dark); }
+.audience-founder .audience-panel-bg-num { color: var(--mid); }
+.audience-final .audience-panel-bg-num { color: var(--mid); }
 .audience-panel-label {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
   font-family: var(--font-meta);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  opacity: 0.45;
+  margin-bottom: 22px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  opacity: 1;
 }
-.audience-company .audience-panel-label { color: white; }
-.audience-founder .audience-panel-label { color: var(--dark); }
-.audience-final .audience-panel-label { color: var(--dark); }
+.audience-company .audience-panel-label {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+.audience-founder .audience-panel-label {
+  color: #3e4470;
+  background: rgba(112, 89, 220, 0.10);
+  border-color: rgba(112, 89, 220, 0.20);
+}
+.audience-final .audience-panel-label {
+  color: #4b527e;
+  background: rgba(112, 89, 220, 0.08);
+  border-color: rgba(112, 89, 220, 0.17);
+}
 .audience-panel-headline {
   font-family: var(--font-serif);
   font-size: clamp(26px, 2.8vw, 42px);
@@ -966,32 +976,18 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
 }
 .audience-panel-footer {
   margin-top: 8px;
-  padding: 12px 14px 12px 16px !important;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  font-size: 13.5px !important;
+  padding-left: 0 !important;
+  font-size: 14px !important;
   font-weight: 700;
-  line-height: 1.45 !important;
-  letter-spacing: 0.01em;
+  line-height: 1.55 !important;
+  letter-spacing: 0;
 }
 .audience-panel-footer::before {
   content: none !important;
 }
-.audience-company .audience-panel-footer {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.22);
-  color: #f4f6ff;
-}
-.audience-founder .audience-panel-footer {
-  background: rgba(112, 89, 220, 0.08);
-  border-color: rgba(112, 89, 220, 0.18);
-  color: #3d4370;
-}
-.audience-final .audience-panel-footer {
-  background: rgba(112, 89, 220, 0.07);
-  border-color: rgba(112, 89, 220, 0.16);
-  color: #444b77;
-}
+.audience-company .audience-panel-footer { color: #f4f6ff; }
+.audience-founder .audience-panel-footer { color: #3d4370; }
+.audience-final .audience-panel-footer { color: #444b77; }
 .audience-panel-cta {
   display: inline-flex;
   align-items: center;
@@ -1035,15 +1031,15 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
   border-color: var(--accent);
 }
 @media (max-width: 900px) {
-  .audience-wrap { height: auto; }
-  .audience-sticky { position: static; height: auto; overflow: visible; }
+  .audience-wrap { height: 300vh; }
+  .audience-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
   .audience-panel {
-    position: relative !important;
-    inset: auto !important;
-    transform: none !important;
-    height: auto !important;
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100vh !important;
     padding: 60px 24px !important;
-    min-height: 50vh;
+    justify-content: center;
+    will-change: transform, opacity;
   }
 }
 
@@ -2176,6 +2172,7 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
+.cta-final-btn { padding: 14px 36px; }
 .btn-white {
   background: white;
   color: var(--dark);
@@ -2206,6 +2203,7 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
   .cta-section { padding: 80px 24px; min-height: 100vh; }
   .cta-btn-row { flex-direction: column; align-items: stretch; }
   .cta-btn-row .btn { width: 100%; justify-content: center; }
+  .cta-final-btn { padding: 14px 20px; }
 }
 
 /* ─── FOOTER ─── */
@@ -2632,15 +2630,10 @@ footer {
 
     <h1 class="reveal reveal-d1">Design for users,<br>structure for<br><em>digital products.</em></h1>
 
-    <div class="persona-switch reveal reveal-d2">
-      <button type="button" class="persona-btn active" data-persona="founder">For founders</button>
-      <button type="button" class="persona-btn" data-persona="company">For companies</button>
-    </div>
-
-    <p class="hero-sub reveal reveal-d2" id="heroSub"></p>
+    <p class="hero-sub reveal reveal-d2">From SaaS platforms to mobile apps and AI-powered workflows, I design products that convert, retain and scale. Whether building from scratch or fixing what's already live.</p>
 
     <div class="hero-actions reveal reveal-d3">
-      <a href="/contact/?topic=start-project" class="btn btn-dark" id="heroCtaPrimary">Start a project</a>
+      <a href="/contact/?topic=start-project" class="btn btn-dark">Start a project</a>
       <a href="/work/" class="btn btn-outline">See my work</a>
     </div>
     </div>
@@ -2773,11 +2766,6 @@ footer {
         <a href="/contact/?topic=start-project" class="audience-panel-cta">Let's talk</a>
       </div>
 
-    </div>
-  </div>
-</section>
-
-      </div>
     </div>
   </div>
 </section>
@@ -3185,7 +3173,7 @@ footer {
           <span class="about-tool">Cursor</span>
           <span class="about-tool">HTML / CSS</span>
         </div>
-        <div class="reveal reveal-d5">
+        <div class="about-cta-wrap reveal reveal-d5">
           <a href="/contact/" class="btn btn-dark">Let's talk</a>
         </div>
       </div>
@@ -3238,7 +3226,7 @@ footer {
           <h2 class="cta-big-headline">Let's build something<br>that <em>actually works.</em></h2>
           <p class="cta-big-sub">Tell me about your product or what's not working —<br>I'll get back to you within 24 hours. No pitch, no pressure.</p>
           <div class="cta-btn-row">
-            <a href="/contact/" class="btn btn-white" style="padding:14px 36px">Start a project</a>
+            <a href="/contact/" class="btn btn-dark cta-final-btn">Start a project</a>
           </div>
         </div>
       </div>
@@ -3539,6 +3527,28 @@ function initAuditIllustration() {
   obs.observe(wrap);
 }
 
+// ─── ABOUT mobile order: photo above CTA ───
+(function initAboutMobileOrder() {
+  const aboutInner = document.querySelector('.about .about-inner');
+  const aboutText = aboutInner ? aboutInner.querySelector('.about-text') : null;
+  const aboutPhoto = aboutInner ? aboutInner.querySelector('.about-photo-wrap') : null;
+  const aboutCta = aboutText ? aboutText.querySelector('.about-cta-wrap') : null;
+  if (!aboutInner || !aboutText || !aboutPhoto || !aboutCta) return;
+
+  function update() {
+    if (window.innerWidth <= 900) {
+      if (aboutPhoto.parentElement !== aboutText) {
+        aboutText.insertBefore(aboutPhoto, aboutCta);
+      }
+    } else if (aboutPhoto.parentElement !== aboutInner) {
+      aboutInner.appendChild(aboutPhoto);
+    }
+  }
+
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+
 // Navbar shrink on scroll
 (() => {
   const nav = document.getElementById('site-nav');
@@ -3553,7 +3563,7 @@ function initAuditIllustration() {
 // ─── AUDIENCE SCROLL STACK ───
 (function initAudienceStack() {
   const wrap = document.querySelector('.audience-wrap');
-  if (!wrap || window.innerWidth <= 900) return;
+  if (!wrap) return;
   const panels = [...wrap.querySelectorAll('.audience-panel')];
   if (panels.length < 2) return;
 
@@ -3576,13 +3586,7 @@ function initAuditIllustration() {
   }
 
   window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', () => {
-    if (window.innerWidth <= 900) {
-      panels.forEach((panel) => {
-        panel.style.transform = '';
-      });
-    }
-  }, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
   update();
 })();
 
@@ -3620,47 +3624,6 @@ function initAuditIllustration() {
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update, { passive: true });
   update();
-})();
-
-// ─── PERSONA SWITCHER ───
-(function initPersonaSwitcher() {
-  const btns = document.querySelectorAll('.persona-btn');
-  const sub  = document.getElementById('heroSub');
-  const cta  = document.getElementById('heroCtaPrimary');
-  if (!sub || !btns.length) return;
-
-  const copy = {
-    company: {
-      sub:     'Product designer, I partner with product teams to solve the UX problems costing you conversions, retention, and engineer time.',
-      ctaText: 'Talk about hiring me',
-      ctaHref: 'mailto:contact@pauxdesign.uk'
-    },
-    founder: {
-      sub:     'From SaaS platforms to mobile apps and AI-powered workflows, I design products that convert, retain and scale. Whether building from scratch or fixing what\'s already live.',
-      ctaText: 'Start a project',
-      ctaHref: '/contact/?topic=start-project'
-    }
-  };
-
-  sub.textContent = copy.founder.sub;
-  if (cta) { cta.textContent = copy.founder.ctaText; cta.href = copy.founder.ctaHref; }
-
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const persona = btn.dataset.persona;
-      sub.style.opacity = '0';
-      setTimeout(() => {
-        sub.textContent = copy[persona].sub;
-        sub.style.opacity = '1';
-      }, 180);
-      if (cta) {
-        cta.textContent = copy[persona].ctaText;
-        cta.href = copy[persona].ctaHref;
-      }
-    });
-  });
 })();
 
 // ─── SERVICE ACCORDION ───
