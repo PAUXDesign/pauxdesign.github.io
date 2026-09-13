@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 252" fill="none" aria-hidden="true">
+  <rect width="400" height="252" fill="#EEF0FC"/>
+  <rect x="20" y="28" width="108" height="76" rx="10" fill="#fff" stroke="#7059DC" stroke-opacity="0.35" stroke-width="1.5"/>
+  <rect x="140" y="28" width="108" height="76" rx="10" fill="#fff" stroke="#7059DC" stroke-opacity="0.35" stroke-width="1.5"/>
+  <rect x="260" y="28" width="112" height="76" rx="10" fill="#7059DC" fill-opacity="0.12" stroke="#7059DC" stroke-width="1.5"/>
+  <rect x="20" y="118" width="108" height="76" rx="10" fill="#fff" stroke="#7059DC" stroke-opacity="0.35" stroke-width="1.5"/>
+  <rect x="140" y="118" width="108" height="76" rx="10" fill="#58DB69" fill-opacity="0.15" stroke="#3FAF56" stroke-opacity="0.5" stroke-width="1.5"/>
+  <rect x="260" y="118" width="112" height="76" rx="10" fill="#fff" stroke="#7059DC" stroke-opacity="0.35" stroke-width="1.5"/>
+  <circle cx="64" cy="54" r="6" fill="#7059DC" fill-opacity="0.45"/>
+  <rect x="82" y="48" width="36" height="4" rx="2" fill="#261E48" fill-opacity="0.2"/>
+  <rect x="82" y="58" width="28" height="3" rx="1.5" fill="#261E48" fill-opacity="0.12"/>
+</svg>
+

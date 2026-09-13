@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/Public/Images/icon.png" type="image/png">
+<title>JobLink — Job Search App — Paux Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  /* ── Research stats row ── */
+  .cs-research-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 40px 0 0;
+  }
+  .cs-research-stat {
+    background: #F5F6FF;
+    border: 1px solid rgba(38,30,72,0.10);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .cs-research-stat-num {
+    font-family: 'Manrope', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #261E48;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .cs-research-stat-label {
+    font-size: 0.85rem;
+    color: #655F8C;
+    line-height: 1.5;
+  }
+  @media (max-width: 640px) {
+    .cs-research-stats { grid-template-columns: 1fr; }
+  }
+
+  /* ── Competitive analysis table ── */
+  .cs-table-wrap {
+    overflow-x: auto;
+    margin: 32px 0 0;
+    border-radius: 16px;
+    border: 1px solid rgba(38,30,72,0.10);
+  }
+  .cs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    background: #fff;
+  }
+  .cs-table thead {
+    background: #261E48;
+    color: #fff;
+  }
+  .cs-table th {
+    padding: 14px 18px;
+    text-align: left;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .cs-table td {
+    padding: 13px 18px;
+    color: #655F8C;
+    border-top: 1px solid rgba(38,30,72,0.07);
+    vertical-align: top;
+  }
+  .cs-table tbody tr:hover td { background: #F5F6FF; }
+  .cs-table .check { color: #58DB69; font-size: 1rem; }
+  .cs-table .cross  { color: #E05B5B; font-size: 1rem; }
+  .cs-table .partial { color: #E09A2B; font-size: 1rem; }
+  .cs-table td:first-child { font-weight: 600; color: #261E48; }
+  .cs-table .highlight-row td { background: #E2E5FD; }
+  .cs-table .highlight-row td:first-child { color: #7059DC; }
+
+  /* ── Personas ── */
+  .cs-personas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0 0;
+  }
+  .cs-persona {
+    border: 1px solid rgba(38,30,72,0.12);
+    border-radius: 16px;
+    padding: 28px 24px;
+    background: #FAFAFC;
+  }
+  .cs-persona-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7059DC;
+    background: #E2E5FD;
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin-bottom: 14px;
+  }
+  .cs-persona h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #261E48;
+    margin: 0 0 8px;
+  }
+  .cs-persona p {
+    font-size: 0.875rem;
+    color: #655F8C;
+    line-height: 1.65;
+    margin: 0 0 14px;
+  }
+  .cs-persona ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.85rem;
+    color: #655F8C;
+    line-height: 1.7;
+  }
+  @media (max-width: 640px) {
+    .cs-personas { grid-template-columns: 1fr; }
+  }
+
+  /* ── HMW callout ── */
+  .cs-hmw {
+    margin: 40px 0 0;
+    background: #261E48;
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 40px;
+  }
+  .cs-hmw-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9B98B8;
+    margin-bottom: 12px;
+  }
+  .cs-hmw p {
+    font-family: 'Merriweather', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .cs-hmw { padding: 28px 24px; }
+  }
+
+  /* ── Wireframe grid ── */
+  .cs-wireframe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0 0;
+  }
+  .cs-wireframe-grid img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(38,30,72,0.10);
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .cs-wireframe-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── AB Test comparison ── */
+  .cs-ab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0 0;
+  }
+  .cs-ab-card {
+    border: 1px solid rgba(38,30,72,0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #FAFAFC;
+  }
+  .cs-ab-label {
+    padding: 12px 18px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(38,30,72,0.08);
+  }
+  .cs-ab-label.loser { color: #E05B5B; background: #FFF5F5; }
+  .cs-ab-label.winner { color: #1a8a30; background: #F0FFF4; }
+  .cs-ab-img {
+    width: 100%;
+    display: block;
+  }
+  .cs-ab-verdict {
+    padding: 16px 18px;
+    font-size: 0.85rem;
+    color: #655F8C;
+    line-height: 1.55;
+  }
+  @media (max-width: 640px) {
+    .cs-ab { grid-template-columns: 1fr; }
+  }
+
+  /* ── Design system image full ── */
+  .cs-design-system-img {
+    margin: 32px 0 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(38,30,72,0.10);
+  }
+  .cs-design-system-img img {
+    width: 100%;
+    display: block;
+  }
+
+  /* ── Section sub-label ── */
+  .cs-section-sub {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: #9B98B8;
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+  .cs-section-sub:first-of-type { margin-top: 32px; }
+
+  /* ── Feature cards ── */
+  .cs-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 32px 0 0;
+  }
+  .cs-feature-card {
+    border: 1px solid rgba(38,30,72,0.12);
+    border-radius: 16px;
+    padding: 24px;
+    background: #FAFAFC;
+  }
+  .cs-feature-card h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #261E48;
+    margin: 0 0 8px;
+  }
+  .cs-feature-card p {
+    font-size: 0.875rem;
+    color: #655F8C;
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .cs-features { grid-template-columns: 1fr; }
+  }
+
+  /* ── Prototype link ── */
+  .cs-proto-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    padding: 14px 28px;
+    background: #261E48;
+    color: #fff;
+    border-radius: 12px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .cs-proto-link:hover { background: #7059DC; }
+  .cs-proto-link svg {
+    width: 16px; height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>
+
+<style>
+
+/* ─────────────────────────────────────────
+   VIEW TOGGLE — Quick read / Full case study
+   ───────────────────────────────────────── */
+
+/* Toggle bar — sits between hero and cs-body */
+.cs-view-toggle {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cs-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: #FAFAFC;
+  border: 1px solid rgba(38,30,72,0.12);
+  border-radius: 999px;
+  padding: 5px;
+  gap: 2px;
+  box-shadow: 0 2px 12px rgba(38,30,72,0.06);
+}
+
+.cs-toggle-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: 'Manrope', sans-serif;
+  text-align: left;
+  min-width: 180px;
+}
+
+.cs-toggle-btn:hover:not(.active) {
+  background: rgba(38,30,72,0.04);
+}
+
+.cs-toggle-btn.active {
+  background: #261E48;
+}
+
+.cs-toggle-btn-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #9B98B8;
+  line-height: 1;
+  margin-bottom: 3px;
+  transition: color 0.2s;
+}
+
+.cs-toggle-btn.active .cs-toggle-btn-label {
+  color: rgba(255,255,255,0.55);
+}
+
+.cs-toggle-btn-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #261E48;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.cs-toggle-btn.active .cs-toggle-btn-name {
+  color: #fff;
+}
+
+/* Divider between buttons */
+.cs-toggle-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(38,30,72,0.12);
+  flex-shrink: 0;
+}
+
+/* Elements that only show in full view */
+.full-only {
+  display: block;
+}
+
+/* When quick-read mode is active, hide full-only elements */
+body.view-quick .full-only {
+  display: none !important;
+}
+
+/* Smooth transition for content sections */
+.cs-section,
+.cs-mockup-full,
+.cs-img-ref,
+.cs-body {
+  transition: opacity 0.25s ease;
+}
+
+body.view-switching .cs-section,
+body.view-switching .cs-mockup-full,
+body.view-switching .cs-body {
+  opacity: 0.4;
+}
+
+
+/* ─────────────────────────────────────────
+   STICKY LEFT INDEX — Full case study only
+   ───────────────────────────────────────── */
+
+.cs-layout {
+  position: relative;
+  display: block;
+}
+
+/* The index panel */
+.cs-index {
+  display: none; /* hidden by default and in quick-read */
+  position: fixed;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  z-index: 100;
+  width: 160px;
+}
+
+/* Show index only in full view and on wide enough screens */
+@media (min-width: 1280px) {
+  body:not(.view-quick) .cs-index {
+    display: block;
+  }
+}
+
+.cs-index-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cs-index-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 5px 8px;
+  border-radius: 8px;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.cs-index-item:hover .cs-index-dot {
+  background: #7059DC;
+  transform: scale(1.3);
+}
+
+.cs-index-item:hover .cs-index-label {
+  color: #261E48;
+}
+
+.cs-index-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(38,30,72,0.18);
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.cs-index-item.active .cs-index-dot {
+  background: #7059DC;
+  transform: scale(1.25);
+}
+
+.cs-index-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #9B98B8;
+  line-height: 1.2;
+  transition: color 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cs-index-item.active .cs-index-label {
+  color: #261E48;
+}
+
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner" id="site-nav">
+    <div class="nav-brand">
+      <a href="/"><img class="nav-brand-logo" src="/Public/Images/logo-name.png" alt="Paux Design"></a>
+    </div>
+    <ul class="nav-links" aria-label="Primary">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/contact/" class="btn btn-dark nav-cta-btn" style="padding:12px 18px;">Let's talk</a>
+      <button type="button" class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Open menu" aria-expanded="false" aria-controls="navMobileOverlay">
+        <span class="nav-hamburger-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobileOverlay">
+  <a href="/#about" onclick="closeMobileNav()">About</a>
+  <a href="/#services" onclick="closeMobileNav()">Services</a>
+  <a href="/work/" onclick="closeMobileNav()">Work</a>
+  <a href="/contact/" onclick="closeMobileNav()">Contact</a>
+  <div class="nav-mobile-divider"></div>
+  <a href="/contact/" onclick="closeMobileNav()" class="btn btn-dark nav-mobile-cta">Let's talk</a>
+</div>
+
+<div class="cs-page">
+
+  <!-- ── Hero ── -->
+  <div class="cs-hero">
+    <div class="container">
+      <a class="cs-back" href="/work/">
+        <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg> Back to work
+      </a>
+      <div class="cs-htags">
+        <span class="cs-htag">UX Research</span>
+        <span class="cs-htag">Mobile · iOS</span>
+        <span class="cs-htag">A/B Testing</span>
+        <span class="cs-htag">Concept Project</span>
+      </div>
+      <div class="cs-title">JobLink — Multi-Profile Job Search App</div>
+      <p class="cs-subtitle">Redesigning job search for the 43% of people who apply across two or more industries — but have only ever been offered one career identity.</p>
+      <div class="cs-meta">
+        <div><div class="cs-meta-label">Role</div><div class="cs-meta-value">UX Designer (end-to-end)</div></div>
+        <div><div class="cs-meta-label">Scope</div><div class="cs-meta-value">Research, UX strategy, UI design</div></div>
+        <div><div class="cs-meta-label">Platform</div><div class="cs-meta-value">iOS mobile app</div></div>
+        <div><div class="cs-meta-label">Year</div><div class="cs-meta-value">2023</div></div>
+      </div>
+      <div class="cs-view-toggle">
+        <div class="cs-toggle-wrap">
+          <button class="cs-toggle-btn active" data-view="full" aria-label="Full case study">
+            <span class="cs-toggle-btn-label">Full case study</span>
+            <span class="cs-toggle-btn-name">Full deep-dive</span>
+          </button>
+          <div class="cs-toggle-divider"></div>
+          <button class="cs-toggle-btn" data-view="quick" aria-label="Quick read view">
+            <span class="cs-toggle-btn-label">Quick read</span>
+            <span class="cs-toggle-btn-name">30-second skim</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Hero cover ── -->
+  <div class="cs-hero-cover">
+    <img src="/Public/Images/joblink.png" alt="JobLink — multi-profile job search app">
+  </div>
+
+
+<!-- STICKY LEFT INDEX (full view only) -->
+<div class="cs-index" aria-label="Case study navigation">
+  <div class="cs-index-inner">
+    <a class="cs-index-item" data-section="cs-metrics" href="#cs-metrics">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">At a glance</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-overview" href="#cs-overview">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">Overview</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-problem" href="#cs-problem">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">The problem</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-research" href="#cs-research">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">Research</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-solution" href="#cs-solution">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">Solution</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-process" href="#cs-process">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">Design process</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-wireframes" href="#cs-wireframes">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">Wireframes</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-ab" href="#cs-ab">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">A/B testing</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-impact" href="#cs-impact">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">Impact</span>
+    </a>
+    <a class="cs-index-item" data-section="cs-learnings" href="#cs-learnings">
+      <span class="cs-index-dot"></span>
+      <span class="cs-index-label">Key learnings</span>
+    </a>
+  </div>
+</div>
+
+  <div class="cs-layout">
+  <div class="cs-body">
+
+    <!-- ── Metrics ── -->
+    <div class="cs-metrics" id="cs-metrics">
+      <div class="cs-metric">
+        <div class="cs-metric-num">60%</div>
+        <div class="cs-metric-label">Higher task success rate vs competing platforms</div>
+      </div>
+      <div class="cs-metric">
+        <div class="cs-metric-num">98%</div>
+        <div class="cs-metric-label">Rated intuitive in usability testing — vs 67% for Indeed</div>
+      </div>
+      <div class="cs-metric">
+        <div class="cs-metric-num">3 min</div>
+        <div class="cs-metric-label">To set up a second profile and apply (vs 8+ min elsewhere)</div>
+      </div>
+    </div>
+
+    <!-- ── Overview ── -->
+    <div class="cs-section" id="cs-overview">
+      <div class="cs-section-title">Overview</div>
+      <p class="cs-text">JobLink is a mobile concept that rethinks how people manage multiple career identities when searching for jobs. Most platforms assume users have one professional identity — but many professionals today work across different industries or roles.</p>
+      <p class="cs-text">Designers who also freelance as marketers, engineers transitioning into product roles, career changers — they all struggle to represent themselves with a single profile. <strong>43% of job seekers apply across 2+ industries, yet every major platform treats them as a single-track professional.</strong></p>
+      <p class="cs-text">I ran the full process end-to-end: user research, competitive analysis, card sorting, information architecture, wireframing, usability testing, A/B testing and high-fidelity iOS UI design.</p>
+    </div>
+
+    <!-- ── The problem ── -->
+    <div class="cs-section" id="cs-problem">
+      <div class="cs-section-title">The problem</div>
+      <p class="cs-text">Most job platforms are built around the idea that users have one professional identity. These users face a specific set of compounding problems — not just one.</p>
+      <div class="cs-quote">"Users were spending 15+ hours a week just customising applications. Many gave up on roles they were qualified for — it was simply too much work."</div>
+      <div class="cs-two" style="margin-top: 32px;">
+        <div class="cs-col before">
+          <div class="cs-col-label">User pain points</div>
+          <ul>
+            <li>Creating multiple accounts (against platform policies)</li>
+            <li>Rewriting profiles manually for every industry</li>
+            <li>One-size-fits-all CV that stands out nowhere</li>
+            <li>15+ hours/week lost to application customisation</li>
+            <li>Abandoning qualified roles — too much friction</li>
+          </ul>
+        </div>
+        <div class="cs-col after">
+          <div class="cs-col-label">The consequence</div>
+          <ul>
+            <li>Multi-skilled professionals are systematically underrepresented</li>
+            <li>Passive job seekers give up before they even start</li>
+            <li>Platforms lose high-value users due to process friction</li>
+            <li>Qualified candidates miss roles in their secondary industries</li>
+            <li>Application fatigue becomes the norm, not the exception</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-hmw">
+        <div class="cs-hmw-label">How might we</div>
+        <p>Help professionals manage multiple career identities and apply to different roles — without constantly rewriting their profile from scratch?</p>
+      </div>
+    </div>
+
+    <!-- ── Research & Insights ── -->
+    <div class="cs-section full-only" id="cs-research">
+      <div class="cs-section-title">Research &amp; insights</div>
+      <p class="cs-text">To understand the challenges job seekers face when applying across different roles, I conducted user surveys and analysed existing job platforms. The goal was to identify key behaviours, pain points and opportunities that could inform the product strategy.</p>
+
+      <div class="cs-section-sub">Research findings</div>
+      <p class="cs-text">User surveys revealed several common behaviours and frustrations — the data confirmed the problem was systemic, not individual.</p>
+
+      <div class="cs-research-stats">
+        <div class="cs-research-stat">
+          <div class="cs-research-stat-num">59%</div>
+          <div class="cs-research-stat-label">would like to manage multiple professional profiles. A single profile can't represent their full identity.</div>
+        </div>
+        <div class="cs-research-stat">
+          <div class="cs-research-stat-num">70%</div>
+          <div class="cs-research-stat-label">are passive job seekers. They already have a job — if the process takes more than a few minutes, they skip it.</div>
+        </div>
+        <div class="cs-research-stat">
+          <div class="cs-research-stat-num">98%</div>
+          <div class="cs-research-stat-label">search for jobs based on location. Proximity is a deciding factor when browsing opportunities.</div>
+        </div>
+      </div>
+
+      <div class="cs-section-sub">Competitive analysis</div>
+      <p class="cs-text">I analysed the major job platforms to understand their strengths and, more importantly, where they fall short. Each gap became a direct opportunity for JobLink.</p>
+
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Indeed</th>
+              <th>TotalJobs</th>
+              <th>LinkedIn</th>
+              <th>JobLink</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Multiple career profiles</td>
+              <td class="cross">✕</td>
+              <td class="cross">✕</td>
+              <td class="cross">✕</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>Location-based map search</td>
+              <td class="partial">~</td>
+              <td class="cross">✕</td>
+              <td class="cross">✕</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>Application tracker</td>
+              <td class="partial">~</td>
+              <td class="cross">✕</td>
+              <td class="partial">~</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>Quick / one-tap apply</td>
+              <td class="partial">~</td>
+              <td class="cross">✕</td>
+              <td class="partial">~</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>Profile switching</td>
+              <td class="cross">✕</td>
+              <td class="cross">✕</td>
+              <td class="cross">✕</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>Usability rating (tested)</td>
+              <td>67%</td>
+              <td>71%</td>
+              <td>—</td>
+              <td><strong>98%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cs-section-sub">Target users</div>
+      <p class="cs-text">Two main user types emerged during research. Passive job seekers showed the strongest need for a faster, more flexible experience — and became the primary design target.</p>
+
+      <div class="cs-personas">
+        <div class="cs-persona">
+          <span class="cs-persona-tag">Primary</span>
+          <h4>Passive job seeker</h4>
+          <p>Already employed. Open to better opportunities but has no time to spare. If an application takes more than a few minutes, they move on.</p>
+          <ul>
+            <li>Works across 2+ industries or roles</li>
+            <li>Maintains multiple resumes manually</li>
+            <li>High abandonment rate mid-application</li>
+            <li>Values speed and efficiency above all</li>
+          </ul>
+        </div>
+        <div class="cs-persona">
+          <span class="cs-persona-tag" style="background:#F5F6FF; color:#9B98B8;">Secondary</span>
+          <h4>Active job seeker</h4>
+          <p>Actively applying to new opportunities. More time available, but still frustrated by the manual overhead of managing multiple applications across industries.</p>
+          <ul>
+            <li>Applying across different sectors</li>
+            <li>Needs to track application status</li>
+            <li>Wants to present targeted profiles per role</li>
+            <li>Values organisation and visibility</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cs-body -->
+
+  <!-- ── Mockup showcase ── -->
+  <div class="cs-mockup-full full-only">
+    <img src="/Public/Images/joblink2.png" alt="JobLink — iOS app screens">
+    <div class="cs-mockup-caption">
+      <span class="cs-mockup-label">iOS App</span>
+      <p>Multi-profile switching, quick-scan job cards and one-tap apply — designed around the mental models users already have, so the learning curve is near zero.</p>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+    <!-- ── Solution ── -->
+    <div class="cs-section" id="cs-solution">
+      <div class="cs-section-title">Solution</div>
+      <p class="cs-text">JobLink introduces a job search experience designed for professionals with multiple career paths. Users create different professional profiles tailored to specific roles or industries — and switch between them instantly when searching or applying.</p>
+      <p class="cs-text">This means job seekers can apply faster and always present the most relevant version of their professional identity for each opportunity — without duplication, without frustration.</p>
+
+      <div class="cs-features">
+        <div class="cs-feature-card">
+          <h4>Multiple profiles</h4>
+          <p>Create and manage distinct professional profiles for each industry or role type. Switch between them in one tap — no re-entering information, no workarounds.</p>
+        </div>
+        <div class="cs-feature-card">
+          <h4>Location-based job search</h4>
+          <p>Find jobs near you through a map interface. Filter by distance so users can discover relevant opportunities without sorting through irrelevant listings.</p>
+        </div>
+        <div class="cs-feature-card">
+          <h4>Application tracker</h4>
+          <p>Track every application in one place. Know where each one stands — applied, in review, interview stage — without switching between platforms or spreadsheets.</p>
+        </div>
+        <div class="cs-feature-card">
+          <h4>Quick apply vs standard apply</h4>
+          <p>Two application modes based on usability testing feedback: Quick Apply for speed-first passive seekers, and Standard Apply for those who want to review full details before submitting.</p>
+        </div>
+      </div>
+
+      <a class="cs-proto-link" href="https://www.figma.com/proto/mXsuDaxHFXnzNPYvIc3JYx/Joblink-%2F-Prototype?page-id=0%3A1&node-id=0-5003&node-type=canvas&viewport=585%2C451%2C0.08&t=nyP7HRBnchlYf8WS-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=0%3A4512&show-proto-sidebar=1" target="_blank" rel="noopener">
+        Try the prototype
+        <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+      </a>
+    </div>
+
+    <!-- ── Design process ── -->
+    <div class="cs-section full-only" id="cs-process">
+      <div class="cs-section-title">Design process</div>
+      <p class="cs-text">Based on the research insights, the process focused on simplifying the experience and reducing the time cost of applying. Each phase fed directly into the next — no skipped steps, no assumptions left untested.</p>
+
+      <div class="cs-steps">
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 01</div>
+          <div class="cs-step-title">User research &amp; surveys</div>
+          <p class="cs-step-desc">Conducted surveys with professionals working across multiple industries. Key insight: the biggest pain wasn't finding jobs — it was the time cost of tailoring each application. Users weren't lazy; the tools were broken.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 02</div>
+          <div class="cs-step-title">Competitive analysis</div>
+          <p class="cs-step-desc">Analysed Indeed, TotalJobs and LinkedIn in depth. Three consistent gaps emerged: no multi-profile support, poor application tracking, no distance-based search. Each gap became a direct JobLink differentiator.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 03</div>
+          <div class="cs-step-title">Information architecture &amp; user flows</div>
+          <p class="cs-step-desc">Before designing screens, the structure needed defining. The platform was organised into four clear sections: Home, Applications, Messages, Profile. The main user journey was mapped from job discovery to application — then validated with flowcharts and wireframes before any visual design began.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 04</div>
+          <div class="cs-step-title">Wireframing &amp; iteration</div>
+          <p class="cs-step-desc">Early sketches and low-fidelity wireframes explored layout options and tested different interaction patterns. The focus at this stage was entirely on structure and usability — not visual design.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 05</div>
+          <div class="cs-step-title">Usability testing</div>
+          <p class="cs-step-desc">Two testing rounds — one in-person, one remote. Participants completed tasks: browsing listings, reviewing job details, applying for a position. Users navigated successfully overall, but surfaced one consistent issue: too much information on the job description screen made it hard to scan quickly.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Phase 06</div>
+          <div class="cs-step-title">A/B testing</div>
+          <p class="cs-step-desc">My assumption — detailed descriptions upfront — was wrong. Users wanted quick-scan cards to filter fast. This A/B result changed the entire IA direction and led to the dual-mode apply flow.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Wireframes ── -->
+    <div class="cs-section full-only" id="cs-wireframes">
+      <div class="cs-section-title">Wireframe evolution</div>
+      <p class="cs-text">Early sketches explored different structural approaches before committing to visual design. The goal was to test navigation logic and screen hierarchy — not aesthetics.</p>
+      <div class="cs-wireframe-grid">
+        <img src="https://framerusercontent.com/images/YrhEa7arXayfH47sgDT32cyGss.png" alt="Wireframe — home screen early iteration">
+        <img src="https://framerusercontent.com/images/oqEE56CrfrgqYHUOybruiyHhlHQ.png" alt="Wireframe — job search screen">
+        <img src="https://framerusercontent.com/images/yvqByZUjxbhm84z77FeWVVYgOJs.png" alt="Wireframe — job listing">
+        <img src="https://framerusercontent.com/images/AEWwITkvQLCwihQFJlnKlIxhsDs.png" alt="Wireframe — profile screen">
+        <img src="https://framerusercontent.com/images/VQkqDwOBvkIhnQRydpTeUmjZ4gw.png" alt="Wireframe — application tracker">
+        <img src="https://framerusercontent.com/images/O65iuWeVDOIoBxsb2ercmF2EQ.png" alt="Wireframe — apply flow">
+      </div>
+    </div>
+
+    <!-- ── A/B Testing ── -->
+    <div class="cs-section full-only" id="cs-ab">
+      <div class="cs-section-title">A/B testing</div>
+      <p class="cs-text">After usability testing surfaced the information overload issue, I ran an A/B test to compare two different approaches to the quick apply screen. The goal: understand which layout better matched user expectations before submitting an application.</p>
+
+      <div class="cs-ab">
+        <div class="cs-ab-card">
+          <div class="cs-ab-label loser">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg>
+            Version A — Not selected
+          </div>
+          <img class="cs-ab-img" src="https://framerusercontent.com/images/jF9f8S2q8v70uYHk12TCbhAKms.png" alt="A/B Test Version A">
+          <div class="cs-ab-verdict">Users spent significantly more time navigating between screens. The element order didn't match their mental model — they had to hunt for the information they needed before feeling ready to apply.</div>
+        </div>
+        <div class="cs-ab-card">
+          <div class="cs-ab-label winner">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 7 5.5 10.5 12 4"/></svg>
+            Version B — Selected
+          </div>
+          <img class="cs-ab-img" src="https://framerusercontent.com/images/aHF30kylJjIR0mNYsVvO25864.png" alt="A/B Test Version B">
+          <div class="cs-ab-verdict">The card element order matched user expectations. Key job details appeared in the sequence users naturally look for them — which meant less time deciding and faster progression to apply.</div>
+        </div>
+      </div>
+
+      <div class="cs-insight" style="margin-top: 32px;">
+        <div class="cs-insight-i">🧪</div>
+        <div class="cs-insight-t"><strong>What changed because of this test:</strong> The entire information architecture of the job listing was restructured. The application flow was also split into two modes — Quick Apply and Standard Apply — directly based on what users revealed about how they scan and decide.</div>
+      </div>
+    </div>
+
+    <!-- ── Design system ── -->
+    <div class="cs-section full-only">
+      <div class="cs-section-title">Design system</div>
+      <p class="cs-text">Before building the high-fidelity UI, a structured design system was established — ensuring consistency across all screens and making future iteration faster and more predictable.</p>
+      <div class="cs-design-system-img">
+        <img src="https://framerusercontent.com/images/yTTbMLpuMeZZ0GvLkyh1DKRuhE.png" alt="JobLink design system — colours, typography, components">
+      </div>
+    </div>
+
+    <!-- ── Impact ── -->
+    <div class="cs-section" id="cs-impact">
+      <div class="cs-section-title">Impact on behaviour</div>
+      <p class="cs-text">The redesigned experience significantly changed how users searched and applied for jobs. The improvements weren't marginal — the before/after difference was structural.</p>
+
+      <div class="cs-two">
+        <div class="cs-col before">
+          <div class="cs-col-label">Before JobLink</div>
+          <ul>
+            <li>3 resumes in Google Drive, manually managed</li>
+            <li>20+ minutes per application — customising everything</li>
+            <li>Often abandoned mid-application due to decision fatigue</li>
+            <li>Missed opportunities in secondary industries</li>
+          </ul>
+        </div>
+        <div class="cs-col after">
+          <div class="cs-col-label">After JobLink</div>
+          <ul>
+            <li>2 profiles created once, one-tap apply from there</li>
+            <li>5 jobs applied in the time it used to take for one</li>
+            <li>Users felt "in control" of their search for the first time</li>
+            <li>Secondary industry applications opened up naturally</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-section-sub">Why it worked</div>
+      <p class="cs-text">The 98% intuitive rating wasn't accidental — it came from borrowing interaction patterns users already understood. Profile switching mirrored how social media apps work. Location search mirrored map navigation. This reduced the learning curve to near zero and removed the hesitation that usually accompanies new tools.</p>
+    </div>
+
+    <!-- ── Key learnings ── -->
+    <div class="cs-section full-only" id="cs-learnings">
+      <div class="cs-section-title">Key learnings</div>
+      <div class="cs-insight">
+        <div class="cs-insight-i">🔍</div>
+        <div class="cs-insight-t"><strong>Design for the exception, not the average:</strong> The most valuable opportunity was the underserved edge case — career changers and multi-skilled professionals — not the mainstream single-track job hunter. Designing for the edge case created a better product for everyone.</div>
+      </div>
+      <div class="cs-insight">
+        <div class="cs-insight-i">🧪</div>
+        <div class="cs-insight-t"><strong>A/B testing proved my assumptions wrong:</strong> I was convinced detailed upfront descriptions were more useful. Users proved the opposite. The entire information architecture changed as a result. Always test before committing to an IA decision.</div>
+      </div>
+      <div class="cs-insight">
+        <div class="cs-insight-i">✂️</div>
+        <div class="cs-insight-t"><strong>Simplicity is the feature:</strong> Profile switching and one-tap apply were loved. Smart matching and suggestion features were ignored entirely. Reducing cognitive load consistently beat adding functionality. The users who said they wanted more features never used them.</div>
+      </div>
+    </div>
+
+  </div><!-- /cs-body -->
+
+  </div><!-- /cs-layout -->
+</div><!-- /cs-page -->
+
+<!-- CTA — full bleed (sibling of .cs-page so width is always viewport) -->
+<div class="cta-scroll-wrap">
+  <div class="cta-sticky">
+    <section class="cta-section" id="cta">
+      <div class="cta-bg-orb cta-bg-orb-1"></div>
+      <div class="cta-bg-orb cta-bg-orb-2"></div>
+      <div class="container">
+        <div class="cta-inner-dark reveal">
+          <div class="cta-avail-badge">
+            <div class="nav-dot"></div>Available for new projects
+          </div>
+          <h2 class="cta-big-headline">Need a smarter product<em> experience?</em></h2>
+          <p class="cta-big-sub">From research to high-fidelity design — I run the full UX process so you ship something that actually works for your users.</p>
+          <div class="cta-btn-row">
+            <a href="/contact/" class="btn btn-white" style="padding:14px 36px">Start a project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/"><img src="/Public/Images/logo.png" alt="Paux Design"></a>
+      <p class="footer-brand-name">PAUX Design</p>
+      <p class="footer-brand-tagline">Product Designer for high-growth startups &amp; digital products. London · Remote.</p>
+      <p class="footer-brand-email"><a href="mailto:contact@pauxdesign.uk">contact@pauxdesign.uk</a></p>
+    </div>
+    <div class="footer-sitemap">
+      <div class="footer-sitemap-label">Site map</div>
+      <div class="footer-sitemap-grid">
+        <a href="/#about">About</a>
+        <a href="/work/">Work</a>
+        <a href="/#services">Services</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#process">Process</a>
+        <a href="/contact/">Contact</a>
+        <a href="/work/enterprise-saas/">Enterprise SaaS</a>
+        <a href="/work/mila-ai/">Mila AI</a>
+        <a href="/work/joblink/">JobLink</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-social-links">
+        <a class="footer-social-link" href="https://www.linkedin.com/in/paula-alonso-design/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="footer-social-link" href="https://www.instagram.com/pauxdesign/" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Paula Alonso · Paux Design</div>
+    <div class="footer-lang"><a href="/">EN</a> / <a href="/es/">ES</a></div>
+    <div class="footer-rights">All rights reserved</div>
+  </div>
+</footer>
+
+<script>
+function toggleMobileNav() {
+  const btn = document.getElementById('navHamburger');
+  const overlay = document.getElementById('navMobileOverlay');
+  const isOpen = overlay.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  overlay.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+function closeMobileNav() {
+  const btn = document.getElementById('navHamburger');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.getElementById('navMobileOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function initReveal() {
+  const els = document.querySelectorAll('.reveal, .reveal-fade, .reveal-scale');
+  const ob = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ob.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => ob.observe(el));
+}
+window.addEventListener('load', () => {
+  document.querySelectorAll('.reveal, .reveal-scale, .reveal-fade').forEach(el => el.classList.add('visible'));
+  initReveal();
+});
+(() => {
+  const nav = document.getElementById('site-nav');
+  if (!nav) return;
+  const s = () => nav.classList.toggle('nav--scrolled', window.scrollY > 8);
+  s(); window.addEventListener('scroll', s, { passive: true });
+})();
+(function initCtaStack() {
+  const wraps = [...document.querySelectorAll('.cta-scroll-wrap')];
+  if (!wraps.length) return;
+  function update() {
+    wraps.forEach((wrap) => {
+      const section = wrap.querySelector('.cta-section, .cs-cta');
+      if (!section) return;
+      const rect = wrap.getBoundingClientRect();
+      const scrollable = wrap.offsetHeight - window.innerHeight;
+      let progress;
+      if (scrollable > 0) {
+        const scrolled = Math.max(0, -rect.top);
+        progress = scrolled / scrollable;
+      } else {
+        const sectionRect = section.getBoundingClientRect();
+        const vh = Math.max(window.innerHeight, 1);
+        const start = vh * 0.95;
+        const end = -sectionRect.height * 0.35;
+        progress = (start - sectionRect.top) / Math.max(1, start - end);
+      }
+      progress = Math.min(1, Math.max(0, progress));
+      const ease = 1 - Math.pow(1 - progress, 2.5);
+      const accentOp = Math.min(1, Math.max(0, 4 * ease * (1 - ease)));
+      const bgOp = Math.min(1, ease * ease * 1.08);
+      section.style.setProperty('--cta-accent-op', String(accentOp));
+      section.style.setProperty('--cta-bg-op', String(bgOp));
+      section.style.setProperty('--cta-ease', String(ease));
+      section.classList.toggle('cta-founder-tone', accentOp > 0.3 && bgOp < 0.5);
+      section.classList.toggle('cta-footer-tone', bgOp >= 0.5);
+    });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+</script>
+
+<script>
+// ── VIEW TOGGLE ──────────────────────────────────────────────────────────────
+(function initViewToggle() {
+  const STORAGE_KEY = 'paux-cs-view';
+  const body = document.body;
+
+  // Default to 'full' — don't penalise the design lead on first visit
+  const saved = sessionStorage.getItem(STORAGE_KEY) || 'full';
+  setView(saved, false);
+
+  function setView(view, animate) {
+    if (animate) {
+      body.classList.add('view-switching');
+      setTimeout(() => body.classList.remove('view-switching'), 280);
+    }
+
+    if (view === 'quick') {
+      body.classList.add('view-quick');
+      body.classList.remove('view-full');
+    } else {
+      body.classList.remove('view-quick');
+      body.classList.add('view-full');
+    }
+
+    sessionStorage.setItem(STORAGE_KEY, view);
+
+    // Update button states
+    document.querySelectorAll('.cs-toggle-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === view);
+    });
+
+    // Show/hide index
+    const idx = document.querySelector('.cs-index');
+    if (idx) {
+      idx.style.display = (view === 'full') ? '' : 'none';
+    }
+  }
+
+  // Bind toggle buttons
+  document.querySelectorAll('.cs-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => setView(btn.dataset.view, true));
+  });
+})();
+
+// ── STICKY INDEX — active section tracking ───────────────────────────────────
+(function initStickyIndex() {
+  const items = document.querySelectorAll('.cs-index-item[data-section]');
+  if (!items.length) return;
+
+  const sections = [...items].map(item => {
+    return document.getElementById(item.dataset.section);
+  }).filter(Boolean);
+
+  function update() {
+    if (document.body.classList.contains('view-quick')) return;
+    let active = sections[0];
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 160) active = sec;
+    });
+    items.forEach(item => {
+      item.classList.toggle('active', item.dataset.section === active?.id);
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+
+  // Smooth scroll on click
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(item.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

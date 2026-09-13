@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/Public/Images/icon.png" type="image/png">
+<title>Rover Redesign — UX Case Study — Paux Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+
+/* ── VIEW TOGGLE ── */
+.cs-view-toggle { margin-top: 28px; display: flex; justify-content: flex-start; }
+.cs-toggle-wrap { display: inline-flex; align-items: center; background: #FAFAFC; border: 1px solid rgba(38,30,72,0.12); border-radius: 999px; padding: 5px; gap: 2px; box-shadow: 0 2px 12px rgba(38,30,72,0.06); }
+.cs-toggle-btn { display: flex; flex-direction: column; align-items: flex-start; padding: 10px 20px; border-radius: 999px; border: none; background: transparent; cursor: pointer; transition: background 0.2s; font-family: 'Manrope', sans-serif; text-align: left; min-width: 180px; }
+.cs-toggle-btn:hover:not(.active) { background: rgba(38,30,72,0.04); }
+.cs-toggle-btn.active { background: #261E48; }
+.cs-toggle-btn-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: #9B98B8; line-height: 1; margin-bottom: 3px; }
+.cs-toggle-btn.active .cs-toggle-btn-label { color: rgba(255,255,255,0.55); }
+.cs-toggle-btn-name { font-size: 0.875rem; font-weight: 600; color: #261E48; line-height: 1; }
+.cs-toggle-btn.active .cs-toggle-btn-name { color: #fff; }
+.cs-toggle-divider { width: 1px; height: 28px; background: rgba(38,30,72,0.12); flex-shrink: 0; }
+.full-only { display: block; }
+body.view-quick .full-only { display: none !important; }
+body.view-switching .cs-section, body.view-switching .cs-mockup-full { opacity: 0.4; transition: opacity 0.25s ease; }
+
+/* ── STICKY INDEX ── */
+.cs-layout { position: relative; display: block; }
+.cs-index { display: none; position: fixed; top: 50%; left: 24px; transform: translateY(-50%); z-index: 100; width: 160px; }
+@media (min-width: 1280px) { body:not(.view-quick) .cs-index { display: block; } }
+.cs-index-inner { display: flex; flex-direction: column; gap: 2px; }
+.cs-index-item { display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 5px 8px; border-radius: 8px; transition: background 0.15s; cursor: pointer; }
+.cs-index-item:hover .cs-index-dot { background: #7059DC; transform: scale(1.3); }
+.cs-index-item:hover .cs-index-label { color: #261E48; }
+.cs-index-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(38,30,72,0.18); flex-shrink: 0; transition: background 0.2s, transform 0.2s; }
+.cs-index-item.active .cs-index-dot { background: #7059DC; transform: scale(1.25); }
+.cs-index-label { font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 600; color: #9B98B8; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cs-index-item.active .cs-index-label { color: #261E48; }
+
+/* ── ROVER-SPECIFIC COMPONENTS ── */
+
+/* Section divider — subtle rule between major sections */
+.cs-section-divider {
+  border: none;
+  border-top: 1px solid rgba(38,30,72,0.08);
+  margin: 0;
+}
+
+/* Research method tags */
+.cs-method-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+}
+.cs-method-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #F0EEFF;
+  border: 1px solid rgba(112,89,220,0.2);
+  border-radius: 999px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #7059DC;
+}
+.cs-method-tag-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #7059DC;
+  flex-shrink: 0;
+}
+
+/* Stat row — 3 numbers side by side */
+.cs-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0 0;
+}
+.cs-stat-card {
+  background: #F5F6FF;
+  border: 1px solid rgba(38,30,72,0.10);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+}
+.cs-stat-card-num {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #261E48;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.cs-stat-card-label {
+  font-size: 0.82rem;
+  color: #655F8C;
+  line-height: 1.45;
+}
+
+/* User quotes */
+.cs-quote-user {
+  margin: 16px 0;
+  background: #F5F6FF;
+  border-left: 3px solid #7059DC;
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  font-size: 0.9rem;
+  color: #655F8C;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* HMW block */
+.cs-hmw {
+  margin: 36px 0 0;
+  background: #261E48;
+  border-radius: 20px;
+  padding: 36px 40px;
+}
+.cs-hmw-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9B98B8;
+  margin-bottom: 12px;
+  font-family: 'Manrope', sans-serif;
+}
+.cs-hmw p {
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: #fff;
+  margin: 0;
+}
+
+/* Image with caption */
+.cs-img-block {
+  margin: 32px 0 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(38,30,72,0.10);
+}
+.cs-img-block img { width: 100%; display: block; }
+.cs-img-block-caption {
+  padding: 12px 18px;
+  font-size: 0.77rem;
+  color: #9B98B8;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: #FAFAFC;
+  border-top: 1px solid rgba(38,30,72,0.07);
+}
+
+/* 2-col image grid */
+.cs-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0 0;
+}
+.cs-img-grid-item { border-radius: 14px; overflow: hidden; border: 1px solid rgba(38,30,72,0.10); }
+.cs-img-grid-item img { width: 100%; display: block; }
+.cs-img-grid-caption {
+  padding: 10px 14px;
+  font-size: 0.73rem;
+  color: #9B98B8;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #FAFAFC;
+  border-top: 1px solid rgba(38,30,72,0.07);
+}
+
+/* Benchmarking table */
+.cs-bench-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0 0;
+  font-size: 0.85rem;
+  font-family: 'Manrope', sans-serif;
+}
+.cs-bench-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9B98B8;
+  border-bottom: 2px solid rgba(38,30,72,0.1);
+}
+.cs-bench-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(38,30,72,0.07);
+  color: #3D3566;
+  vertical-align: top;
+  line-height: 1.5;
+}
+.cs-bench-table tr:last-child td { border-bottom: none; }
+.cs-bench-table td:first-child { font-weight: 600; color: #261E48; width: 140px; }
+.cs-bench-tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; }
+.cs-bench-tag.fail { background: #FFF0F0; color: #C0392B; }
+.cs-bench-tag.pass { background: #F0FFF4; color: #1a8a30; }
+
+/* Heuristic grid */
+.cs-heuristic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 28px 0 0;
+}
+.cs-heuristic-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #FAFAFC;
+  border: 1px solid rgba(38,30,72,0.08);
+  border-radius: 12px;
+  font-size: 0.84rem;
+  color: #3D3566;
+  font-family: 'Manrope', sans-serif;
+}
+.cs-heuristic-status {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.cs-heuristic-status.pass { background: #E6FAF0; color: #1a8a30; }
+.cs-heuristic-status.fail { background: #FFF0F0; color: #C0392B; }
+
+/* UX writing comparison */
+.cs-writing-example {
+  margin: 20px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.cs-writing-col {
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.cs-writing-col.bad { background: #FFF8F8; border: 1px solid rgba(192,57,43,0.15); }
+.cs-writing-col.good { background: #F0FFF5; border: 1px solid rgba(26,138,48,0.15); }
+.cs-writing-col-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  font-family: 'Manrope', sans-serif;
+}
+.cs-writing-col.bad .cs-writing-col-label { color: #C0392B; }
+.cs-writing-col.good .cs-writing-col-label { color: #1a8a30; }
+.cs-writing-col ul { margin: 0; padding: 0 0 0 16px; }
+.cs-writing-col li { font-size: 0.84rem; color: #3D3566; line-height: 1.5; margin-bottom: 4px; font-family: 'Manrope', sans-serif; }
+
+/* Tree testing result bar */
+.cs-tree-result {
+  margin: 24px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.cs-tree-task {
+  background: #FAFAFC;
+  border: 1px solid rgba(38,30,72,0.09);
+  border-radius: 16px;
+  padding: 24px 20px;
+}
+.cs-tree-task-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9B98B8;
+  margin-bottom: 12px;
+  font-family: 'Manrope', sans-serif;
+}
+.cs-tree-task-desc {
+  font-size: 0.84rem;
+  color: #655F8C;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-family: 'Manrope', sans-serif;
+}
+.cs-tree-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.cs-tree-bar-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+  color: #9B98B8;
+  width: 60px;
+  flex-shrink: 0;
+}
+.cs-tree-bar-track {
+  flex: 1;
+  height: 8px;
+  background: rgba(38,30,72,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cs-tree-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+.cs-tree-bar-fill.before { background: #E05B5B; }
+.cs-tree-bar-fill.after { background: #22C55E; }
+.cs-tree-bar-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Manrope', sans-serif;
+  color: #261E48;
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Note/callout */
+.cs-note {
+  background: #E2E5FD;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 0.85rem;
+  color: #261E48;
+  margin: 24px 0 0;
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .cs-stat-row { grid-template-columns: 1fr; }
+  .cs-heuristic-grid { grid-template-columns: 1fr; }
+  .cs-img-grid { grid-template-columns: 1fr; }
+  .cs-writing-example { grid-template-columns: 1fr; }
+  .cs-tree-result { grid-template-columns: 1fr; }
+  .cs-hmw { padding: 28px 24px; }
+  .cs-bench-table td:first-child { width: auto; }
+  .cs-persona-grid { grid-template-columns: 1fr !important; }
+  .cs-persona-detail-grid { grid-template-columns: 1fr !important; }
+  .cs-journey-steps-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner" id="site-nav">
+    <div class="nav-brand">
+      <a href="/"><img class="nav-brand-logo" src="/Public/Images/logo-name.png" alt="Paux Design"></a>
+    </div>
+    <ul class="nav-links" aria-label="Primary">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/contact/" class="btn btn-dark nav-cta-btn" style="padding:12px 18px;">Let's talk</a>
+      <button type="button" class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Open menu" aria-expanded="false" aria-controls="navMobileOverlay">
+        <span class="nav-hamburger-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobileOverlay">
+  <a href="/#about" onclick="closeMobileNav()">About</a>
+  <a href="/#services" onclick="closeMobileNav()">Services</a>
+  <a href="/work/" onclick="closeMobileNav()">Work</a>
+  <a href="/contact/" onclick="closeMobileNav()">Contact</a>
+  <div class="nav-mobile-divider"></div>
+  <a href="/contact/" onclick="closeMobileNav()" class="btn btn-dark nav-mobile-cta">Let's talk</a>
+</div>
+
+<div class="cs-page">
+
+  <!-- ── Hero ── -->
+  <div class="cs-hero">
+    <div class="container">
+      <a class="cs-back" href="/work/">
+        <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg> Back to work
+      </a>
+      <div class="cs-htags">
+        <span class="cs-htag">UX Research</span>
+        <span class="cs-htag">UX Writing</span>
+        <span class="cs-htag">Web Redesign</span>
+        <span class="cs-htag">Concept Project</span>
+      </div>
+      <div class="cs-title">Rover.com — Redesigning Trust for Pet Owners</div>
+      <p class="cs-subtitle">A research-led redesign of Rover's dashboard and search experience — reducing booking friction, surfacing pet updates, and introducing Pet Tracker as a new feature validated through two rounds of tree testing and remote usability sessions.</p>
+      <div class="cs-meta">
+        <div><div class="cs-meta-label">Role</div><div class="cs-meta-value">UX Designer (end-to-end)</div></div>
+        <div><div class="cs-meta-label">Scope</div><div class="cs-meta-value">Research · UX strategy · UX writing · UI design</div></div>
+        <div><div class="cs-meta-label">Platform</div><div class="cs-meta-value">Web (desktop)</div></div>
+        <div><div class="cs-meta-label">Year</div><div class="cs-meta-value">2023</div></div>
+      </div>
+
+      <div class="cs-view-toggle">
+        <div class="cs-toggle-wrap">
+          <button class="cs-toggle-btn active" data-view="full" aria-label="Full case study">
+            <span class="cs-toggle-btn-label">Full case study</span>
+            <span class="cs-toggle-btn-name">Full deep-dive</span>
+          </button>
+          <div class="cs-toggle-divider"></div>
+          <button class="cs-toggle-btn" data-view="quick" aria-label="Quick read">
+            <span class="cs-toggle-btn-label">Quick read</span>
+            <span class="cs-toggle-btn-name">30-second skim</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero cover -->
+  <div class="cs-hero-cover">
+    <img src="/Public/Images/rover.png" alt="Rover.com — search redesign before and after">
+  </div>
+
+  <!-- Sticky index -->
+  <div class="cs-index" aria-label="Case study navigation">
+    <div class="cs-index-inner">
+      <a class="cs-index-item" data-section="cs-metrics" href="#cs-metrics"><span class="cs-index-dot"></span><span class="cs-index-label">At a glance</span></a>
+      <a class="cs-index-item" data-section="cs-overview" href="#cs-overview"><span class="cs-index-dot"></span><span class="cs-index-label">Overview</span></a>
+      <a class="cs-index-item" data-section="cs-problem" href="#cs-problem"><span class="cs-index-dot"></span><span class="cs-index-label">The problem</span></a>
+      <a class="cs-index-item" data-section="cs-research" href="#cs-research"><span class="cs-index-dot"></span><span class="cs-index-label">Research</span></a>
+      <a class="cs-index-item" data-section="cs-ia" href="#cs-ia"><span class="cs-index-dot"></span><span class="cs-index-label">Architecture</span></a>
+      <a class="cs-index-item" data-section="cs-decisions" href="#cs-decisions"><span class="cs-index-dot"></span><span class="cs-index-label">Decisions</span></a>
+      <a class="cs-index-item" data-section="cs-uxwriting" href="#cs-uxwriting"><span class="cs-index-dot"></span><span class="cs-index-label">UX writing</span></a>
+      <a class="cs-index-item" data-section="cs-testing" href="#cs-testing"><span class="cs-index-dot"></span><span class="cs-index-label">Testing</span></a>
+      <a class="cs-index-item" data-section="cs-outcome" href="#cs-outcome"><span class="cs-index-dot"></span><span class="cs-index-label">Outcome</span></a>
+    </div>
+  </div>
+
+  <div class="cs-layout">
+  <div class="cs-body">
+
+    <!-- ── At a glance ── -->
+    <div class="cs-metrics" id="cs-metrics">
+      <div class="cs-metric">
+        <div class="cs-metric-num">8% → 90%</div>
+        <div class="cs-metric-label">Tree testing task 1 success — after IA restructure</div>
+      </div>
+      <div class="cs-metric">
+        <div class="cs-metric-num">5 / 5</div>
+        <div class="cs-metric-label">Users completed both tasks in remote testing — avg 20 sec to Pet Tracker</div>
+      </div>
+      <div class="cs-metric">
+        <div class="cs-metric-num">98%</div>
+        <div class="cs-metric-label">Acceptance rate for Pet Tracker in usability testing</div>
+      </div>
+    </div>
+
+    <!-- ── Overview ── -->
+    <div class="cs-section" id="cs-overview">
+      <div class="cs-section-title">Overview</div>
+      <p class="cs-text">Rover.com connects pet owners with trusted sitters and dog walkers. The service itself was well-regarded — sitters were getting five-star reviews — but the platform experience was consistently criticised. Users struggled to navigate it confidently, and the post-booking experience left them with no visibility into how their pet was doing.</p>
+      <p class="cs-text">This is a research-led redesign focused on three areas: the search and discovery experience, the dashboard, and Pet Tracker — a new feature proposed and validated entirely through user data. It also included a complete UX writing layer covering voice, tone and microcopy standards.</p>
+    </div>
+
+    <!-- ── The problem ── -->
+    <div class="cs-section" id="cs-problem">
+      <div class="cs-section-title">The problem</div>
+      <div class="cs-quote">"The sitter was incredible. But the app is difficult to navigate — and once you book, you have no idea what's happening with your pet."</div>
+
+      <p class="cs-text">Rover's core tension: a trusted service with an experience that undermined that trust. The anxiety didn't end at checkout — it started there.</p>
+
+      <div class="cs-two" style="margin-top: 32px;">
+        <div class="cs-col before">
+          <div class="cs-col-label">User pain points</div>
+          <ul>
+            <li>Confused by navigation on first visit — 8 out of 13 users</li>
+            <li>Had to open sitter profiles one by one — no quick comparison</li>
+            <li>Filters buried and unused — 10 out of 13 didn't use them</li>
+            <li>Dashboard mixed bookings with messages</li>
+            <li>No visibility into pet status after booking</li>
+          </ul>
+        </div>
+        <div class="cs-col after">
+          <div class="cs-col-label">The consequence</div>
+          <ul>
+            <li>High drop-off during search — too much cognitive load</li>
+            <li>Users messaged multiple sitters due to lack of confidence</li>
+            <li>Repeat customers relied on memory, not the platform</li>
+            <li>Post-booking trust gap — owners couldn't track pet welfare</li>
+            <li>The platform felt like it served sitters, not owners</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-hmw">
+        <div class="cs-hmw-label">How might we</div>
+        <p>Help pet owners find a trusted sitter with confidence — and feel reassured once their pet is in someone else's care?</p>
+      </div>
+    </div>
+
+  </div><!-- /cs-body -->
+
+  <!-- Mockup: search before/after -->
+  <div class="cs-mockup-full full-only">
+    <img src="/Public/Images/mejroa4.png" alt="Rover — search before and after">
+    <div class="cs-mockup-caption">
+      <span class="cs-mockup-label">Search — before &amp; after</span>
+      <p>Left: original sidebar with filter overload. Right: persistent top bar filters, curated top 5 recommendations, map integrated cleanly.</p>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+    <!-- ── Research ── -->
+    <div class="cs-section full-only" id="cs-research">
+      <div class="cs-section-title">Research &amp; discovery</div>
+      <p class="cs-text">The process moved through secondary research first — desk research, trend analysis, competitive benchmarking and heuristic analysis — before moving to primary research with actual users. The goal was to understand not just what was broken, but why users behaved the way they did.</p>
+
+      <div class="cs-method-tags">
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>Desk research</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>Trend analysis</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>Competitive benchmarking</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>Heuristic analysis</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>User survey (13 users)</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>User persona</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>Journey mapping</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>Lean Canvas</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>FVD prioritisation</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>Tree testing ×2</span>
+        <span class="cs-method-tag"><span class="cs-method-tag-dot"></span>Remote usability testing</span>
+      </div>
+
+      <!-- Competitive benchmarking -->
+      <h4 style="margin: 48px 0 8px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">Competitive benchmarking</h4>
+      <p class="cs-text">I analysed Rover against Pawshake and Gudog across three dimensions: vocabulary, UI design and navigability. Rover scored well on familiarity but fell short on information hierarchy and search clarity.</p>
+
+      <table class="cs-bench-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Rover</th>
+            <th>Pawshake</th>
+            <th>Gudog</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vocabulary</td>
+            <td>Clear for search, breaks down in booking flow</td>
+            <td>Consistent, minor errors</td>
+            <td>Understandable but function labels unclear</td>
+          </tr>
+          <tr>
+            <td>UI Design</td>
+            <td>Dashboard too minimal — omits key elements</td>
+            <td>Balanced, nothing critical missing</td>
+            <td>Cluttered search, buttons hard to identify</td>
+          </tr>
+          <tr>
+            <td>Steps to register</td>
+            <td style="text-align: center; font-weight: 700; color: #261E48;">2</td>
+            <td style="text-align: center; font-weight: 700; color: #261E48;">2</td>
+            <td style="text-align: center; font-weight: 700; color: #261E48;">1</td>
+          </tr>
+          <tr>
+            <td>Steps to book</td>
+            <td style="text-align: center; font-weight: 700; color: #261E48;">5</td>
+            <td style="text-align: center; font-weight: 700; color: #261E48;">5</td>
+            <td style="text-align: center; font-weight: 700; color: #261E48;">5</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Heuristic analysis -->
+      <h4 style="margin: 48px 0 8px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">Heuristic analysis — Nielsen's 10 principles</h4>
+      <p class="cs-text">Applied Nielsen's heuristics to the existing Rover interface. Six principles passed, four failed — the failures all pointed to the same cluster: the user had too little control and too little feedback at critical moments.</p>
+
+      <div class="cs-heuristic-grid">
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status fail">✕</div>
+          Visibility of system status
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status pass">✓</div>
+          Match with real world
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status fail">✕</div>
+          User control &amp; freedom
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status pass">✓</div>
+          Consistency &amp; standards
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status fail">✕</div>
+          Error prevention
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status pass">✓</div>
+          Recognition over recall
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status fail">✕</div>
+          Flexibility &amp; efficiency
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status pass">✓</div>
+          Aesthetic &amp; minimalist design
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status fail">✕</div>
+          Error recognition &amp; recovery
+        </div>
+        <div class="cs-heuristic-item">
+          <div class="cs-heuristic-status pass">✓</div>
+          Help &amp; documentation
+        </div>
+      </div>
+
+      <!-- Survey findings -->
+      <h4 style="margin: 48px 0 8px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">Survey — 13 users, 18 questions</h4>
+      <p class="cs-text">80% women, 20% men, ages 30–50. All pet owners. The data confirmed what the heuristic analysis suggested — navigation and trust were the two dominant friction points.</p>
+
+      <div class="cs-stat-row">
+        <div class="cs-stat-card">
+          <div class="cs-stat-card-num">10/13</div>
+          <div class="cs-stat-card-label">Needed a tutorial to understand the platform on first use</div>
+        </div>
+        <div class="cs-stat-card">
+          <div class="cs-stat-card-num">11/13</div>
+          <div class="cs-stat-card-label">Prioritised reviews — but couldn't filter sitters by them</div>
+        </div>
+        <div class="cs-stat-card">
+          <div class="cs-stat-card-num">10/13</div>
+          <div class="cs-stat-card-label">Didn't use search filters — they were too buried to notice</div>
+        </div>
+      </div>
+
+      <div class="cs-quote-user">"I would like the sitter to contact me more when my pets are at their place."</div>
+      <div class="cs-quote-user">"It frustrates me to have to open profiles one by one."</div>
+      <div class="cs-quote-user">"Initially, it was difficult to understand how to make a reservation."</div>
+
+      <!-- Persona -->
+      <h4 style="margin: 48px 0 8px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">User persona — Isabella</h4>
+      <p class="cs-text">The research converged on a clear primary user. Isabella — 34, project manager in London, solo pet owner. Her frustration starts at search (opening profiles one by one, no review filter) and peaks post-booking when she has no visibility into Max's day. The journey map showed her emotional low point at step 7 — waiting for updates that never came.</p>
+
+      <!-- User Persona: Isabella -->
+      <div style="margin: 24px 0 0; background: #fff; border: 1px solid rgba(38,30,72,0.10); border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(38,30,72,0.07);">
+        <div class="cs-persona-grid" style="display: grid; grid-template-columns: 220px 1fr; min-height: 260px;">
+          <div style="background: linear-gradient(160deg, #e8e6f8 0%, #d2cef5 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px 20px; gap: 12px; border-right: 1px solid rgba(38,30,72,0.08);">
+            <div style="width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, #9b8aed, #7059DC); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; box-shadow: 0 4px 16px rgba(112,89,220,0.25);">🐕</div>
+            <div style="text-align: center;">
+              <div style="font-family: 'Manrope', sans-serif; font-size: 1.5rem; font-weight: 700; color: #261E48; letter-spacing: -0.02em;">Isabella</div>
+              <div style="font-family: 'Manrope', sans-serif; font-size: 0.8rem; color: #655F8C; margin-top: 4px;">34 years · Project Manager · London, UK</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px; width: 100%;">
+              <div style="display: flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 0.75rem; color: #655F8C;"><span style="font-size: 0.9rem;">🏙️</span> City centre apartment</div>
+              <div style="display: flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 0.75rem; color: #655F8C;"><span style="font-size: 0.9rem;">✈️</span> Travels frequently for work</div>
+              <div style="display: flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 0.75rem; color: #655F8C;"><span style="font-size: 0.9rem;">🐶</span> Solo owner of Max (Shiba Inu)</div>
+            </div>
+          </div>
+          <div style="padding: 24px 28px; display: flex; flex-direction: column; gap: 20px;">
+            <p style="font-family: 'Manrope', sans-serif; font-size: 0.85rem; color: #655F8C; line-height: 1.65; margin: 0;">Isabella is a pet-loving professional who lives alone in a city centre apartment with her dog Max — her loyal companion. With a busy and socially active schedule, she often travels for work and needs a trustworthy sitter.</p>
+            <div class="cs-persona-detail-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div style="background: #f5f6ff; border: 1px solid rgba(38,30,72,0.08); border-radius: 14px; padding: 16px 18px;">
+                <div style="font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: #7059DC; margin-bottom: 10px;">Motivation &amp; Goals</div>
+                <ul style="margin: 0; padding-left: 16px; font-family: 'Manrope', sans-serif; font-size: 0.8rem; color: #3D3566; line-height: 1.6; display: flex; flex-direction: column; gap: 6px;">
+                  <li>Find a reliable, caring pet sitter when she can't be with Max</li>
+                  <li>Ensure Max gets proper attention, love and exercise while away</li>
+                  <li>Receive regular updates and photos for peace of mind</li>
+                </ul>
+              </div>
+              <div style="background: #fff8f8; border: 1px solid rgba(192,57,43,0.12); border-radius: 14px; padding: 16px 18px;">
+                <div style="font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: #C0392B; margin-bottom: 10px;">Frustrations</div>
+                <ul style="margin: 0; padding-left: 16px; font-family: 'Manrope', sans-serif; font-size: 0.8rem; color: #3D3566; line-height: 1.6; display: flex; flex-direction: column; gap: 6px;">
+                  <li>Concerned about finding a trustworthy, attentive caregiver</li>
+                  <li>Previous sitters have been less attentive than expected</li>
+                  <li>Lacks enough information on profiles to decide confidently</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journey Map: Isabella -->
+      <h4 style="margin: 40px 0 10px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">Journey map — Isabella</h4>
+      <p class="cs-text" style="margin: 0 0 20px;">Isabella has a work trip planned and needs to leave Max in the care of a kind, responsible person for a week. Goal: quickly find a sitter who meets her requirements and ensure clear communication throughout.</p>
+
+      <div style="background: #fff; border: 1px solid rgba(38,30,72,0.10); border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(38,30,72,0.07);">
+        <div class="cs-journey-steps-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; border-bottom: 1px solid rgba(38,30,72,0.08);">
+          <div style="padding: 14px 18px; border-right: 1px solid rgba(38,30,72,0.07);">
+            <div style="font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: #7059DC; margin-bottom: 4px;">Log in</div>
+            <div style="font-family: 'Manrope', sans-serif; font-size: 0.78rem; color: #655F8C;">1. Log in<br>2. Pets profile</div>
+          </div>
+          <div style="padding: 14px 18px; border-right: 1px solid rgba(38,30,72,0.07);">
+            <div style="font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: #7059DC; margin-bottom: 4px;">Search / Select</div>
+            <div style="font-family: 'Manrope', sans-serif; font-size: 0.78rem; color: #655F8C;">3. Search profile<br>4. Select sitter</div>
+          </div>
+          <div style="padding: 14px 18px; border-right: 1px solid rgba(38,30,72,0.07);">
+            <div style="font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: #7059DC; margin-bottom: 4px;">Meet / Pay</div>
+            <div style="font-family: 'Manrope', sans-serif; font-size: 0.78rem; color: #655F8C;">5. Meet sitter<br>6. Confirm &amp; pay</div>
+          </div>
+          <div style="padding: 14px 18px;">
+            <div style="font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: #C0392B; margin-bottom: 4px;">Feedback</div>
+            <div style="font-family: 'Manrope', sans-serif; font-size: 0.78rem; color: #655F8C;">7. Pet info &amp; updates</div>
+          </div>
+        </div>
+        <div style="padding: 20px 24px 8px; background: #fafbff;">
+          <svg viewBox="0 0 700 100" width="100%" preserveAspectRatio="none" style="display: block; height: 80px;">
+            <defs>
+              <linearGradient id="journeyFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7059DC" stop-opacity="0.14"/>
+                <stop offset="100%" stop-color="#7059DC" stop-opacity="0.01"/>
+              </linearGradient>
+            </defs>
+            <path d="M 40 30 C 100 25, 150 20, 200 35 C 250 50, 300 45, 350 55 C 400 65, 450 80, 500 85 C 540 88, 570 75, 620 82 L 660 90 L 700 100 L 0 100 Z" fill="url(#journeyFill)"/>
+            <path d="M 40 30 C 100 25, 150 20, 200 35 C 250 50, 300 45, 350 55 C 400 65, 450 80, 500 85 C 540 88, 570 75, 620 82" fill="none" stroke="#7059DC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="40" cy="30" r="11" fill="#58DB69" stroke="#fff" stroke-width="2"/><text x="40" y="34" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="700" font-size="11" fill="#fff">1</text>
+            <circle cx="160" cy="22" r="11" fill="#58DB69" stroke="#fff" stroke-width="2"/><text x="160" y="26" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="700" font-size="11" fill="#fff">2</text>
+            <circle cx="290" cy="48" r="11" fill="#F5A623" stroke="#fff" stroke-width="2"/><text x="290" y="52" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="700" font-size="11" fill="#fff">3</text>
+            <circle cx="390" cy="60" r="11" fill="#F5A623" stroke="#fff" stroke-width="2"/><text x="390" y="64" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="700" font-size="11" fill="#fff">4</text>
+            <circle cx="490" cy="84" r="11" fill="#E05B5B" stroke="#fff" stroke-width="2"/><text x="490" y="88" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="700" font-size="11" fill="#fff">5</text>
+            <circle cx="580" cy="74" r="11" fill="#F5A623" stroke="#fff" stroke-width="2"/><text x="580" y="78" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="700" font-size="11" fill="#fff">6</text>
+            <circle cx="648" cy="82" r="11" fill="#E05B5B" stroke="#fff" stroke-width="2"/><text x="648" y="86" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="700" font-size="11" fill="#fff">7</text>
+          </svg>
+          <div style="display: flex; gap: 16px; justify-content: center; margin-top: 8px; margin-bottom: 4px; font-family: 'Manrope', sans-serif; font-size: 0.72rem; color: #9B98B8;">
+            <div style="display: flex; align-items: center; gap: 5px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #58DB69; display: inline-block;"></span> Positive</div>
+            <div style="display: flex; align-items: center; gap: 5px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #F5A623; display: inline-block;"></span> Neutral / mixed</div>
+            <div style="display: flex; align-items: center; gap: 5px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #E05B5B; display: inline-block;"></span> Frustration</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prioritisation -->
+      <h4 style="margin: 48px 0 8px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">Prioritisation — FVD matrix</h4>
+      <p class="cs-text">With the problem space mapped, I ran a Feasibility / Viability / Desirability matrix across all proposed improvements. Three priorities emerged at the intersection of high user value and high implementation feasibility: Pet Tracker, dashboard restructure and search optimisation. These became the core of the redesign.</p>
+
+      <div class="cs-insight">
+        <div class="cs-insight-i">🎯</div>
+        <div class="cs-insight-t"><strong>Priority 1:</strong> Pet Tracker + search filter visibility + dashboard tab restructure. <strong>Priority 2:</strong> Onboarding improvements + button improvements. The FVD matrix prevented scope creep — everything that made it into the final design had a clear justification from the data.</div>
+      </div>
+    </div>
+
+  </div><!-- /cs-body -->
+
+  <!-- Mockup: dashboard before/after -->
+  <div class="cs-mockup-full full-only">
+    <img src="/Public/Images/rover-before-after.png" alt="Rover — dashboard before and after">
+    <div class="cs-mockup-caption">
+      <span class="cs-mockup-label">Dashboard — before &amp; after</span>
+      <p>Original: bookings buried in a cluttered single view. Redesigned: clear tabs — Bookings, Track your pets, Past bookings — with status and actions visible at a glance.</p>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+    <!-- ── Information architecture ── -->
+    <div class="cs-section full-only" id="cs-ia">
+      <div class="cs-section-title">Information architecture</div>
+      <p class="cs-text">Tree testing on the existing IA revealed a critical structural failure: only 8% of users reached bookings through the correct path, and "Track your pets" didn't exist as a concept at all. The root cause wasn't visual — it was structural. The dashboard wasn't organised around what users actually needed after booking.</p>
+
+      <div class="cs-img-grid">
+        <div class="cs-img-grid-item">
+          <img src="/Public/Images/rover-ia-old.png" alt="Task 1 — Find your active booking and see its status">
+          <div class="cs-img-grid-caption">Task 1 — Where do you find your active booking?</div>
+        </div>
+        <div class="cs-img-grid-item">
+          <img src="/Public/Images/rover-ia-new.png" alt="Task 2 — Your pet is with the sitter — find out how they're doing">
+          <div class="cs-img-grid-caption">Task 2 — Where do you find information about your pet?</div>
+        </div>
+      </div>
+
+      <!-- Tree testing results as bars -->
+      <!-- Wireflows -->
+      <h4 style="margin: 48px 0 8px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">Wireflows</h4>
+      <p class="cs-text">Before moving to high-fidelity, I mapped the two primary tasks through wireflows — connecting screens to user decisions and validating the restructured IA before building the UI.</p>
+
+      <div class="cs-img-block">
+        <img src="/Public/Images/rover-wireflows.png" alt="Wireflows — task 1 and task 2">
+        <div class="cs-img-block-caption">Wireflows — Task 1 (booking a sitter) and Task 2 (checking pet status)</div>
+      </div>
+    </div>
+
+    <!-- ── Design decisions ── -->
+    <div class="cs-section" id="cs-decisions">
+      <div class="cs-section-title">Design decisions</div>
+      <p class="cs-text">Four decisions defined the redesign. Each came directly from the data — not intuition.</p>
+
+      <div class="cs-steps">
+        <div class="cs-step">
+          <div class="cs-step-num">Decision 01</div>
+          <div class="cs-step-title">Search filters — top bar</div>
+          <p class="cs-step-desc">10/13 survey users didn't use filters — they were buried in a sidebar. Moving them to a persistent top bar made them visible from the first interaction, without competing with the results list for space.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Decision 02</div>
+          <div class="cs-step-title">Top 5 recommendations surfaced</div>
+          <p class="cs-step-desc">Users felt overwhelmed opening profiles one by one. A curated "Our recommendation" block with 5 pre-ranked sitters — ordered by rating, availability and match — reduced decision load and gave a clear starting point without eliminating choice.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Decision 03</div>
+          <div class="cs-step-title">Dashboard — bookings separated from messages</div>
+          <p class="cs-step-desc">The original dashboard conflated two different mental models: managing reservations and communicating with sitters. Separating them into clear tabs — Bookings, Track your pets, Past bookings — made each section immediately scannable and purposeful.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">Decision 04</div>
+          <div class="cs-step-title">Pet Tracker — new feature from user data</div>
+          <p class="cs-step-desc">Post-booking anxiety was the most common frustration across surveys, reviews and testing. Pet Tracker activates when a booking starts: the sitter logs food, exercise, potty breaks, medicine and photos daily. Owners see a live timeline from the dashboard. Users described it as the feature they didn't know they needed. 98% acceptance in testing.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cs-body -->
+
+  <!-- Mockup: search redesigned -->
+  <div class="cs-mockup-full">
+    <img src="/Public/Images/rover-search.png" alt="Rover — redesigned search">
+    <div class="cs-mockup-caption">
+      <span class="cs-mockup-label">Search — redesigned</span>
+      <p>Filters in the top bar, visible from first interaction. Top 5 recommendations ranked by review. Map integrated alongside results — not competing with them.</p>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+    <!-- Pet Tracker -->
+    <div class="cs-section">
+      <div class="cs-section-title">Pet Tracker — the key feature</div>
+      <p class="cs-text">When a booking is active, sitters log daily updates — food portions, exercise, potty breaks, medicine and photos. Owners see a live timeline from the dashboard without needing to message the sitter directly. The feature closes the post-booking trust gap that surveys and reviews consistently identified.</p>
+
+      <div class="cs-img-block" style="margin-top: 24px;">
+        <img src="/Public/Images/rover-pettracker.png" alt="Pet Tracker feature — food, exercise, potty breaks, medicine, photos">
+        <div class="cs-img-block-caption">Pet Tracker — sitters log food, exercise, potty breaks, medicine and photos daily</div>
+      </div>
+    </div>
+
+    <!-- ── UX Writing ── -->
+    <div class="cs-section full-only" id="cs-uxwriting">
+      <div class="cs-section-title">UX writing</div>
+      <p class="cs-text">A platform that handles someone's pet can't afford ambiguous or generic copy. The tone needed to shift depending on context — warm and empathetic during discovery, clear and direct at high-stakes moments like payment and booking confirmation.</p>
+
+      <p class="cs-text">I defined a complete writing system: a voice and tone matrix across three brand values (Empathy, Trust, Security), a tone spectrum mapped to the user journey, and a style guide covering every component type.</p>
+
+      <!-- Tone spectrum -->
+      <h4 style="margin: 36px 0 8px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">Tone spectrum across the user journey</h4>
+      <p class="cs-text">The tone shifts from inspirational and friendly during search and sitter contact — where users need to feel reassured — to serious and direct at login, booking and payment — where clarity and accuracy matter most.</p>
+
+      <!-- UX writing examples -->
+      <h4 style="margin: 36px 0 8px; font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 700; color: #261E48;">Style guide — examples</h4>
+
+      <div class="cs-writing-example">
+        <div class="cs-writing-col bad">
+          <div class="cs-writing-col-label">✕ Avoid</div>
+          <ul>
+            <li>HIRE A DOG WALKER</li>
+            <li>Click to pay</li>
+            <li>ENTER TEXT HERE</li>
+            <li>Error / Could not load</li>
+            <li>You booked!</li>
+          </ul>
+        </div>
+        <div class="cs-writing-col good">
+          <div class="cs-writing-col-label">✓ Use instead</div>
+          <ul>
+            <li>Find trusted pet sitters near you</li>
+            <li>Pay now</li>
+            <li>Write a message to Nikola</li>
+            <li>Please enter a valid email address</li>
+            <li>Your booking for Max is confirmed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-note">
+        <strong>Why this matters:</strong> Trust is Rover's core value proposition. Every button label, error message and confirmation either reinforces or erodes it. Designing the microcopy alongside the UI — not as an afterthought — is what makes the experience feel coherent end to end.
+      </div>
+    </div>
+
+    <!-- ── Testing ── -->
+    <div class="cs-section full-only" id="cs-testing">
+      <div class="cs-section-title">Usability testing</div>
+      <p class="cs-text">Two rounds of testing validated the redesign. Round 1 — Zoom, 5 existing Rover users — tested the prototype against the two primary tasks. Round 2 — Maze, 12 non-users — validated whether first-time visitors could navigate the restructured IA without prior knowledge of the platform.</p>
+
+      <div class="cs-img-block">
+        <img src="/Public/Images/rover-testing.png" alt="Remote usability testing results">
+        <div class="cs-img-block-caption">Remote testing — 5 users, 2 tasks. Task 1: 5/5 (avg 1 min 15 sec). Task 2: 5/5 (avg 20 sec to Pet Tracker).</div>
+      </div>
+
+      <div class="cs-two" style="margin-top: 32px;">
+        <div class="cs-col before">
+          <div class="cs-col-label">What worked</div>
+          <ul>
+            <li>Finding sitter profiles — easy, no major navigation issues</li>
+            <li>Dashboard booking view — immediately understood</li>
+            <li>Message access — felt well-controlled</li>
+            <li>Pet Tracker found in under 20 seconds on average</li>
+          </ul>
+        </div>
+        <div class="cs-col after">
+          <div class="cs-col-label">What to improve</div>
+          <ul>
+            <li>Sitter profile card info — some details still unclear</li>
+            <li>Guide text in home search bar — needs more direction</li>
+            <li>Button organisation in bookings — some confusion remained</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Outcome ── -->
+    <div class="cs-section" id="cs-outcome">
+      <div class="cs-section-title">Outcome</div>
+
+      <div class="cs-insight">
+        <div class="cs-insight-i">📊</div>
+        <div class="cs-insight-t"><strong>Tree testing: 8% → 90% task success</strong> on finding bookings after restructuring the IA — from failed indirect navigation to direct, confident completion.</div>
+      </div>
+      <div class="cs-insight">
+        <div class="cs-insight-i">✅</div>
+        <div class="cs-insight-t"><strong>5/5 task completion</strong> in remote testing — users navigated both the booking flow and Pet Tracker without guidance or confusion. Average 20 seconds to locate Pet Tracker from the dashboard.</div>
+      </div>
+      <div class="cs-insight">
+        <div class="cs-insight-i">🐾</div>
+        <div class="cs-insight-t"><strong>Pet Tracker: 98% acceptance rate</strong> — users described it as addressing an anxiety they hadn't been able to articulate before the test. The feature was proposed and validated entirely from research data, not assumption.</div>
+      </div>
+      <div class="cs-insight full-only">
+        <div class="cs-insight-i">✍️</div>
+        <div class="cs-insight-t"><strong>UX writing system defined</strong> — voice matrix, tone spectrum and style guide covering every component type. Designed alongside the UI, not added at the end.</div>
+      </div>
+      <div class="cs-insight full-only">
+        <div class="cs-insight-i">🔍</div>
+        <div class="cs-insight-t"><strong>What I'd do differently:</strong> Task 2 still had a 30% failure rate — "Track your pets" wasn't intuitive for all users. I'd A/B test alternative labels ("Pet updates", "Live care") before finalising. The naming of features matters as much as their placement.</div>
+      </div>
+    </div>
+
+  </div><!-- /cs-body -->
+  </div><!-- /cs-layout -->
+
+</div><!-- /cs-page -->
+
+<!-- CTA -->
+<div class="cta-scroll-wrap">
+  <div class="cta-sticky">
+    <section class="cta-section" id="cta">
+      <div class="cta-bg-orb cta-bg-orb-1"></div>
+      <div class="cta-bg-orb cta-bg-orb-2"></div>
+      <div class="container">
+        <div class="cta-inner-dark reveal">
+          <div class="cta-avail-badge">
+            <div class="nav-dot"></div>Available for new projects
+          </div>
+          <h2 class="cta-big-headline">Need a <em>research-led</em> designer?</h2>
+          <p class="cta-big-sub">From user surveys to tree testing to high-fidelity UI — I run the full UX process so your product is built on evidence, not assumptions.</p>
+          <div class="cta-btn-row">
+            <a href="/contact/" class="btn btn-white" style="padding:14px 36px">Start a project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/"><img src="/Public/Images/logo.png" alt="Paux Design"></a>
+      <p class="footer-brand-name">PAUX Design</p>
+      <p class="footer-brand-tagline">Product Designer for high-growth startups &amp; digital products. London · Remote.</p>
+      <p class="footer-brand-email"><a href="mailto:contact@pauxdesign.uk">contact@pauxdesign.uk</a></p>
+    </div>
+    <div class="footer-sitemap">
+      <div class="footer-sitemap-label">Site map</div>
+      <div class="footer-sitemap-grid">
+        <a href="/#about">About</a>
+        <a href="/work/">Work</a>
+        <a href="/#services">Services</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#process">Process</a>
+        <a href="/contact/">Contact</a>
+        <a href="/work/enterprise-saas/">Enterprise SaaS</a>
+        <a href="/work/mila-ai/">Mila AI</a>
+        <a href="/work/joblink/">JobLink</a>
+        <a href="/work/rover/">Rover</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-social-links">
+        <a class="footer-social-link" href="https://www.linkedin.com/in/paula-alonso-design/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="footer-social-link" href="https://www.instagram.com/pauxdesign/" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Paula Alonso · Paux Design</div>
+    <div class="footer-lang"><a href="/">EN</a> / <a href="/es/">ES</a></div>
+    <div class="footer-rights">All rights reserved</div>
+  </div>
+</footer>
+
+<script>
+function toggleMobileNav() {
+  const btn = document.getElementById('navHamburger');
+  const overlay = document.getElementById('navMobileOverlay');
+  const isOpen = overlay.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  overlay.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+function closeMobileNav() {
+  const btn = document.getElementById('navHamburger');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.getElementById('navMobileOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function initReveal() {
+  const els = document.querySelectorAll('.reveal, .reveal-fade, .reveal-scale');
+  const ob = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ob.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => ob.observe(el));
+}
+window.addEventListener('load', () => {
+  document.querySelectorAll('.reveal, .reveal-scale, .reveal-fade').forEach(el => el.classList.add('visible'));
+  initReveal();
+});
+(() => {
+  const nav = document.getElementById('site-nav');
+  if (!nav) return;
+  const s = () => nav.classList.toggle('nav--scrolled', window.scrollY > 8);
+  s(); window.addEventListener('scroll', s, { passive: true });
+})();
+(function initCtaStack() {
+  const wraps = [...document.querySelectorAll('.cta-scroll-wrap')];
+  if (!wraps.length) return;
+  function update() {
+    wraps.forEach((wrap) => {
+      const section = wrap.querySelector('.cta-section, .cs-cta');
+      if (!section) return;
+      const rect = wrap.getBoundingClientRect();
+      const scrollable = wrap.offsetHeight - window.innerHeight;
+      let progress;
+      if (scrollable > 0) {
+        const scrolled = Math.max(0, -rect.top);
+        progress = scrolled / scrollable;
+      } else {
+        const sectionRect = section.getBoundingClientRect();
+        const vh = Math.max(window.innerHeight, 1);
+        const start = vh * 0.95;
+        const end = -sectionRect.height * 0.35;
+        progress = (start - sectionRect.top) / Math.max(1, start - end);
+      }
+      progress = Math.min(1, Math.max(0, progress));
+      const ease = 1 - Math.pow(1 - progress, 2.5);
+      const accentOp = Math.min(1, Math.max(0, 4 * ease * (1 - ease)));
+      const bgOp = Math.min(1, ease * ease * 1.08);
+      section.style.setProperty('--cta-accent-op', String(accentOp));
+      section.style.setProperty('--cta-bg-op', String(bgOp));
+      section.style.setProperty('--cta-ease', String(ease));
+      section.classList.toggle('cta-founder-tone', accentOp > 0.3 && bgOp < 0.5);
+      section.classList.toggle('cta-footer-tone', bgOp >= 0.5);
+    });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+
+// ── VIEW TOGGLE ──
+(function initViewToggle() {
+  const STORAGE_KEY = 'paux-cs-view';
+  const body = document.body;
+  const saved = sessionStorage.getItem(STORAGE_KEY) || 'full';
+  setView(saved, false);
+
+  function setView(view, animate) {
+    if (animate) {
+      body.classList.add('view-switching');
+      setTimeout(() => body.classList.remove('view-switching'), 280);
+    }
+    if (view === 'quick') { body.classList.add('view-quick'); body.classList.remove('view-full'); }
+    else { body.classList.remove('view-quick'); body.classList.add('view-full'); }
+    sessionStorage.setItem(STORAGE_KEY, view);
+    document.querySelectorAll('.cs-toggle-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === view);
+    });
+    const idx = document.querySelector('.cs-index');
+    if (idx) idx.style.display = (view === 'full') ? '' : 'none';
+  }
+
+  document.querySelectorAll('.cs-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => setView(btn.dataset.view, true));
+  });
+})();
+
+// ── STICKY INDEX ──
+(function initStickyIndex() {
+  const items = document.querySelectorAll('.cs-index-item[data-section]');
+  if (!items.length) return;
+  const sections = [...items].map(item => document.getElementById(item.dataset.section)).filter(Boolean);
+
+  function update() {
+    if (document.body.classList.contains('view-quick')) return;
+    let active = sections[0];
+    sections.forEach(sec => { const rect = sec.getBoundingClientRect(); if (rect.top <= 160) active = sec; });
+    items.forEach(item => item.classList.toggle('active', item.dataset.section === active?.id));
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(item.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>
+</body>
+</html>

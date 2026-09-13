@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paula Alonso — Product Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:       #ffffff;
+  --dark:     #332A5C;
+  --mid:      #6F6A86;
+  --accent:   #7059DC;
+  --border:   #e8e6f0;
+  --border2:  #d4d0e8;
+  --tag-bg:   #f4f3f8;
+  --tag-c:    #6F6A86;
+  --tag-new-bg: #f0eeff;
+  --tag-new-c:  #7059DC;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: #f0eef8;
+  color: var(--dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  margin: 0 auto;
+  background: var(--bg);
+  padding: 40px 48px 36px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+/* HEADER */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: end;
+  padding-bottom: 22px;
+  margin-bottom: 26px;
+  border-bottom: 1.5px solid var(--dark);
+  position: relative;
+}
+
+.header-left {}
+
+.name {
+  font-size: 30pt;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.title {
+  font-size: 8.5pt;
+  font-weight: 500;
+  color: var(--mid);
+  margin-top: 8px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact-col {
+  text-align: right;
+  padding-bottom: 2px;
+}
+
+.contact-col a,
+.contact-col span {
+  display: block;
+  font-size: 8.5pt;
+  color: var(--mid);
+  text-decoration: none;
+  line-height: 1.9;
+  font-weight: 400;
+}
+
+.contact-col a.portfolio {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* BODY */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 172px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* SECTIONS */
+.section { margin-bottom: 24px; }
+.section:last-child { margin-bottom: 0; }
+
+.section-label {
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border2);
+}
+
+/* SUMMARY */
+.summary p {
+  font-size: 9pt;
+  color: var(--mid);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.summary strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+/* EXPERIENCE */
+.role { margin-bottom: 17px; }
+.role:last-child { margin-bottom: 0; }
+
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.role-company {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.role-date {
+  font-size: 7.5pt;
+  color: var(--mid);
+  font-weight: 400;
+}
+
+.role-title {
+  font-size: 8pt;
+  color: var(--mid);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.role ul { list-style: none; }
+
+.role ul li {
+  font-size: 8.5pt;
+  color: #4a4560;
+  line-height: 1.65;
+  padding-left: 12px;
+  position: relative;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.role ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 4px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.role ul li strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.role-note {
+  font-size: 7.5pt;
+  color: var(--mid);
+  font-style: italic;
+  margin-top: 5px;
+  padding-left: 12px;
+  opacity: 0.8;
+}
+
+.role-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 14px 0;
+}
+
+/* SIDEBAR */
+.sidebar .section { margin-bottom: 22px; }
+
+/* EDUCATION */
+.edu-item { margin-bottom: 12px; }
+.edu-item:last-child { margin-bottom: 0; }
+
+.edu-degree {
+  font-size: 8.5pt;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.35;
+}
+
+.edu-school {
+  font-size: 8pt;
+  color: var(--mid);
+  font-weight: 400;
+}
+
+.edu-year {
+  font-size: 7.5pt;
+  color: #aaa8be;
+}
+
+/* LANGUAGES */
+.lang-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 8.5pt;
+  margin-bottom: 7px;
+}
+
+.lang-name { color: var(--dark); font-weight: 500; }
+.lang-level { color: var(--mid); font-weight: 400; font-size: 8pt; }
+
+/* SKILLS */
+.skill-group { margin-bottom: 13px; }
+.skill-group:last-child { margin-bottom: 0; }
+
+.skill-group-label {
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--mid);
+  margin-bottom: 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 7.5pt;
+  background: var(--tag-bg);
+  color: var(--tag-c);
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+}
+
+.tag.new {
+  background: var(--tag-new-bg);
+  color: var(--tag-new-c);
+  border-color: #d8d0f8;
+  font-weight: 600;
+}
+
+@media print {
+  body { background: white; }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    margin: 0;
+    padding: 40px 48px 36px;
+    box-shadow: none;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="header-left">
+      <div class="name">Paula Alonso</div>
+      <div class="title">Product Designer &nbsp;·&nbsp; AI &amp; SaaS &nbsp;·&nbsp; UX / UI &nbsp;·&nbsp; Mobile Apps</div>
+    </div>
+    <div class="contact-col">
+      <a href="https://pauxdesign.uk/portfolio/" class="portfolio">pauxdesign.uk/portfolio</a>
+      <a href="mailto:paulaalonso.design@gmail.com">paulaalonso.design@gmail.com</a>
+      <span>London, United Kingdom</span>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <!-- MAIN COLUMN -->
+    <main>
+
+      <section class="section summary">
+        <div class="section-label">Profile</div>
+        <p>Specialised in <strong>AI-driven B2B SaaS and mobile products,</strong> with experience designing end-to-end user experiences for compliance, enterprise management and consumer apps. Experience in UX research, information architecture and scalable design systems. Works closely with product, engineering and stakeholders to translate complex business and regulatory requirements into intuitive, user-centered solutions with measurable impact.</p>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Experience</div>
+
+        <div class="role">
+          <div class="role-header">
+            <span class="role-company">Paux Design</span>
+            <span class="role-date">2021 – Present</span>
+          </div>
+          <div class="role-title">Freelance Product &amp; Brand Designer · Founder</div>
+          <ul>
+            <li>Designed end-to-end digital products for mobile and web across multiple client verticals — from discovery and research through to prototyping and final delivery.</li>
+            <li>Managed client communication, timelines and scope independently, consistently delivering quality outcomes on time.</li>
+            <li>Collaborated with founders and small teams to define product requirements, UX strategy and visual identity from zero to launch.</li>
+          </ul>
+        </div>
+
+       <hr class="role-divider">
+       
+        <div class="role">
+          <div class="role-header">
+            <span class="role-company">Data Hatch</span>
+            <span class="role-date">Jun 2024 – Present</span>
+          </div>
+          <div class="role-title">Product Designer - Freelance</div>
+          <ul>
+            <li>Led end-to-end product design for a compliance-driven enterprise SaaS platform spanning GDPR, HR, occupational health, business operations and training modules.</li>
+            <li>Defined product architecture, information hierarchy and role-based access systems across multiple interconnected modules with complex permission logic.</li>
+            <li>Translated regulatory and operational requirements into scalable, user-centred design — balancing legal constraints with intuitive interaction patterns.</li>
+            <li>Collaborated closely with PMs, developers and stakeholders to align business goals, technical constraints and UX decisions throughout the full product lifecycle.</li>
+          </ul>
+          <p class="role-note">Visual designs confidential — case study available on request.</p>
+        </div>
+
+        <hr class="role-divider">
+
+        <div class="role">
+          <div class="role-header">
+            <span class="role-company">Mila AI</span>
+            <span class="role-date">Nov 2024 – Mar 2025</span>
+          </div>
+          <div class="role-title">Product Designer</div>
+          <ul>
+            <li>Led UX/UI design for an AI-powered language learning iOS app focused on immersive, personalised experiences.</li>
+            <li>Redesigned core user flows, wireframes and interactive prototypes — achieving an <strong>85% usability improvement</strong> based on structured testing feedback.</li>
+            <li>Defined interaction patterns and visual consistency standards, collaborating with developers through to implementation.</li>
+          </ul>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- EDUCATION FIRST -->
+      <section class="section">
+        <div class="section-label">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor's in Graphic Design</div>
+          <div class="edu-school">Instituto CEPEC</div>
+          <div class="edu-year">2010</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">UX/UI Design</div>
+          <div class="edu-school">Coderhouse</div>
+          <div class="edu-year">2023 · Certification</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">UI &amp; Prototype</div>
+          <div class="edu-school">Coderhouse</div>
+          <div class="edu-year">2024 · Certification</div>
+        </div>
+      </section>
+
+      <!-- LANGUAGES SECOND -->
+      <section class="section">
+        <div class="section-label">Languages</div>
+        <div class="lang-item">
+          <span class="lang-name">Spanish</span>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level">Professional</span>
+        </div>
+      </section>
+
+      <!-- SKILLS LAST -->
+      <section class="section">
+        <div class="section-label">Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Design</div>
+          <div class="tags">
+            <span class="tag">UX / UI</span>
+            <span class="tag">End-to-end product</span>
+            <span class="tag">Wireframing</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Visual design</span>
+            <span class="tag">Design systems</span>
+            <span class="tag">Mobile (iOS)</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Research</div>
+          <div class="tags">
+            <span class="tag">User research</span>
+            <span class="tag">Info architecture</span>
+            <span class="tag">Usability testing</span>
+            <span class="tag">A/B testing</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Domains</div>
+          <div class="tags">
+            <span class="tag">B2B SaaS</span>
+            <span class="tag">Enterprise</span>
+            <span class="tag">Compliance</span>
+            <span class="tag">AI products</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Tools</div>
+          <div class="tags">
+            <span class="tag">Figma</span>
+            <span class="tag">FigJam</span>
+            <span class="tag">Framer</span>
+            <span class="tag">Adobe CC</span>
+            <span class="tag">Maze</span>
+            <span class="tag">Notion</span>
+            <span class="tag">Jira</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Emerging</div>
+          <div class="tags">
+            <span class="tag new">Claude AI</span>
+            <span class="tag new">Cursor</span>
+            <span class="tag new">HTML / CSS</span>
+          </div>
+        </div>
+
+      </section>
+
+    </aside>
+  </div>
+
+</div>
+</body>
+</html>
