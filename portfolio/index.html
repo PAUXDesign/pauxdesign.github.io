@@ -5189,11 +5189,18 @@ button.proj-gallery-item {
 }
 .hero-name {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(34px, 4.5vw, 60px);
-  letter-spacing: -0.05em;
-  line-height: 1.06;
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   color: var(--dark);
+  margin: 0;
+  max-width: 760px;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
 }
 .hero-role {
   margin-top: 8px;
@@ -5205,10 +5212,10 @@ button.proj-gallery-item {
 }
 .hero-positioning {
   margin-top: 14px;
-  font-size: 15.5px;
-  line-height: 1.75;
+  font-size: 14px;
+  line-height: 1.7;
   color: var(--mid);
-  max-width: 560px;
+  max-width: 540px;
 }
 .hero-focus {
   display: flex;
@@ -5886,7 +5893,7 @@ button.proj-gallery-item {
       <section class="view" data-view="about" id="about-full">
         <div class="hero-strip hero-strip--identity">
           <div class="hero-identity">
-            <div class="hero-greet-tag">About me · /paula-alonso</div>
+            <div class="hero-greet-tag">About me · Paula Alonso</div>
             <h1 class="hero-name">Designing products <em>with intention.</em></h1>
             <p class="hero-positioning">Product designer with 5+ years across graphic design, UX/UI and people operations. I bring a rare mix of visual craft, systems thinking and organisational understanding to AI, SaaS and mobile products.</p>
           </div>
@@ -5906,7 +5913,7 @@ button.proj-gallery-item {
                 <img class="alt" src="../Public/Images/avatar.png" alt="" aria-hidden="true">
               </div>
               <div class="profile-name">Paula Alonso</div>
-              <div class="profile-role">Product Designer · AI &amp; SaaS · UX/UI · Mobile</div>
+              <div class="profile-role">Product Designer · AI &amp; SaaS · UX/UI Mobile · UX Strategy</div>
               <div class="profile-meta">
                 <div class="pm-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="pm-label">Based</span><span class="pm-val">London, UK</span></div>
               </div>
@@ -8629,7 +8636,7 @@ function tickClock() {
     if (h < 6) g = 'Good night';
     else if (h < 12) g = 'Good morning';
     else if (h < 18) g = 'Good afternoon';
-    greet.textContent = `${g} · London`;
+    greet.textContent = g;
   }
   updateAvailabilityDates();
 }
