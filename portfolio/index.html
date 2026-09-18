@@ -1786,10 +1786,34 @@ button.proj-gallery-item {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.about-copy-email .copy-state {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.about-copy-email .copy-state svg {
+  width: 13px;
+  height: 13px;
+}
 .about-copy-email:hover {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-soft);
+}
+.about-copy-email.success {
+  border-color: rgba(30, 142, 77, 0.35);
+  background: rgba(88, 219, 105, 0.12);
+  color: #1d7a3d;
+}
+.about-copy-email.success .copy-state {
+  display: inline-flex;
+}
+.about-copy-email.success .em {
+  opacity: 0.8;
 }
 .about-copy-email:focus-visible {
   outline: 2px solid var(--accent);
@@ -4935,7 +4959,13 @@ button.proj-gallery-item {
   transition: all 280ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .toast.show { transform: translateY(0); opacity: 1; }
-.toast svg { width: 14px; height: 14px; color: var(--green); }
+.toast.success {
+  background: #1e8e4d;
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(30, 142, 77, 0.2);
+}
+.toast svg { width: 14px; height: 14px; color: currentColor; }
+.toast.success svg { color: #fff; }
 
 /* ──────────────────── RESPONSIVE ──────────────────── */
 @media (max-width: 980px) {
@@ -5656,6 +5686,14 @@ button.proj-gallery-item {
           </div>
           <div class="exp-list">
             <div class="exp-row">
+              <div class="exp-role">Founder &amp; Freelance Designer</div>
+              <div>
+                <div class="exp-company">Paux Design</div>
+                <p class="exp-desc">End-to-end digital products across mobile and web — discovery, research, prototyping and delivery, with independent client management.</p>
+              </div>
+              <div class="exp-dates">2021 – Present</div>
+            </div>
+            <div class="exp-row">
               <div class="exp-role">Product Designer</div>
               <div>
                 <div class="exp-company">Data Hatch</div>
@@ -5670,14 +5708,6 @@ button.proj-gallery-item {
                 <p class="exp-desc">Led UX/UI for an AI-powered language learning iOS app — core flows, prototypes and visual standards through to handoff.</p>
               </div>
               <div class="exp-dates">Nov 2024 – Mar 2025</div>
-            </div>
-            <div class="exp-row">
-              <div class="exp-role">Founder &amp; Freelance Designer</div>
-              <div>
-                <div class="exp-company">Paux Design</div>
-                <p class="exp-desc">End-to-end digital products across mobile and web — discovery, research, prototyping and delivery, with independent client management.</p>
-              </div>
-              <div class="exp-dates">2021 – Present</div>
             </div>
           </div>
         </div>
@@ -5854,11 +5884,17 @@ button.proj-gallery-item {
 
       <!-- ────── ABOUT ────── -->
       <section class="view" data-view="about" id="about-full">
-        <div class="hero-strip">
-          <div class="hero-greet">
+        <div class="hero-strip hero-strip--identity">
+          <div class="hero-identity">
             <div class="hero-greet-tag">About me · /paula-alonso</div>
-            <h1>Designing products <em>with intention.</em></h1>
-            <p class="hero-sub text-paux-mid">Product designer with 5+ years across graphic design, UX/UI and people operations. I bring a rare mix of visual craft, systems thinking and organisational understanding to AI, SaaS and mobile products.</p>
+            <h1 class="hero-name">Designing products <em>with intention.</em></h1>
+            <p class="hero-positioning">Product designer with 5+ years across graphic design, UX/UI and people operations. I bring a rare mix of visual craft, systems thinking and organisational understanding to AI, SaaS and mobile products.</p>
+          </div>
+          <div class="hero-quick">
+            <a class="btn btn-outline" href="/portfolio/paula_alonso_cv.html" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              View CV
+            </a>
           </div>
         </div>
 
@@ -5871,24 +5907,21 @@ button.proj-gallery-item {
               </div>
               <div class="profile-name">Paula Alonso</div>
               <div class="profile-role">Product Designer · AI &amp; SaaS · UX/UI · Mobile</div>
+              <div class="profile-meta">
+                <div class="pm-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="pm-label">Based</span><span class="pm-val">London, UK</span></div>
+              </div>
               <button type="button" class="about-copy-email" data-copy-email="paulaalonso.design@gmail.com" aria-label="Copy email address to clipboard" title="Click to copy">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 <span class="em">paulaalonso.design@gmail.com</span>
+                <span class="copy-state" aria-live="polite">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 9 16.5 19 6.5"/></svg>
+                  Copied
+                </span>
               </button>
               <a href="/" class="about-copy-email about-site-link" aria-label="Visit the main Paux Design website">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
                 <span class="em">pauxdesign.uk</span>
               </a>
-              <div class="profile-meta">
-                <div class="pm-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="pm-label">Based</span><span class="pm-val">London, UK</span></div>
-                <div class="pm-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="pm-label">Status</span><span class="pm-val" data-availability="status-line" style="color: #2c8237; display:inline-flex; align-items:center; gap:6px"><span class="sb-av-dot" style="position:relative; top:0"></span> Available </span></div>
-              </div>
-              <div class="profile-actions">
-                <a href="/portfolio/paula_alonso_cv.html" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%; justify-content:center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
-                  View CV
-                </a>
-              </div>
             </div>
           </div>
 
@@ -5910,6 +5943,13 @@ button.proj-gallery-item {
               </div>
               <div class="timeline">
                 <div class="tl-item">
+                  <div class="tl-year">2021 →</div>
+                  <div class="tl-body">
+                    <h4>Paux Design · Founder &amp; Freelance Designer</h4>
+                    <p>End-to-end digital products across mobile and web for multiple verticals — from discovery and research to prototyping and final delivery. Independent client management, scope and timelines.</p>
+                  </div>
+                </div>
+                <div class="tl-item">
                   <div class="tl-year">2024 → 2026</div>
                   <div class="tl-body">
                     <h4>Data Hatch · Product Designer (Freelance)</h4>
@@ -5921,13 +5961,6 @@ button.proj-gallery-item {
                   <div class="tl-body">
                     <h4>Mila AI · Product Designer</h4>
                     <p>Led UX/UI for an AI-powered language learning iOS app. Redesigned core flows, wireframes and prototypes — achieved <strong>85% usability improvement</strong>. Defined interaction patterns and visual standards through to dev handoff.</p>
-                  </div>
-                </div>
-                <div class="tl-item">
-                  <div class="tl-year">2021 →</div>
-                  <div class="tl-body">
-                    <h4>Paux Design · Founder &amp; Freelance Designer</h4>
-                    <p>End-to-end digital products across mobile and web for multiple verticals — from discovery and research to prototyping and final delivery. Independent client management, scope and timelines.</p>
                   </div>
                 </div>
               </div>
@@ -8806,12 +8839,18 @@ function switchCollab(idx) {
 /* ════════════════════════════════════════════════
    TOAST
    ════════════════════════════════════════════════ */
-function showToast(text, ms = 2400) {
+function showToast(text, ms = 2400, variant = '') {
   const t = document.getElementById('toast');
-  document.getElementById('toast-text').textContent = text;
+  const textEl = document.getElementById('toast-text');
+  textEl.textContent = text;
+  t.classList.remove('success');
+  if (variant) t.classList.add(variant);
   t.classList.add('show');
   clearTimeout(showToast._t);
-  showToast._t = setTimeout(() => t.classList.remove('show'), ms);
+  showToast._t = setTimeout(() => {
+    t.classList.remove('show');
+    t.classList.remove('success');
+  }, ms);
 }
 window.showToast = showToast;
 
@@ -8821,7 +8860,9 @@ document.querySelectorAll('[data-copy-email]').forEach(btn => {
     if (!v) return;
     try {
       await navigator.clipboard.writeText(v);
-      showToast('Email copied to clipboard');
+      btn.classList.add('success');
+      clearTimeout(btn._copyReset);
+      btn._copyReset = setTimeout(() => btn.classList.remove('success'), 1800);
     } catch {
       showToast('Could not copy — try again or copy manually');
     }
