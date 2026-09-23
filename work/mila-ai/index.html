@@ -236,9 +236,13 @@ body.view-switching .cs-body {
   <!-- Hero -->
   <div class="cs-hero">
     <div class="container">
-      <a class="cs-back" href="/work/">
-        <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg> Back to work
-      </a>
+      <nav aria-label="Breadcrumb" style="display:flex; align-items:center; gap:8px; margin:0 0 16px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--mid);">
+        <a href="/" style="color:var(--mid);">Home</a>
+        <span style="color:var(--light);">/</span>
+        <a href="/work/" style="color:var(--mid);">Work</a>
+        <span style="color:var(--light);">/</span>
+        <span aria-current="page" style="color:var(--dark);">Mila AI</span>
+      </nav>
       <div class="cs-htags">
         <span class="cs-htag">AI Product</span>
         <span class="cs-htag">Mobile · iOS</span>
