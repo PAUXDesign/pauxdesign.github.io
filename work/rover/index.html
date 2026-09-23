@@ -14,11 +14,11 @@
 .cs-toggle-wrap { display: inline-flex; align-items: center; background: #FAFAFC; border: 1px solid rgba(38,30,72,0.12); border-radius: 999px; padding: 5px; gap: 2px; box-shadow: 0 2px 12px rgba(38,30,72,0.06); }
 .cs-toggle-btn { display: flex; flex-direction: column; align-items: flex-start; padding: 10px 20px; border-radius: 999px; border: none; background: transparent; cursor: pointer; transition: background 0.2s; font-family: 'Manrope', sans-serif; text-align: left; min-width: 180px; }
 .cs-toggle-btn:hover:not(.active) { background: rgba(38,30,72,0.04); }
-.cs-toggle-btn.active { background: #261E48; }
+.cs-toggle-btn.active { background: #E3E4F7; box-shadow: inset 0 0 0 1px rgba(38, 30, 72, 0.08); }
 .cs-toggle-btn-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: #9B98B8; line-height: 1; margin-bottom: 3px; }
-.cs-toggle-btn.active .cs-toggle-btn-label { color: rgba(255,255,255,0.55); }
+.cs-toggle-btn.active .cs-toggle-btn-label { color: rgba(38,30,72,0.62); }
 .cs-toggle-btn-name { font-size: 0.875rem; font-weight: 600; color: #261E48; line-height: 1; }
-.cs-toggle-btn.active .cs-toggle-btn-name { color: #fff; }
+.cs-toggle-btn.active .cs-toggle-btn-name { color: #261E48; }
 .cs-toggle-divider { width: 1px; height: 28px; background: rgba(38,30,72,0.12); flex-shrink: 0; }
 .full-only { display: block; }
 body.view-quick .full-only { display: none !important; }
@@ -396,12 +396,12 @@ body.view-switching .cs-section, body.view-switching .cs-mockup-full { opacity: 
   <!-- ── Hero ── -->
   <div class="cs-hero">
     <div class="container">
-      <nav aria-label="Breadcrumb" style="display:flex; align-items:center; gap:8px; margin:0 0 16px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--mid);">
-        <a href="/" style="color:var(--mid);">Home</a>
-        <span style="color:var(--light);">/</span>
-        <a href="/work/" style="color:var(--mid);">Work</a>
-        <span style="color:var(--light);">/</span>
-        <span aria-current="page" style="color:var(--dark);">Rover</span>
+      <nav class="case-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/work/">Work</a>
+        <span class="sep">/</span>
+        <span class="current" aria-current="page">Rover</span>
       </nav>
       <div class="cs-htags">
         <span class="cs-htag">UX Research</span>
