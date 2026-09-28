@@ -6650,9 +6650,9 @@ const PROJECTS = [
         { label: "Year", value: "2025–2026" }
       ],
       nda: "Due to a signed NDA, all interface visuals have been recreated as representative abstractions. Screen content, workflows, and data structures reflect the actual system design; names, entities, and identifying details are fictional.",
-      lead: "A law firm came with a real problem: their entire compliance operation lived in Excel. 850 rows. Manual reminders. Legal documents written for lawyers that non-legal staff had to follow — without making a single regulatory mistake. The ask was to turn that into a SaaS covering GDPR, occupational health, HR and cross-departmental workflows, for multiple organisations, each with different roles and legal responsibilities.",
+      lead: "I reviewed regulatory and business requirements with the relevant stakeholders and translated them into product rules, workflows, permissions, validations and required actions. The goal was to move that complexity into the system itself — turning requirements into workflows, permissions, validations and states wherever possible.",
       body: [
-        "I was brought in as Lead Product Designer and UX Architect. I owned the project end-to-end: reading the regulatory frameworks, translating them into product logic, defining the IA, designing all 10 modules, and working directly with stakeholders and engineering until it shipped."
+        "I was brought in as Lead Product Designer and UX Architect to define the information architecture and interaction model across 10 connected modules, including how data, permissions and audit history would work across the platform. I created a configurable role and access model that could adapt to different organisations, responsibilities and contexts."
       ],
       sections: [
         {
@@ -6688,10 +6688,10 @@ const PROJECTS = [
         {
           type: "steps",
           items: [
-            { num: "01", title: "Read the law, then design the product", desc: "Spent weeks in actual regulatory documentation — GDPR, occupational health law, internal compliance frameworks — extracting mandatory processes and validation rules before touching Figma." },
-            { num: "02", title: "Define the product architecture", desc: "Translated regulatory requirements into product structure: what each module needed to do, how 10 interconnected areas would share data, and where legal constraints had to live inside the IA itself." },
-            { num: "03", title: "Design role-based systems", desc: "Built a configurable permission system where roles adapt per organisation — different navigation, different data, different actions — so access is baked into the architecture, not applied as a filter." },
-            { num: "04", title: "Collaborate across three worlds", desc: "Bridged legal experts who spoke in regulations, engineers who spoke in data models, and operations managers who just needed it to work — making abstract requirements concrete and shippable." }
+            { num: "01", title: "Translate requirements into product logic", desc: "I reviewed regulatory and business requirements with the relevant stakeholders and translated them into product rules, workflows, permissions, validations and required actions." },
+            { num: "02", title: "Define the product architecture", desc: "I defined the information architecture and interaction model across 10 connected modules, including how data, permissions and audit history would work across the platform." },
+            { num: "03", title: "Design the permission model", desc: "I created a configurable role and access model that could adapt to different organisations, responsibilities and contexts. Access was part of the product architecture, not something added later." },
+            { num: "04", title: "Align different requirements", desc: "I worked across legal, business and technical requirements, turning complex or unclear needs into product decisions that could be understood, designed and built by the team." }
           ]
         },
         {
@@ -6700,40 +6700,40 @@ const PROJECTS = [
         },
         {
           type: "prose",
-          text: "The core insight was that compliance can't be a warning layer. If you rely on users to read alerts and choose correctly — you've already failed. The system had to make non-compliance structurally impossible: every legal constraint embedded into the architecture itself, not bolted on after."
+          text: "Compliance couldn't be a warning layer. If users have to understand a regulation, interpret a warning and decide what to do next, the product is putting the complexity back on them. The goal was to move that complexity into the system itself — turning requirements into workflows, permissions, validations and states wherever possible. The goal wasn't to teach users the regulatory framework. It was to make the correct path clear through the product."
         }
       ],
       stepsSectionTitle: "Four strategies",
       steps: [
-        { num: "01", title: "Legal requirements as invisible constraints", desc: "Every mandatory process, validation and actor responsibility was embedded directly into the product logic — enforced silently by the system, never left to the user." },
-        { num: "02", title: "Architecture as the safety mechanism", desc: "Navigation, content and available actions adapt per authenticated role — users can only see and do what they're authorised for, by design." },
-        { num: "03", title: "Reduce user responsibility for compliance", desc: "HR managers, legal assistants and operations staff are not compliance experts. The goal was to guide every action, surface only what's relevant, and remove what isn't." },
-        { num: "04", title: "System-first, screens second", desc: "The design challenge was architecting how 10 modules share state, enforce permissions and maintain audit trails across complex multi-actor journeys. Screens came after the system made sense." }
+        { num: "01", title: "Turn requirements into product rules", desc: "Regulatory and business requirements were translated into workflow rules, validations, permissions and required actions instead of being left as information for users to interpret." },
+        { num: "02", title: "Make the system context-aware", desc: "Navigation, data and available actions change depending on the user's organisation, role and responsibilities, so users only see what is relevant to them." },
+        { num: "03", title: "Guide instead of educate", desc: "HR managers, legal assistants and operations staff shouldn't need to understand the whole regulatory process to complete a task. The product provides the right information and next action when they need it." },
+        { num: "04", title: "Design the system before the screens", desc: "The main challenge was understanding how 10 modules would share data, permissions, workflow states and audit history. Individual screens came after the underlying system made sense." }
       ],
       keyDecisionCards: [
-        { icon: "🏗️", title: "System-first architecture", desc: "10 interconnected modules sharing unified logic with strict data separation. Every module shares state, permissions and audit logic — one coherent system, not a collection of screens.", img: "assets/kd-system.svg", imgHd: "/Public/Images/system.png", imgAlt: "System architecture overview" },
-        { icon: "🔐", title: "Roles as configurable containers", desc: "Instead of fixed permission profiles, roles are flexible containers scoped per organisation. Same role, different access in different contexts — non-technical admins manage it without needing to understand the data model.", img: "assets/kd-role.svg", imgHd: "/Public/Images/role.png", imgAlt: "Role-based access configuration" },
-        { icon: "⚙️", title: "Guided compliance workflows", desc: "Document assignment, review, approval and signature flow through predefined sequences that enforce correct actor involvement at each step — structurally impossible to skip a required action.", img: "assets/kd-flow.svg", imgHd: "/Public/Images/flow.png", imgAlt: "Compliance workflow UI" }
+        { icon: "🏗️", title: "System-first architecture", desc: "10 modules, one connected product. The platform needed to support very different areas without becoming a collection of separate tools. Shared rules for data, permissions, workflow states and audit history created consistency across the system while allowing each module to work for its own domain.", img: "assets/kd-system.svg", imgHd: "/Public/Images/system.png", imgAlt: "System architecture overview" },
+        { icon: "🔐", title: "Roles as configurable containers", desc: "A job title couldn't define access on its own. The same role could have different responsibilities depending on the organisation or context. Instead of creating many fixed permission profiles, roles became configurable containers that organisations could adapt to their own structure.", img: "assets/kd-role.svg", imgHd: "/Public/Images/role.png", imgAlt: "Role-based access configuration" },
+        { icon: "⚙️", title: "Guided compliance workflows", desc: "The system controls the process, not the user's memory. Documents, reviews, approvals and signatures move through predefined states. Required actors, conditions and available actions are built into the workflow, reducing the chance of skipping a required step or losing track of what happens next.", img: "assets/kd-flow.svg", imgHd: "/Public/Images/flow.png", imgAlt: "Compliance workflow UI" }
       ],
       sectionsAfter: [
         {
           h: "How workflows actually enforce compliance",
-          intro: "The hardest problem wasn't building the flows — it was making sure they couldn't be broken. Each step is locked to a specific role. Deadlines and pending actions trigger automatically. The next step isn't available until the current one is complete and valid. Every action is logged — who reviewed, who signed, when, in what state. Users are never asked what to do next. The system already knows.",
+          intro: "The hardest part wasn't designing the flow. It was designing the rules behind it. Each step is linked to the appropriate role. Actions become available only when the required conditions are met. Deadlines and pending actions trigger system-driven follow-up, while important actions are recorded with their actor, timestamp and state. Instead of asking users to remember the process, the system guides them through it.",
           items: []
         },
         {
           h: "Outcome & impact",
-          intro: "A compliance-first platform that doesn't compromise usability — both treated as hard requirements from the start. Legal processes significantly more secure: compliance enforced by architecture, removing an entire category of human error. Users operate correctly from day one — no training on regulatory rules required. What previously required manual tracking across 850+ Excel rows now runs through structured, auditable digital flows.",
+          intro: "The project transformed an Excel-based compliance operation into a structured SaaS platform with 10 specialised modules. Manual tracking was replaced with guided workflows, configurable permissions, structured document and approval states, automated status-driven actions, auditable activity history and organisation-level data separation. The result was a product where regulatory requirements became part of the workflow itself, reducing reliance on manual coordination, user memory and spreadsheet-based tracking.",
           items: []
         },
-        { h: "Prototype", intro: "Explore the platform in action — navigate modules, interact with the compliance dashboard, and see how the system guides users through regulatory workflows.", items: [] }
+        { h: "Prototype", intro: "Explore the platform in action. Navigate the platform, explore the compliance dashboard and see how users are guided through complex regulatory workflows.", items: [] }
       ],
       insightsSectionTitle: "Key learnings",
       insights: [
-        { icon: "📖", text: "<strong>You have to read the law before you can design for it.</strong> The design decisions came from weeks in actual regulatory documentation — not assumptions about what compliance looks like." },
-        { icon: "🔗", text: "<strong>The hardest design problems were invisible.</strong> Nobody sees how 10 modules share state, enforce permissions and maintain audit trails — but getting that wrong breaks everything. Systems thinking was the real work." },
-        { icon: "🤝", text: "<strong>Design was the shared language.</strong> Legal experts and engineers don't naturally speak to each other. Translating between them — turning abstract regulatory requirements into concrete product decisions — was a core part of the role." },
-        { icon: "🗂️", text: "<strong>10 modules meant 10 different domains.</strong> Corporate governance, occupational health, HR, live webinars — each had its own regulatory framework and user mental model. Breadth and depth at the same time." }
+        { icon: "📖", text: "<strong>Regulatory complexity becomes a design problem.</strong> The value wasn't in memorising legislation. It was in understanding the requirements well enough to turn them into product behaviour — rules, workflows, permissions and constraints." },
+        { icon: "🔗", text: "<strong>The hardest UX problems were architectural.</strong> Users don't see how 10 modules share data, permissions or audit history. But these relationships are what make the product work as one system." },
+        { icon: "🤝", text: "<strong>Cross-functional alignment is a product design skill.</strong> Legal, business and engineering teams bring different requirements to the same problem. A big part of the design work was turning those different views into decisions the product could support." },
+        { icon: "🗂️", text: "<strong>Multi-domain products need strong shared patterns.</strong> Ten modules meant different domains, workflows and mental models. The challenge was allowing each area to work for its users while keeping a consistent product underneath." }
       ],
       prototype: { label: "Open interactive prototype", href: "/Public/Lexquoris%20Compliance%20OS%20_standalone_.html" },
       drawerIndex: [
@@ -6756,7 +6756,7 @@ const PROJECTS = [
     role: "Product Designer / UX Architect",
     tags: ["ai", "mobile"],
     chips: [{label:"AI Product", cls:"ac"}, {label:"Mobile · iOS", cls:"ac"}, {label:"UX Architecture"}],
-    desc: "Redesigning a web-based platform into an AI-driven mobile app — reducing friction and making personalisation visible to the user.",
+    desc: "Redesigning a web-based platform into an AI-native mobile experience — making personalisation visible, progress tangible and lesson recovery frictionless.",
     img: "/Public/Images/mila.png",
     status: "shipped",
     statusLabel: "Shipped",
@@ -6766,18 +6766,18 @@ const PROJECTS = [
       {n: "Visible AI", l: "Personalisation surfaced"}
     ],
     drawer: {
-      subtitle: "Redesigning a web-based platform into an AI-driven mobile app — reducing friction and making personalisation visible to the user.",
+      subtitle: "From hidden AI to visible product value — redesigning a mobile learning experience so personalisation, continuity and progress feel native to the app.",
       meta: [
         { label: "Role", value: "Product Designer / UX Architect" },
         { label: "Scope", value: "End-to-end product design" },
         { label: "Platform", value: "iOS mobile app" },
         { label: "Year", value: "2024" }
       ],
-      lead: "Mila AI had a real problem: the AI was working, but nobody could see it. Users navigated through multiple menus to reach a single lesson, lost their place constantly, and had no sense the product was adapting to them. <strong>The tech was there. The experience wasn't.</strong>",
+      lead: "Mila AI had a real problem: the AI was working, but nobody could see it. Users navigated through multiple menus to reach a single lesson, lost their place constantly, and had no sense the product was adapting to them. <strong>The technology was there. The experience was not.</strong>",
       body: [
         "I led the end-to-end UX and UI for the iOS app — rethinking how progression, personalisation and continuity should work for someone learning on their phone in short, on-the-go sessions.",
-        "<strong>Onboarding flow.</strong> Users define goals, level and target language on first launch. The system adapts immediately — AI goes from a hidden backend process to a visible feature users can see and trust from day one.",
-        "<strong>Learning roadmap.</strong> A dynamic roadmap unlocks based on progress. Users can see where they are, what they've completed and what's next — making progression tangible and motivating return."
+        "<strong>Onboarding flow.</strong> Users define goals, level and target language on first launch. The system adapts immediately — AI moves from a hidden backend process to a visible feature users can understand and trust from day one.",
+        "<strong>Learning roadmap.</strong> A dynamic roadmap unlocks based on progress. Users can see where they are, what they've completed and what's next — turning learning momentum into a visible product experience."
       ],
       quote: "A language learning app only works if people come back tomorrow. Mila had the content and the AI — but the mobile experience was an afterthought built on top of a desktop product. Users dropped off before they ever saw the value.",
       beforeAfter: {
@@ -6819,8 +6819,7 @@ const PROJECTS = [
           img: "/Public/Images/roadmap-mila.png",
           imgAlt: "Mila AI — adaptive learning roadmap",
           imgCaption: "Learning roadmap — AI adaptation made visible"
-        },
-        { h: "Outcome", items: [] }
+        }
       ],
       insightsSectionTitle: "Outcome",
       insights: [
@@ -6847,7 +6846,7 @@ const PROJECTS = [
     role: "UX Designer (end-to-end)",
     tags: ["research", "mobile"],
     chips: [{label:"UX Research", cls:"ac"}, {label:"Mobile · iOS"}, {label:"A/B Testing"}, {label:"Concept"}],
-    desc: "Full UX research, A/B testing and iOS design for a smarter job app that respects their time.",
+    desc: "Research, A/B testing and iOS product design for a job app built around multi-profile career switching — helping users apply across industries without rewriting their identity every time.",
     img: "/Public/Images/joblink.png",
     status: "shipped",
     statusLabel: "Concept",
@@ -6857,18 +6856,18 @@ const PROJECTS = [
       {n: "3 min", l: "Second profile + apply"}
     ],
     drawer: {
-      subtitle: "Redesigning job search for the 43% of people who apply across two or more industries — but have only ever been offered one career identity.",
+      subtitle: "A smarter job search experience for professionals who live across multiple roles — designed to reduce friction, preserve context and remove the need to rebuild identity for every application.",
       meta: [
         { label: "Role", value: "UX Designer (end-to-end)" },
         { label: "Scope", value: "Research, UX strategy, UI design" },
         { label: "Platform", value: "iOS mobile app" },
         { label: "Year", value: "2023" }
       ],
-      lead: "JobLink is a mobile concept that rethinks how people manage multiple career identities when searching for jobs. Most platforms assume one professional identity — but many professionals work across different industries or roles.",
+      lead: "JobLink is a mobile concept built around a simple truth: most job platforms assume a single professional identity. For people working across industries, roles or career transitions, that creates unnecessary friction, drop-off and missed opportunities.",
       body: [
-        "Designers who freelance as marketers, engineers moving into product, career changers — they struggle with a single profile. <strong>43% of job seekers apply across 2+ industries, yet major platforms treat them as single-track professionals.</strong>",
-        "I ran the full process: user research, competitive analysis, card sorting, information architecture, wireframing, usability testing, A/B testing and high-fidelity iOS UI.",
-        "The cover visual summarises multi-profile switching, quick-scan job cards and one-tap apply — patterns borrowed from apps users already know."
+        "Designers who freelance as marketers, engineers moving into product, career changers — they struggle with a single profile. <strong>43% of job seekers apply across 2+ industries, yet major platforms continue to treat them as single-track professionals.</strong>",
+        "I led the full product design process: user research, competitive analysis, card sorting, information architecture, wireframing, usability testing, A/B testing and high-fidelity iOS UI.",
+        "The final concept focuses on multi-profile switching, quick-scan job cards and one-tap apply — patterns borrowed from products users already understand, but adapted to the realities of a fragmented job search."
       ],
       sections: [
         { h: "The problem", intro: "Most job platforms are built around the idea that users have one professional identity. These users face a specific set of compounding problems — not just one.", items: [] }
@@ -7011,7 +7010,7 @@ const PROJECTS = [
     tags: ["research", "web"],
     chips: [{label:"UX Research", cls:"ac"}, {label:"UX Writing", cls:"ac"}, {label:"Web Redesign"}, {label:"Concept"}],
     readTime: "~12 min",
-    desc: "A research-led redesign of Rover's dashboard and search — validated through two rounds of tree testing, remote usability testing, and a new Pet Tracker feature with 98% user acceptance.",
+    desc: "A research-led redesign of Rover's dashboard and search, focused on trust, clarity and post-booking visibility — with a new Pet Tracker feature validated through usability testing.",
     img: "/Public/Images/rover.png",
     status: "shipped",
     statusLabel: "Concept",
@@ -7022,16 +7021,16 @@ const PROJECTS = [
     ],
     drawer: {
       metricsSectionId: "d-glance",
-      subtitle: "A research-led redesign of Rover's dashboard and search experience — reducing booking friction, surfacing pet updates, and introducing Pet Tracker as a new feature validated through two rounds of tree testing and remote usability sessions.",
+      subtitle: "A research-led redesign of Rover's dashboard and search experience — reducing booking friction, increasing trust and making pet care visible after checkout.",
       meta: [
         { label: "Role", value: "UX Designer (end-to-end)" },
         { label: "Scope", value: "Research · UX strategy · UX writing · UI design" },
         { label: "Platform", value: "Web (desktop)" },
         { label: "Year", value: "2023" }
       ],
-      lead: "Rover.com connects pet owners with trusted sitters and dog walkers. The service itself was well-regarded — sitters were getting five-star reviews — but the platform experience was consistently criticised. Users struggled to navigate it confidently, and the post-booking experience left them with no visibility into how their pet was doing.",
+      lead: "Rover.com connects pet owners with trusted sitters and dog walkers. The service itself was well regarded — sitters were getting five-star reviews — but the platform experience undermined that trust. Users struggled to navigate it confidently, and the post-booking journey left them with no visibility into how their pet was doing.",
       body: [
-        "This is a research-led redesign focused on three areas: the search and discovery experience, the dashboard, and Pet Tracker — a new feature proposed and validated entirely through user data. It also included a complete UX writing layer covering voice, tone and microcopy standards."
+        "This was a research-led redesign focused on three interconnected problems: search and discovery, dashboard clarity, and post-booking reassurance. It also included a complete UX writing layer covering voice, tone and microcopy standards — because a platform managing someone's pet cannot succeed with generic or ambiguous copy."
       ],
       hmw: "Help pet owners find a trusted sitter with confidence — and feel reassured once their pet is in someone else's care?",
       richSections: [
