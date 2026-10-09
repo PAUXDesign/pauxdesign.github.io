@@ -3810,6 +3810,170 @@ button.proj-gallery-item {
   margin-bottom: 16px;
 }
 .drawer-prose:last-of-type { margin-bottom: 10px; }
+.drawer-mila-quick { display: none; }
+.drawer-view-quick .drawer-mila-quick { display: block; }
+.drawer-view-quick .drawer-mila-full { display: none; }
+.drawer-mila-section { scroll-margin-top: 80px; }
+.drawer-mila-full > .drawer-mila-section + .drawer-mila-section { margin-top: 30px; }
+.drawer-mila-section-title {
+  margin: 28px 0 14px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--border);
+  color: var(--dark);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
+}
+.drawer-mila-quick > .drawer-mila-section-title:first-child,
+.drawer-mila-section > .drawer-mila-section-title:first-child { margin-top: 0; }
+.drawer-mila-quick section { margin-top: 24px; }
+.drawer-mila-quick .drawer-prose,
+.drawer-mila-full .drawer-prose { margin-bottom: 12px; font-size: 13px; line-height: 1.65; }
+.drawer-mila-quick-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.drawer-mila-quick-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.drawer-mila-quick-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center top; }
+.drawer-mila-quick-card-content { padding: 12px; }
+.drawer-content .drawer-mila-quick-card h4 {
+  margin: 0 0 8px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border);
+  color: var(--dark);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.drawer-mila-quick-card p,
+.drawer-mila-stage p,
+.drawer-mila-how-step p,
+.drawer-mila-status p {
+  margin: 0;
+  color: var(--mid);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.drawer-mila-list { margin: 10px 0 16px; padding-left: 22px; }
+.drawer-mila-list li { padding: 0 0 8px 3px; color: var(--mid); font-size: 13px; line-height: 1.65; }
+.drawer-mila-list li::marker { color: var(--accent); }
+.drawer-mila-list strong { color: var(--dark); font-weight: 600; }
+.drawer-mila-opportunity {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--bg-soft);
+  color: var(--mid);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.drawer-mila-opportunity strong { color: var(--dark); }
+.drawer-mila-question {
+  margin: 18px 0 0;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: var(--dark);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+.drawer-mila-strategy-list { margin-top: 22px; }
+.drawer-mila-strategy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  margin: 28px 0;
+}
+.drawer-mila-strategy.reverse .drawer-mila-figure { order: 2; }
+.drawer-mila-figure { margin: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; }
+.drawer-mila-figure img,
+.drawer-mila-figure video { display: block; width: 100%; height: auto; }
+.drawer-mila-figure figcaption {
+  padding: 9px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--mid);
+  font-size: 10.5px;
+  line-height: 1.55;
+}
+.drawer-mila-strategy-label {
+  color: var(--light);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.drawer-mila-strategy-copy h4,
+.drawer-mila-how-step h4 {
+  margin: 7px 0 12px;
+  color: var(--dark);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.drawer-mila-stages,
+.drawer-mila-how-list { display: grid; gap: 12px; margin: 26px 0; }
+.drawer-mila-stage,
+.drawer-mila-how-step {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-soft);
+}
+.drawer-mila-stage > span,
+.drawer-mila-how-step > span { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.drawer-mila-stage strong { display: block; margin-bottom: 4px; color: var(--dark); font-size: 13px; }
+.drawer-mila-how-step h4 { margin: 0 0 4px; font-size: 14px; }
+.drawer-content .drawer-mila-strategy-copy h4 {
+  margin: 6px 0 9px;
+  padding: 0;
+  border: 0;
+  color: var(--dark);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.35;
+  text-transform: none;
+}
+.drawer-content .drawer-mila-how-step h4 {
+  margin: 0 0 4px;
+  padding: 0;
+  border: 0;
+  color: var(--dark);
+  font-size: 14px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.drawer-mila-validation { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 24px 0; }
+.drawer-mila-validation article { padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-soft); }
+.drawer-mila-validation strong { display: block; margin-bottom: 7px; color: var(--dark); font-size: 13px; }
+.drawer-mila-validation p { margin: 0; color: var(--mid); font-size: 12.5px; line-height: 1.65; }
+.drawer-mila-status {
+  margin: 26px 0 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+}
+.drawer-mila-status strong { display: block; margin-bottom: 6px; color: var(--dark); font-size: 13px; }
+.drawer-mila-closing { margin: 20px 0 0; color: var(--dark); font-family: var(--font-display); font-size: 15px; font-weight: 500; line-height: 1.55; }
 .drawer-content h4 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -3843,6 +4007,15 @@ button.proj-gallery-item {
   font-size: 11px; color: var(--mid);
   text-transform: uppercase; letter-spacing: 0.04em;
   margin-top: 2px;
+}
+.drawer-mila-full #d-metrics .drawer-metrics { gap: 12px; margin-bottom: 0; }
+.drawer-mila-full #d-metrics .drawer-metrics div .n { font-size: 20px; line-height: 1.1; }
+.drawer-mila-full #d-metrics .drawer-metrics div .l {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-transform: none;
 }
 .drawer-list {
   list-style: none; padding: 0;
@@ -4549,6 +4722,14 @@ button.proj-gallery-item {
 @media(max-width:640px){
   .drawer-img-grid { grid-template-columns: 1fr; row-gap: 16px; }
   .drawer-stat-row { grid-template-columns: 1fr; row-gap: 14px; }
+  .drawer-mila-quick-grid { grid-template-columns: 1fr; }
+  .drawer-mila-strategy { grid-template-columns: 1fr; gap: 18px; }
+  .drawer-mila-strategy.reverse .drawer-mila-figure { order: 0; }
+  .drawer-mila-validation { grid-template-columns: 1fr; }
+  .drawer-mila-full #d-metrics .drawer-metrics { grid-template-columns: 1fr; }
+  .drawer-mila-full #d-metrics .drawer-metrics > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; align-items: center; }
+  .drawer-mila-full #d-metrics .drawer-metrics div .n { font-size: 18px; }
+  .drawer-mila-full #d-metrics .drawer-metrics div .l { margin-top: 0; }
 }
 
 @media (max-width: 760px) {
@@ -4568,6 +4749,11 @@ button.proj-gallery-item {
   .drawer-two, .drawer-personas, .drawer-stat-row { grid-template-columns: 1fr; row-gap: 14px; }
   .drawer-content { padding: 28px 22px 48px; }
   .drawer-cover { padding: 24px 18px 28px; min-height: 220px; }
+  .drawer-body.drawer-mila-case-study > .drawer-cover { min-height: 0; padding: 16px 18px 20px; }
+  .drawer-body.drawer-mila-case-study > .drawer-cover img { max-width: 100%; max-height: 240px; object-fit: contain; }
+  .drawer-mila-case-study .drawer-content h2 { font-size: 22px; }
+  .drawer-mila-case-study .drawer-meta { gap: 8px 12px; padding: 12px 14px; margin-bottom: 14px; }
+  .drawer-mila-case-study .drawer-view-toggle { padding-bottom: 22px; }
 }
 
 /* ──────────────────── COMMAND PALETTE ──────────────────── */
@@ -5626,12 +5812,12 @@ button.proj-gallery-item {
                 </div>
               </div>
               <div class="featured-body">
-                <div class="featured-index">02 — Mobile + AI</div>
+                <div class="featured-index">02 — AI + mobile learning</div>
                 <div class="featured-title-row">
-                  <div class="featured-title">Mila AI — language learning app</div>
+                  <div class="featured-title">Mila AI — adaptive language learning</div>
                   <svg class="featured-title-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
                 </div>
-                <p class="featured-desc">The AI was working, but nobody could see it. Redesigned a web platform into an iOS app where personalisation is visible and a lesson is one tap away.</p>
+                <p class="featured-desc">Transformed a conversational AI web app into a mobile-first experience that makes personalisation visible through guided onboarding, an evolving learning path and purposeful practice. Approximately 85% developed; not launched.</p>
                 <div class="post-tags">
                   <span class="post-tag"><span class="post-tag-dot t-accent"></span>Mobile</span>
                   <span class="post-tag"><span class="post-tag-dot t-accent"></span>AI</span>
@@ -5733,7 +5919,7 @@ button.proj-gallery-item {
                 </div>
                 <div class="act-item">
                   <div class="act-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg></div>
-                  <div class="act-text">Led UX/UI for <strong>Mila AI</strong> language app — <strong>85% usability uplift</strong> in pre/post tests. <span class="meta">iOS · AI personalisation.</span></div>
+                  <div class="act-text">Led UX/UI for <strong>Mila AI</strong>, redesigning its language learning experience around visible personalisation, adaptive progression and purposeful practice. <span class="meta">iOS · AI personalisation.</span></div>
                   <div class="act-time">2025</div>
                 </div>
               </div>
@@ -5952,7 +6138,7 @@ button.proj-gallery-item {
                   <div class="tl-year">2024–26</div>
                   <div class="tl-body">
                     <h4>Mila AI · Product Designer</h4>
-                    <p>Led UX/UI for an AI-powered language learning iOS app. Redesigned core flows, wireframes and prototypes — achieved <strong>85% usability improvement</strong>. Defined interaction patterns and visual standards through to dev handoff.</p>
+                    <p>Led UX/UI for an AI-powered language learning iOS app. Redesigned core flows, wireframes and prototypes to make personalisation, learning progression and practice more visible. Evaluated the experience through exploratory usability testing with existing web app users; the app was approximately 85% developed and did not launch.</p>
                   </div>
                 </div>
               </div>
@@ -6728,97 +6914,150 @@ const PROJECTS = [
         { id: "d-learnings", label: "Learnings" }
       ],
       links: [
-        { label: "Discuss this project", action: "goto-contact" }
+        { label: "Let's talk", action: "goto-contact" }
       ]
     }
   },
   {
     id: "mila-ai",
-    title: "Mila AI — Your Personal AI Language Teacher",
+    title: "Designing an adaptive learning experience",
     slug: "Mila AI",
     year: "2024",
     role: "Product Designer / UX Architect",
     tags: ["ai", "mobile"],
     chips: [{label:"AI Product", cls:"ac"}, {label:"Mobile · iOS", cls:"ac"}, {label:"UX Architecture"}],
-    desc: "Redesigning a web-based platform into an AI-native mobile experience — making personalisation visible, progress tangible and lesson recovery frictionless.",
+    desc: "Transformed a conversational AI language learning web app into a mobile-first experience that makes personalisation visible, progression meaningful and practice more relevant to each learner.",
     img: "/Public/Images/mila.png",
-    status: "shipped",
-    statusLabel: "Shipped",
+    status: "concept",
+    statusLabel: "Not launched",
     metrics: [
-      {n: "85%", l: "Usability improvement (tests)"},
-      {n: "1 tap", l: "To resume a lesson"},
-      {n: "Visible AI", l: "Personalisation surfaced"}
+      {n: "Personalised", l: "Onboarding connects preferences with learning"},
+      {n: "Adaptive", l: "Learning path reveals units as users progress"},
+      {n: "Actionable", l: "Practice responds to learning needs"}
     ],
     drawer: {
-      subtitle: "From hidden AI to visible product value — redesigning a mobile learning experience so personalisation, continuity and progress feel native to the app.",
+      subtitle: "Transforming a conversational AI web app into a mobile-first learning experience that adapts to each user's interests, progress and learning needs.",
       meta: [
         { label: "Role", value: "Product Designer / UX Architect" },
         { label: "Scope", value: "End-to-end product design" },
         { label: "Platform", value: "iOS mobile app" },
         { label: "Year", value: "2024" }
       ],
-      lead: "Mila AI had a real problem: the AI was working, but nobody could see it. Users navigated through multiple menus to reach a single lesson, lost their place constantly, and had no sense the product was adapting to them. <strong>The technology was there. The experience was not.</strong>",
-      body: [
-        "I led the end-to-end UX and UI for the iOS app — rethinking how progression, personalisation and continuity should work for someone learning on their phone in short, on-the-go sessions.",
-        "<strong>Onboarding flow.</strong> Users define goals, level and target language on first launch. The system adapts immediately — AI moves from a hidden backend process to a visible feature users can understand and trust from day one.",
-        "<strong>Learning roadmap.</strong> A dynamic roadmap unlocks based on progress. Users can see where they are, what they've completed and what's next — turning learning momentum into a visible product experience."
-      ],
-      quote: "A language learning app only works if people come back tomorrow. Mila had the content and the AI — but the mobile experience was an afterthought built on top of a desktop product. Users dropped off before they ever saw the value.",
-      beforeAfter: {
-        leftTitle: "Problems identified",
-        rightTitle: "Design goals",
-        left: [
-          "Multiple menus to reach a single lesson",
-          "No learning roadmap or visible progression",
-          "Users lost context after every interruption",
-          "AI personalisation completely invisible to users",
-          "UI designed for desktop, not mobile sessions"
+      caseStudy: {
+        overview: [
+          "Mila AI was originally a web-based language learning platform built around AI-powered conversations.",
+          "Rather than following a predefined curriculum, users could engage in conversations that evolved according to their interests, preferences and learning progress.",
+          "However, this adaptive experience was not clearly communicated through the product. Users were presented with multiple topics from the beginning, but the interface did not explain how those choices would shape their learning journey. The AI was central to the product's functionality, yet its ability to personalise the experience remained largely invisible.",
+          "I led the end-to-end UX and UI design of the iOS app, rethinking how users discover the product, understand their progress and continue learning over time."
         ],
-        right: [
-          "One tap to resume where you left off",
-          "Clear learning roadmap with visible progress",
-          "Personalised onboarding from first launch",
-          "AI adaptation surfaced as a visible feature",
-          "Experience built for short, interrupted sessions"
-        ]
-      },
-      stepsSectionTitle: "Design strategy",
-      steps: [
-        { num: "Strategy 01", title: "Mobile-first architecture", desc: "Rebuilt the IA around quick access and clear progression. Fewer steps to the lesson, a clearer sense of where you are in your journey." },
-        { num: "Strategy 02", title: "Personalised onboarding", desc: "Users define goals and level on first launch. The system adapts immediately — ownership and AI value from the very first session." },
-        { num: "Strategy 03", title: "Adaptive learning roadmap", desc: "A dynamic roadmap unlocks based on progress — turning AI adaptation from a backend process into something users can see, feel and trust." },
-        { num: "Strategy 04", title: "Resume & continuity", desc: "Progress saves automatically. \"Continue Learning\" is the primary action on every return — one tap to resume without losing context." }
-      ],
-      sectionsAfter: [
-        {
-          h: "Onboarding flow",
-          intro: "Users define goals, level and target language on first launch. The system adapts immediately — AI goes from a hidden backend process to a visible feature users can see and trust from day one.",
-          img: "/Public/Images/mila-onboarding.png",
-          imgAlt: "Mila AI — personalised onboarding flow",
-          imgCaption: "Onboarding flow — personalisation visible from first launch"
-        },
-        {
-          h: "Adaptive learning roadmap",
-          intro: "A dynamic roadmap unlocks content based on performance. Users can finally see where they are, what they've completed, and what's next — making progression tangible and motivating return.",
-          img: "/Public/Images/roadmap-mila.png",
-          imgAlt: "Mila AI — adaptive learning roadmap",
-          imgCaption: "Learning roadmap — AI adaptation made visible"
+        overviewQuestion: "How might we make an AI-driven learning experience feel personal, progressive and intuitive from the very first interaction?",
+        challengeIntro: "Mila AI's underlying learning experience was designed to evolve with each user, but the interface did not make this process sufficiently clear.",
+        challenge: [
+          { title: "Personalisation wasn't tangible", desc: "Users could select topics and interests, but the interface did not clearly communicate how those preferences would influence future conversations and learning opportunities." },
+          { title: "Learning progression lacked visibility", desc: "Without a clear learning path, users had limited visibility into their progress, what they had completed and what they could expect to learn next." },
+          { title: "Practice wasn't clearly connected to learning needs", desc: "The system could identify opportunities to revisit and practise certain concepts, but these adaptive capabilities needed to become more understandable and actionable within the experience." }
+        ],
+        opportunity: "Instead of simply improving navigation, the opportunity was to make the underlying intelligence of the product visible through the interface.",
+        strategyIntro: [
+          "The goal was to make Mila AI's adaptive learning model tangible throughout the user journey. Rather than presenting AI as a hidden mechanism, I designed an experience that communicates personalisation from the first interaction, makes learning progression visible and connects performance with relevant practice opportunities.",
+          "The strategy focused on three key moments: how users establish their learning preferences, how their learning path evolves over time, and how the experience helps them identify what to practise next."
+        ],
+        strategies: [
+          {
+            number: "Strategy 01",
+            title: "Guided onboarding",
+            desc: "The onboarding flow was redesigned to establish a clearer connection between user preferences and the learning experience that followed. Rather than asking for a broad set of topics in a generic way, the flow introduced personalisation as part of the onboarding narrative.",
+            bullets: [
+              "Helped users define language goals, level and interests in a guided setup.",
+              "Made the learning model feel relevant from the very first interaction.",
+              "Turned personalisation from a backend mechanism into a visible product promise."
+            ],
+            img: "/Public/Images/mila-onboarding.png",
+            imgAlt: "Mila AI onboarding screens showing guided personalisation and preference setup",
+            caption: "The redesign shifted onboarding from broad preference selection to a more guided introduction to personalised learning."
+          },
+          {
+            number: "Strategy 02",
+            title: "From a static roadmap to an evolving learning journey",
+            desc: "Traditional language learning apps often present a predefined sequence of lessons. Mila AI followed a different approach: the learning experience evolved according to the user's performance, preferences and interactions.",
+            additionalDesc: "I designed a progressive roadmap that initially displayed three learning units rather than exposing the entire journey at once. As users completed learning activities, the system generated subsequent units automatically based on their performance.",
+            bullets: [
+              "Displayed three learning units initially to make the next steps manageable.",
+              "Generated subsequent units based on the user's learning performance.",
+              "Made completed and upcoming learning units easier to distinguish."
+            ],
+            video: "/Public/Images/Mila%20app.mp4",
+            imgAlt: "Mila AI adaptive learning roadmap demo",
+            caption: "The roadmap provides structure without imposing a fully predefined curriculum, allowing the learning journey to evolve as the user progresses."
+          },
+          {
+            number: "Strategy 03",
+            title: "Adaptive practice",
+            desc: "Personalised learning is not only about deciding what users learn next. It also involves identifying what they may need to revisit.",
+            additionalDesc: "Mila AI was designed to recognise when a user needed additional practice and determine how frequently certain concepts should be revisited. My design challenge was to make these recommendations actionable without adding unnecessary complexity to the experience.",
+            bullets: [
+              "Connected practice opportunities to learning performance.",
+              "Integrated lesson review into the broader learning experience.",
+              "Made upcoming review activities easier to understand.",
+              "Designed practice as part of the learning journey rather than as a disconnected feature."
+            ],
+            img: "/Public/Images/mila-practice.jpg",
+            imgAlt: "Mila AI practice screen and lesson review screen showing review options and a focused practice plan",
+            caption: "The Practice experience brings lesson review and upcoming practice opportunities into one place, helping users understand what they have already reviewed and what comes next."
+          }
+        ],
+        roadmapStages: [
+          { title: "Start learning", desc: "Users begin with three available learning units." },
+          { title: "Learn and adapt", desc: "The system uses performance and preferences to inform the learning journey." },
+          { title: "Reveal what's next", desc: "Additional learning units are generated automatically as the user progresses." }
+        ],
+        howItWorks: [
+          { title: "Understand the learner", desc: "The onboarding captures the user's language, level, goals and interests." },
+          { title: "Learn through conversation", desc: "Users engage in AI-powered conversations instead of following a catalogue of predefined classes." },
+          { title: "Adapt the learning path", desc: "The system uses learning performance and preferences to inform the next learning units." },
+          { title: "Identify practice opportunities", desc: "The system identifies learning areas that need reinforcement and determines when additional practice may be appropriate." },
+          { title: "Continue learning", desc: "The journey evolves as the user interacts with the app, creating opportunities for more relevant conversations and targeted practice." }
+        ],
+        howItWorksIntro: "Mila AI was designed around a continuous feedback loop. The user's preferences and learning activity informed an experience that could evolve over time, generating new learning units and identifying opportunities for additional practice.",
+        validation: [
+          "The redesigned experience was evaluated through exploratory comparative usability testing with a small group of users who had previously used the web app.",
+          "During testing, users completed tasks in less time and demonstrated a better understanding of Mila AI's personalised learning proposition. These observations provided an initial indication that the redesigned experience made the product easier to navigate and its value easier to understand."
+        ],
+        outcome: [
+          "The project resulted in a mobile-first experience designed to make Mila AI's core value proposition more tangible: a language learning journey that evolves with the user.",
+          "The redesigned experience brought together guided personalisation, progressive learning paths, adaptive practice and easier session continuity. By connecting onboarding, learning progression and practice, the design aimed to make the AI's adaptive capabilities more visible and understandable throughout the user journey."
+        ],
+        outcomes: [
+          { title: "A clearer introduction to personalisation.", desc: "The onboarding was redesigned to help users establish their learning preferences through a more guided and focused experience." },
+          { title: "A progressive learning journey.", desc: "The roadmap introduced a more structured way to navigate AI-generated learning content, revealing subsequent units as users progressed." },
+          { title: "Practice connected to learning needs.", desc: "The product's adaptive practice logic was incorporated into the experience strategy, connecting learning performance with opportunities for reinforcement." },
+          { title: "A mobile experience designed for continuity.", desc: "The new information architecture prioritised ongoing learning and made returning to an existing session more straightforward." }
+        ],
+        status: "Approximately 85% developed · Not launched",
+        statusDesc: "The design work established the intended mobile experience and translated the product's adaptive learning capabilities into a more visible, structured user journey. As the app did not launch, post-launch retention, engagement and business impact could not be evaluated.",
+        closing: "The goal was not simply to bring a web app to mobile, but to make adaptive learning feel like a natural, understandable part of the user experience.",
+        quick: {
+          intro: "I transformed a conversational AI language learning web app into a mobile-first experience designed to make personalisation visible, progression meaningful and practice more relevant to each learner.",
+          challenge: "Mila AI could personalise conversations and generate learning content, but users couldn't clearly see how the experience adapted to them.",
+          approach: [
+            { number: "Strategy 01", title: "Personalise from day one", desc: "Redesigned onboarding to connect users' goals, proficiency level and interests with their learning experience.", img: "/Public/Images/mila-onboarding.png", alt: "Mila AI onboarding flow for setting language goals, proficiency and interests" },
+            { number: "Strategy 02", title: "Build a learning path that evolves", desc: "Designed a progressive roadmap that starts with three learning units and reveals new ones based on user performance and preferences.", img: "/Public/Images/roadmap-mila.png", alt: "Mila AI adaptive learning roadmap with lessons and upcoming units" },
+            { number: "Strategy 03", title: "Make practice purposeful", desc: "Designed a review experience that helps users identify what to revisit and when additional practice is needed.", img: "/Public/Images/mila-practice.jpg", alt: "Mila AI practice and lesson review experience" }
+          ],
+          outcome: "The redesigned experience made Mila AI's adaptive learning model more visible and easier to understand. In exploratory usability testing with existing web app users, participants completed tasks in less time and demonstrated a clearer understanding of the product's value."
         }
-      ],
-      insightsSectionTitle: "Outcome",
-      insights: [
-        { icon: "✅", text: "<strong>85% usability improvement</strong> in structured testing with early users — measured against the previous web experience." },
-        { icon: "✅", text: "<strong>Progression clarity resolved</strong> — users knew exactly where they were, what they'd done and what to do next without guidance or prompts." },
-        { icon: "✅", text: "<strong>AI perceived as visible and personal</strong> — users described the app as feeling like it was \"learning them\", rather than serving generic content." }
-      ],
+      },
       drawerIndex: [
+        { id: "d-metrics", label: "At a glance" },
         { id: "d-overview", label: "Overview" },
         { id: "d-challenge", label: "The challenge" },
         { id: "d-strategy", label: "Design strategy" },
+        { id: "d-how-it-works", label: "How it works" },
+        { id: "d-validation", label: "Validation" },
         { id: "d-outcome", label: "Outcome" }
       ],
       links: [
-        { label: "Discuss this project", action: "goto-contact" }
+        { label: "Let's talk", action: "goto-contact" }
       ]
     }
   },
@@ -6981,7 +7220,7 @@ const PROJECTS = [
       ],
       prototype: { label: "Try the Figma prototype", href: "https://www.figma.com/proto/mXsuDaxHFXnzNPYvIc3JYx/Joblink-%2F-Prototype?page-id=0%3A1&node-id=0-5003&node-type=canvas&viewport=585%2C451%2C0.08&t=nyP7HRBnchlYf8WS-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=0%3A4512&show-proto-sidebar=1" },
       links: [
-        { label: "Discuss this project", action: "goto-contact" }
+        { label: "Let's talk", action: "goto-contact" }
       ]
     }
   },
@@ -7366,7 +7605,7 @@ const PROJECTS = [
         { icon: "🔍", text: "<strong>What I'd do differently:</strong> Task 2 still had a 30% failure rate — \"Track your pets\" wasn't intuitive for all users. I'd A/B test alternative labels (\"Pet updates\", \"Live care\") before finalising. The naming of features matters as much as their placement." }
       ],
       links: [
-        { label: "Discuss this project", action: "goto-contact" }
+        { label: "Let's talk", action: "goto-contact" }
       ]
     }
   }
@@ -8201,10 +8440,130 @@ function renderDrawerTable(tbl) {
   return `<div class="drawer-table-wrap"><table class="drawer-table"><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`;
 }
 
+function renderMilaCaseStudy(cs) {
+  const paragraphs = items => items.map(text => `<p class="drawer-prose">${text}</p>`).join('');
+  const bulletList = items => `<ul class="drawer-mila-list">${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+  const quickApproach = cs.quick.approach.map(item => `
+    <article class="drawer-mila-quick-card">
+      <img src="${item.img}" alt="${item.alt}" loading="lazy">
+      <div class="drawer-mila-quick-card-content">
+        <span class="drawer-mila-strategy-label">${item.number}</span>
+        <h4>${item.title}</h4>
+        <p>${item.desc}</p>
+      </div>
+    </article>
+  `).join('');
+  const stages = cs.roadmapStages.map((stage, index) => `
+    <article class="drawer-mila-stage">
+      <span>${String(index + 1).padStart(2, '0')}</span>
+      <div><strong>${stage.title}</strong><p>${stage.desc}</p></div>
+    </article>
+  `).join('');
+  const strategies = cs.strategies.map((strategy, index) => {
+    const media = strategy.video
+      ? `<video autoplay muted loop playsinline preload="metadata" aria-label="${strategy.imgAlt}"><source src="${strategy.video}" type="video/mp4"></video>`
+      : `<img src="${strategy.img}" alt="${strategy.imgAlt}" loading="lazy">`;
+    return `
+      <article class="drawer-mila-strategy${index % 2 ? ' reverse' : ''}">
+        <figure class="drawer-mila-figure">
+          ${media}
+          <figcaption>${strategy.caption}</figcaption>
+        </figure>
+        <div class="drawer-mila-strategy-copy">
+          <div class="drawer-mila-strategy-label">${strategy.number}</div>
+          <h4>${strategy.title}</h4>
+          <p class="drawer-prose">${strategy.desc}</p>
+          ${strategy.additionalDesc ? `<p class="drawer-prose">${strategy.additionalDesc}</p>` : ''}
+          ${bulletList(strategy.bullets)}
+        </div>
+      </article>
+      ${index === 1 ? `<div class="drawer-mila-stages">${stages}</div>` : ''}
+    `;
+  }).join('');
+  const howItWorks = cs.howItWorks.map((step, index) => `
+    <article class="drawer-mila-how-step">
+      <span>${String(index + 1).padStart(2, '0')}</span>
+      <div><h4>${step.title}</h4><p>${step.desc}</p></div>
+    </article>
+  `).join('');
+  const outcomeItems = cs.outcomes.map(item => `<li><strong>${item.title}</strong> ${item.desc}</li>`).join('');
+  const challenge = cs.challenge.map(item => `<li><strong>${item.title}</strong> ${item.desc}</li>`).join('');
+
+  return `
+    <div class="drawer-mila-quick" aria-label="30-second case study summary">
+      <h3 class="drawer-mila-section-title">Designing an adaptive learning experience</h3>
+      <p class="drawer-prose">${cs.quick.intro}</p>
+      <section>
+        <h3 class="drawer-mila-section-title">The challenge</h3>
+        <p class="drawer-prose">${cs.quick.challenge}</p>
+      </section>
+      <section>
+        <h3 class="drawer-mila-section-title">My approach</h3>
+        <div class="drawer-mila-quick-grid">${quickApproach}</div>
+      </section>
+      <section>
+        <h3 class="drawer-mila-section-title">The outcome</h3>
+        <p class="drawer-prose">${cs.quick.outcome}</p>
+      </section>
+    </div>
+    <div class="drawer-mila-full">
+      <section id="d-metrics" class="drawer-mila-section">
+        <h3 class="drawer-mila-section-title">At a glance</h3>
+        <div class="drawer-metrics">
+          <div><div class="n">Personalised</div><div class="l">Onboarding connects preferences with future learning</div></div>
+          <div><div class="n">Adaptive</div><div class="l">Learning path reveals new units as users advance</div></div>
+          <div><div class="n">Actionable</div><div class="l">Practice ties to learning needs and progress</div></div>
+        </div>
+      </section>
+      <section id="d-overview" class="drawer-mila-section">
+        <h3 class="drawer-mila-section-title">Overview</h3>
+        ${paragraphs(cs.overview)}
+        <div class="drawer-mila-question">${cs.overviewQuestion}</div>
+      </section>
+      <section id="d-challenge" class="drawer-mila-section">
+        <h3 class="drawer-mila-section-title">The challenge</h3>
+        <p class="drawer-prose">${cs.challengeIntro}</p>
+        <p class="drawer-prose">I identified three key experience challenges.</p>
+        <ul class="drawer-mila-list">${challenge}</ul>
+        <p class="drawer-mila-opportunity"><strong>Design opportunity:</strong> ${cs.opportunity}</p>
+      </section>
+      <section id="d-strategy" class="drawer-mila-section">
+        <h3 class="drawer-mila-section-title">Design strategy</h3>
+        ${paragraphs(cs.strategyIntro)}
+        <div class="drawer-mila-strategy-list">${strategies}</div>
+      </section>
+      <section id="d-how-it-works" class="drawer-mila-section">
+        <h3 class="drawer-mila-section-title">How it works</h3>
+        <p class="drawer-prose">${cs.howItWorksIntro}</p>
+        <div class="drawer-mila-how-list">${howItWorks}</div>
+      </section>
+      <section id="d-validation" class="drawer-mila-section">
+        <h3 class="drawer-mila-section-title">Validation</h3>
+        ${paragraphs(cs.validation)}
+        <div class="drawer-mila-validation">
+          <article><strong>Faster task completion</strong><p>Users completed tasks in less time during comparative usability testing with the previous web app experience.</p></article>
+          <article><strong>Clearer product value</strong><p>Users demonstrated a better understanding of Mila AI's personalised, AI-driven learning experience.</p></article>
+        </div>
+      </section>
+      <section id="d-outcome" class="drawer-mila-section">
+        <h3 class="drawer-mila-section-title">The outcome</h3>
+        ${paragraphs(cs.outcome)}
+        <ul class="drawer-mila-list">${outcomeItems}</ul>
+        <div class="drawer-mila-status">
+          <strong>${cs.status}</strong>
+          <p>${cs.statusDesc}</p>
+        </div>
+        <p class="drawer-mila-closing">${cs.closing}</p>
+      </section>
+    </div>
+  `;
+}
+
 function openDrawer(id) {
   const p = PROJECTS.find(x => x.id === id);
   if (!p) return;
   const d = p.drawer || {};
+  drawerBody.classList.toggle('drawer-mila-case-study', Boolean(d.caseStudy));
   drawerBc.textContent = p.slug;
 
   const subtitle = d.subtitle ? `<p class="drawer-subtitle">${d.subtitle}</p>` : '';
@@ -8464,20 +8823,22 @@ function openDrawer(id) {
       ${subtitle}
       ${meta}
       ${toggleHtml}
-      <div id="d-overview" style="scroll-margin-top:80px">${d.lead ? `<p class="lead">${d.lead}</p>` : ''}${bodyParas}</div>
-      ${nda}
-      <div class="drawer-metrics"${d.metricsSectionId ? ` id="${d.metricsSectionId}" style="scroll-margin-top:80px"` : ''}>
-        ${p.metrics.map(m => `<div><div class="n">${m.n}</div><div class="l">${m.l}</div></div>`).join('')}
-      </div>
-      ${d.richSections ? richSectionsHtml : `<div class="drawer-full-only">${secHtml(d.sections)}</div><div id="d-challenge"></div>${quote}${beforeAfter}`}
-      ${hmw ? `<div class="drawer-full-only">${hmw}</div>` : ''}
-      ${researchBlock ? `<div class="drawer-full-only">${researchBlock}</div>` : ''}
-      ${secHtml(d.sectionsMid) ? `<div class="drawer-full-only">${secHtml(d.sectionsMid)}</div>` : ''}
-      <div class="drawer-full-only" id="d-approach" style="scroll-margin-top:80px"><div id="d-process" style="scroll-margin-top:80px"></div>${stepsHdr}${stepsHtml}</div>
-      ${keyDecisionHtml ? `<div class="drawer-full-only" id="d-decisions-kd" style="scroll-margin-top:80px">${keyDecisionHtml}</div>` : ''}
-      <div class="drawer-full-only" id="d-learnings" style="scroll-margin-top:80px">${secHtml(d.sectionsAfter)}${proto}</div>
-      <div class="drawer-full-only">${impactIntroHtml}${impactCompare}${whyWorkedHtml}</div>
-      <div id="d-outcome" style="scroll-margin-top:80px">${insightsHdr || ''}${insightsHtml || ''}</div>
+      ${d.caseStudy ? renderMilaCaseStudy(d.caseStudy) : `
+        <div id="d-overview" style="scroll-margin-top:80px">${d.lead ? `<p class="lead">${d.lead}</p>` : ''}${bodyParas}</div>
+        ${nda}
+        <div class="drawer-metrics"${d.metricsSectionId ? ` id="${d.metricsSectionId}" style="scroll-margin-top:80px"` : ''}>
+          ${p.metrics.map(m => `<div><div class="n">${m.n}</div><div class="l">${m.l}</div></div>`).join('')}
+        </div>
+        ${d.richSections ? richSectionsHtml : `<div class="drawer-full-only">${secHtml(d.sections)}</div><div id="d-challenge"></div>${quote}${beforeAfter}`}
+        ${hmw ? `<div class="drawer-full-only">${hmw}</div>` : ''}
+        ${researchBlock ? `<div class="drawer-full-only">${researchBlock}</div>` : ''}
+        ${secHtml(d.sectionsMid) ? `<div class="drawer-full-only">${secHtml(d.sectionsMid)}</div>` : ''}
+        <div class="drawer-full-only" id="d-approach" style="scroll-margin-top:80px"><div id="d-process" style="scroll-margin-top:80px"></div>${stepsHdr}${stepsHtml}</div>
+        ${keyDecisionHtml ? `<div class="drawer-full-only" id="d-decisions-kd" style="scroll-margin-top:80px">${keyDecisionHtml}</div>` : ''}
+        <div class="drawer-full-only" id="d-learnings" style="scroll-margin-top:80px">${secHtml(d.sectionsAfter)}${proto}</div>
+        <div class="drawer-full-only">${impactIntroHtml}${impactCompare}${whyWorkedHtml}</div>
+        <div id="d-outcome" style="scroll-margin-top:80px">${insightsHdr || ''}${insightsHtml || ''}</div>
+      `}
       <div class="drawer-cta">
         ${linkBtns}
         <button type="button" class="btn btn-outline" onclick="closeDrawer()">Close</button>

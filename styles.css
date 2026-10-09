@@ -1635,10 +1635,18 @@ h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
   opacity: 1;
   transform: scale(1.02);
 }
-.wthumb.t1 { background-image: url('/Public/Images/dashboard-saas.png'); }
+.wthumb.t1 {
+  background-image: url('/Public/Images/dashboard-saas.png');
+  background-position: 65% center;
+  background-size: auto 75%;
+}
 .wthumb.t2 { background-image: url('/Public/Images/mila.png'); }
-.wthumb.t3 { background-image: url('/Public/Images/joblink.png'); }
-.wthumb.t4 { background-image: url('/Public/Images/rover.png'); }
+.wthumb.t3 { background-image: url('/Public/Images/joblink.png?v=2'); }
+.wthumb.t4 {
+  background-image: url('/Public/Images/rover.png');
+  background-position: right center;
+  background-size: auto 100%;
+}
 
 .work-more-wrap {
   display: flex;

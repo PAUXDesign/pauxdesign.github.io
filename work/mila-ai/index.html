@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/Public/Images/icon.png" type="image/png">
 <title>Mila AI — Language App — Paux Design</title>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 
 <style>
@@ -24,12 +23,12 @@
 .cs-toggle-wrap {
   display: inline-flex;
   align-items: center;
-  background: #FAFAFC;
-  border: 1px solid rgba(38,30,72,0.12);
+  background: var(--bg-soft);
+  border: 1px solid var(--border2);
   border-radius: 999px;
   padding: 5px;
   gap: 2px;
-  box-shadow: 0 2px 12px rgba(38,30,72,0.06);
+  box-shadow: 0 2px 12px rgba(38,30,72,0.05);
 }
 
 .cs-toggle-btn {
@@ -42,18 +41,18 @@
   background: transparent;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-meta);
   text-align: left;
   min-width: 180px;
 }
 
 .cs-toggle-btn:hover:not(.active) {
-  background: rgba(38,30,72,0.04);
+  background: var(--bg-tint);
 }
 
 .cs-toggle-btn.active {
-  background: #E3E4F7;
-  box-shadow: inset 0 0 0 1px rgba(38, 30, 72, 0.08);
+  background: var(--bg-accent);
+  box-shadow: inset 0 0 0 1px var(--border);
 }
 
 .cs-toggle-btn-label {
@@ -61,33 +60,33 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  color: #9B98B8;
+  color: var(--light);
   line-height: 1;
   margin-bottom: 3px;
   transition: color 0.2s;
 }
 
 .cs-toggle-btn.active .cs-toggle-btn-label {
-  color: rgba(38,30,72,0.62);
+  color: var(--mid);
 }
 
 .cs-toggle-btn-name {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #261E48;
+  color: var(--dark);
   line-height: 1;
   transition: color 0.2s;
 }
 
 .cs-toggle-btn.active .cs-toggle-btn-name {
-  color: #261E48;
+  color: var(--dark);
 }
 
 /* Divider between buttons */
 .cs-toggle-divider {
   width: 1px;
   height: 28px;
-  background: rgba(38,30,72,0.12);
+  background: var(--border2);
   flex-shrink: 0;
 }
 
@@ -161,33 +160,33 @@ body.view-switching .cs-body {
 }
 
 .cs-index-item:hover .cs-index-dot {
-  background: #7059DC;
+  background: var(--accent);
   transform: scale(1.3);
 }
 
 .cs-index-item:hover .cs-index-label {
-  color: #261E48;
+  color: var(--dark);
 }
 
 .cs-index-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(38,30,72,0.18);
+  background: var(--border2);
   flex-shrink: 0;
   transition: background 0.2s, transform 0.2s;
 }
 
 .cs-index-item.active .cs-index-dot {
-  background: #7059DC;
+  background: var(--accent);
   transform: scale(1.25);
 }
 
 .cs-index-label {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-meta);
   font-size: 0.72rem;
   font-weight: 600;
-  color: #9B98B8;
+  color: var(--light);
   line-height: 1.2;
   transition: color 0.2s;
   white-space: nowrap;
@@ -196,9 +195,494 @@ body.view-switching .cs-body {
 }
 
 .cs-index-item.active .cs-index-label {
-  color: #261E48;
+  color: var(--dark);
 }
 
+
+
+
+.cs-question {
+  margin-top: 28px;
+  padding: 20px 24px;
+  border-left: 2px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  background: var(--bg-tint);
+  font-family: var(--font-meta);
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.cs-two .cs-col p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+.cs-quick-heading {
+  margin-top: 24px;
+}
+
+.cs-quick-approach {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-quick-approach li {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-soft);
+}
+
+.cs-quick-approach img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-tint);
+}
+
+.cs-quick-approach-copy {
+  padding: 16px;
+}
+
+.cs-quick-approach-number {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-meta);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.cs-quick-approach strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-meta);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.4;
+}
+
+.cs-quick-approach p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--mid);
+}
+
+@media (max-width: 980px) {
+  .cs-quick-approach {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-quick-approach {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cs-quick-summary .cs-col.before,
+.cs-quick-summary .cs-col.after,
+#cs-validation .cs-col.before,
+#cs-validation .cs-col.after {
+  border-left: 1px solid var(--border);
+}
+
+.cs-quick-summary .cs-col.before .cs-col-label,
+.cs-quick-summary .cs-col.after .cs-col-label,
+#cs-validation .cs-col.before .cs-col-label,
+#cs-validation .cs-col.after .cs-col-label {
+  color: var(--accent);
+}
+
+.cs-challenge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  list-style: disc;
+  margin: 24px 0 20px;
+  padding-left: 22px;
+  color: var(--dark);
+}
+
+.cs-challenge-list li {
+  padding-left: 6px;
+  font-size: 0.92rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+.cs-challenge-list li::marker {
+  color: var(--accent);
+}
+
+.cs-challenge-list strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-meta);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.3;
+}
+
+.cs-challenge-opportunity {
+  margin: 22px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid rgba(112,89,220,0.35);
+  font-size: 0.92rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+.cs-challenge-opportunity strong {
+  color: var(--dark);
+}
+
+.cs-strategy-detail {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 28px;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.cs-strategy-detail.reverse {
+  grid-template-columns: 1fr 1.15fr;
+}
+
+.cs-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-subsection-label {
+  font-family: var(--font-meta);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.cs-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--dark);
+}
+
+.cs-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.cs-stage-sequence {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 12px;
+  padding: 18px 0;
+}
+
+.cs-stage {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 120px;
+}
+
+.cs-stage-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-accent);
+  color: var(--dark);
+  font-family: var(--font-meta);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.cs-stage-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cs-stage-copy strong {
+  font-family: var(--font-meta);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.cs-stage-copy p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.cs-stage-arrow {
+  font-size: 1.8rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.cs-flow-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 26px 0 18px;
+  padding: 16px 18px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: var(--font-meta);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.quick-only {
+  display: none;
+}
+
+body.view-quick .quick-only {
+  display: block;
+}
+
+body.view-quick .full-only,
+body.view-quick .cs-index,
+body.view-quick .cs-strategy-detail,
+body.view-quick .cs-stage-sequence,
+body.view-quick .cs-how-grid,
+body.view-quick .cs-flow-diagram {
+  display: none !important;
+}
+
+.cs-flow-arrow {
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.cs-how-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.cs-how-step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.cs-how-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--bg-accent);
+  font-family: var(--font-meta);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--dark);
+}
+
+.cs-how-step-copy strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-meta);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.cs-how-step-copy p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--mid);
+}
+
+.cs-outcome-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.cs-status-box {
+  margin-top: 26px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-soft);
+}
+
+.cs-status-label {
+  font-family: var(--font-meta);
+  font-size: 9.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.cs-status-text {
+  font-family: var(--font-meta);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.cs-status-box p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+.cs-closing-line {
+  margin-top: 28px;
+  padding: 18px 22px;
+  border-left: 2px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  background: var(--bg-tint);
+  font-family: var(--font-meta);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+.cs-figure {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs-figure img,
+.cs-figure video {
+  border-radius: 14px;
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.cs-figure video {
+  max-height: 420px;
+}
+
+.cs-figure .cs-img-caption {
+  align-items: flex-start;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-meta);
+  font-size: 11px;
+  color: var(--mid);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.cs-figure-callout {
+  min-height: 280px;
+}
+
+.cs-asset-callout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  border-radius: 12px;
+  border: 1px dashed var(--border2);
+  background: var(--bg-soft);
+  color: var(--mid);
+  font-family: var(--font-meta);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 16px;
+}
+
+@media (max-width: 980px) {
+  .cs-strategy-detail,
+  .cs-strategy-detail.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-how-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cs-stage-sequence {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-stage-arrow {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .cs-question {
+    padding: 18px 18px;
+    font-size: 14px;
+  }
+
+  .cs-how-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-flow-diagram {
+    font-size: 0.66rem;
+    letter-spacing: 0.03em;
+  }
+}
 
 </style>
 </head>
@@ -234,7 +718,6 @@ body.view-switching .cs-body {
 
 <div class="cs-page">
 
-  <!-- Hero -->
   <div class="cs-hero">
     <div class="container">
       <nav class="case-breadcrumb" aria-label="Breadcrumb">
@@ -249,8 +732,8 @@ body.view-switching .cs-body {
         <span class="cs-htag">Mobile · iOS</span>
         <span class="cs-htag">UX Architecture</span>
       </div>
-      <div class="cs-title">Mila AI — Your Personal AI Language Teacher</div>
-      <p class="cs-subtitle">Redesigning a web-based platform into an AI-driven mobile app — reducing friction and making personalisation visible to the user.</p>
+      <div class="cs-title">Mila AI — Designing an Adaptive Language Learning Experience</div>
+      <p class="cs-subtitle">Transforming a conversational AI web app into a mobile-first learning experience that adapts to each user's interests, progress and learning needs.</p>
       <div class="cs-meta">
         <div><div class="cs-meta-label">Role</div><div class="cs-meta-value">Product Designer / UX Architect</div></div>
         <div><div class="cs-meta-label">Scope</div><div class="cs-meta-value">End-to-end product design</div></div>
@@ -273,165 +756,318 @@ body.view-switching .cs-body {
     </div>
   </div>
 
-  <!-- Hero cover -->
   <div class="cs-hero-cover">
-    <img src="/Public/Images/mila.png" alt="Mila AI — app screens overview">
+    <img src="/Public/Images/mila.png" alt="Mila AI iOS app overview showing the main learning experience">
   </div>
 
-
-<!-- STICKY LEFT INDEX (full view only) -->
-<div class="cs-index" aria-label="Case study navigation">
-  <div class="cs-index-inner">
-    <a class="cs-index-item" data-section="cs-metrics" href="#cs-metrics">
-      <span class="cs-index-dot"></span>
-      <span class="cs-index-label">At a glance</span>
-    </a>
-    <a class="cs-index-item" data-section="cs-overview" href="#cs-overview">
-      <span class="cs-index-dot"></span>
-      <span class="cs-index-label">Overview</span>
-    </a>
-    <a class="cs-index-item" data-section="cs-challenge" href="#cs-challenge">
-      <span class="cs-index-dot"></span>
-      <span class="cs-index-label">The challenge</span>
-    </a>
-    <a class="cs-index-item" data-section="cs-strategy" href="#cs-strategy">
-      <span class="cs-index-dot"></span>
-      <span class="cs-index-label">Design strategy</span>
-    </a>
-    <a class="cs-index-item" data-section="cs-outcome" href="#cs-outcome">
-      <span class="cs-index-dot"></span>
-      <span class="cs-index-label">Outcome</span>
-    </a>
+  <div class="cs-index" aria-label="Case study navigation">
+    <div class="cs-index-inner">
+      <a class="cs-index-item" data-section="cs-metrics" href="#cs-metrics">
+        <span class="cs-index-dot"></span>
+        <span class="cs-index-label">At a glance</span>
+      </a>
+      <a class="cs-index-item" data-section="cs-overview" href="#cs-overview">
+        <span class="cs-index-dot"></span>
+        <span class="cs-index-label">Overview</span>
+      </a>
+      <a class="cs-index-item" data-section="cs-challenge" href="#cs-challenge">
+        <span class="cs-index-dot"></span>
+        <span class="cs-index-label">The challenge</span>
+      </a>
+      <a class="cs-index-item" data-section="cs-strategy" href="#cs-strategy">
+        <span class="cs-index-dot"></span>
+        <span class="cs-index-label">Design strategy</span>
+      </a>
+      <a class="cs-index-item" data-section="cs-how-it-works" href="#cs-how-it-works">
+        <span class="cs-index-dot"></span>
+        <span class="cs-index-label">How it works</span>
+      </a>
+      <a class="cs-index-item" data-section="cs-validation" href="#cs-validation">
+        <span class="cs-index-dot"></span>
+        <span class="cs-index-label">Validation</span>
+      </a>
+      <a class="cs-index-item" data-section="cs-outcome" href="#cs-outcome">
+        <span class="cs-index-dot"></span>
+        <span class="cs-index-label">Outcome</span>
+      </a>
+    </div>
   </div>
-</div>
 
   <div class="cs-layout">
-  <div class="cs-body">
-
-    <!-- Metrics -->
-    <div class="cs-metrics" id="cs-metrics">
-      <div class="cs-metric">
-        <div class="cs-metric-num">85%</div>
-        <div class="cs-metric-label">Usability improvement in structured testing</div>
-      </div>
-      <div class="cs-metric">
-        <div class="cs-metric-num">1 tap</div>
-        <div class="cs-metric-label">To resume a lesson — reduced from 4+ navigation steps</div>
-      </div>
-      <div class="cs-metric">
-        <div class="cs-metric-num">Visible AI</div>
-        <div class="cs-metric-label">Personalisation surfaced to the user — not hidden in the backend</div>
-      </div>
-    </div>
-
-    <!-- Overview -->
-    <div class="cs-section" id="cs-overview">
-      <div class="cs-section-title">Overview</div>
-      <p class="cs-text">Mila AI had a real problem: the AI was working, but nobody could see it. Users navigated through multiple menus to reach a single lesson, lost their place constantly, and had no sense the product was adapting to them. <strong>The tech was there. The experience wasn't.</strong></p>
-      <p class="cs-text">I led the end-to-end UX and UI for the iOS app — rethinking how progression, personalisation and continuity should work for someone learning on their phone in short, on-the-go sessions.</p>
-    </div>
-
-    <!-- The challenge -->
-    <div class="cs-section" id="cs-challenge">
-      <div class="cs-section-title">The challenge</div>
-      <div class="cs-quote">"A language learning app only works if people come back tomorrow. Mila had the content and the AI — but the mobile experience was an afterthought built on top of a desktop product. Users dropped off before they ever saw the value."</div>
-      <div class="cs-two">
-        <div class="cs-col before">
-          <div class="cs-col-label">Problems identified</div>
-          <ul>
-            <li>Multiple menus to reach a single lesson</li>
-            <li>No learning roadmap or visible progression</li>
-            <li>Users lost context after every interruption</li>
-            <li>AI personalisation completely invisible to users</li>
-            <li>UI designed for desktop, not mobile sessions</li>
-          </ul>
+    <div class="cs-body">
+      <div class="cs-metrics" id="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-num">Personalised</div>
+          <div class="cs-metric-label">Onboarding was redesigned to connect preferences with future learning.</div>
         </div>
-        <div class="cs-col after">
-          <div class="cs-col-label">Design goals</div>
-          <ul>
-            <li>One tap to resume where you left off</li>
-            <li>Clear learning roadmap with visible progress</li>
-            <li>Personalised onboarding from first launch</li>
-            <li>AI adaptation surfaced as a visible feature</li>
-            <li>Experience built for short, interrupted sessions</li>
-          </ul>
+        <div class="cs-metric">
+          <div class="cs-metric-num">Adaptive</div>
+          <div class="cs-metric-label">The learning path revealed new units as users advanced.</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">Actionable</div>
+          <div class="cs-metric-label">Practice was tied to the user's real learning needs and progress.</div>
         </div>
       </div>
-    </div>
 
+      <div class="cs-section quick-only" id="cs-quick-summary">
+        <div class="cs-section-title">Designing an adaptive learning experience</div>
+        <p class="cs-text">I transformed a conversational AI language learning web app into a mobile-first experience designed to make personalisation visible, progression meaningful and practice more relevant to each learner.</p>
+
+        <h3 class="cs-section-title cs-quick-heading">The challenge</h3>
+        <p class="cs-text">Mila AI could personalise conversations and generate learning content, but users couldn't clearly see how the experience adapted to them.</p>
+
+        <h3 class="cs-section-title cs-quick-heading">My approach</h3>
+        <ol class="cs-quick-approach">
+          <li>
+            <img src="/Public/Images/mila-onboarding.png" alt="Mila AI onboarding flow for setting language goals, proficiency and interests" loading="lazy">
+            <div class="cs-quick-approach-copy">
+              <span class="cs-quick-approach-number">Strategy 01</span>
+              <strong>Personalise from day one</strong>
+              <p>Redesigned onboarding to connect users' goals, proficiency level and interests with their learning experience.</p>
+            </div>
+          </li>
+          <li>
+            <img src="/Public/Images/roadmap-mila.png" alt="Mila AI adaptive learning roadmap with lessons and upcoming units" loading="lazy">
+            <div class="cs-quick-approach-copy">
+              <span class="cs-quick-approach-number">Strategy 02</span>
+              <strong>Build a learning path that evolves</strong>
+              <p>Designed a progressive roadmap that starts with three learning units and reveals new ones based on user performance and preferences.</p>
+            </div>
+          </li>
+          <li>
+            <img src="/Public/Images/mila-practice.jpg" alt="Mila AI practice and lesson review experience" loading="lazy">
+            <div class="cs-quick-approach-copy">
+              <span class="cs-quick-approach-number">Strategy 03</span>
+              <strong>Make practice purposeful</strong>
+              <p>Designed a review experience that helps users identify what to revisit and when additional practice is needed.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3 class="cs-section-title cs-quick-heading">The outcome</h3>
+        <p class="cs-text">The redesigned experience made Mila AI's adaptive learning model more visible and easier to understand. In exploratory usability testing with existing web app users, participants completed tasks in less time and demonstrated a clearer understanding of the product's value.</p>
+      </div>
+
+      <div class="cs-section full-only" id="cs-overview">
+        <div class="cs-section-title">Overview</div>
+        <p class="cs-text">Mila AI was originally a web-based language learning platform built around AI-powered conversations.</p>
+        <p class="cs-text">Rather than following a predefined curriculum, users could engage in conversations that evolved according to their interests, preferences and learning progress.</p>
+        <p class="cs-text">However, this adaptive experience was not clearly communicated through the product. Users were presented with multiple topics from the beginning, but the interface did not explain how those choices would shape their learning journey. The AI was central to the product's functionality, yet its ability to personalise the experience remained largely invisible.</p>
+        <p class="cs-text">I led the end-to-end UX and UI design of the iOS app, rethinking how users discover the product, understand their progress and continue learning over time.</p>
+        <div class="cs-question">How might we make an AI-driven learning experience feel personal, progressive and intuitive from the very first interaction?</div>
+      </div>
+
+      <div class="cs-section full-only" id="cs-challenge">
+        <div class="cs-section-title">The challenge</div>
+        <p class="cs-text">Mila AI's underlying learning experience was designed to evolve with each user, but the interface did not make this process sufficiently clear.</p>
+        <p class="cs-text">I identified three key experience challenges.</p>
+
+        <ul class="cs-challenge-list">
+          <li>
+            <strong>Personalisation wasn't tangible</strong>
+            Users could select topics and interests, but the interface did not clearly communicate how those preferences would influence future conversations and learning opportunities.
+          </li>
+          <li>
+            <strong>Learning progression lacked visibility</strong>
+            Without a clear learning path, users had limited visibility into their progress, what they had completed and what they could expect to learn next.
+          </li>
+          <li>
+            <strong>Practice wasn't clearly connected to learning needs</strong>
+            The system could identify opportunities to revisit and practise certain concepts, but these adaptive capabilities needed to become more understandable and actionable within the experience.
+          </li>
+        </ul>
+        <p class="cs-challenge-opportunity"><strong>Design opportunity:</strong> Make the product's intelligence visible. Instead of simply improving navigation, the opportunity was to make the underlying intelligence of the product visible through the interface.</p>
+      </div>
+
+      <div class="cs-section full-only" id="cs-strategy">
+        <div class="cs-section-title">Design strategy</div>
+        <p class="cs-text">The goal was to make Mila AI's adaptive learning model tangible throughout the user journey. Rather than presenting AI as a hidden mechanism, I designed an experience that communicates personalisation from the first interaction, makes learning progression visible and connects performance with relevant practice opportunities.</p>
+        <p class="cs-text">The strategy focused on three key moments: how users establish their learning preferences, how their learning path evolves over time, and how the experience helps them identify what to practise next.</p>
+
+        <div class="cs-strategy-detail">
+          <div class="cs-figure">
+            <img src="/Public/Images/onboarding-mila.png" alt="Mila AI onboarding screens showing guided personalisation and preference setup">
+            <div class="cs-img-caption">The redesign shifted onboarding from broad preference selection to a more guided introduction to personalised learning.</div>
+          </div>
+          <div class="cs-subsection">
+            <div class="cs-subsection-label">Strategy 01 — Guided onboarding</div>
+            <p class="cs-text">The onboarding flow was redesigned to establish a clearer connection between user preferences and the learning experience that followed. Rather than asking for a broad set of topics in a generic way, the flow introduced personalisation as part of the onboarding narrative.</p>
+            <ul class="cs-list">
+              <li>Helped users define language goals, level and interests in a guided setup.</li>
+              <li>Made the learning model feel relevant from the very first interaction.</li>
+              <li>Turned personalisation from a backend mechanism into a visible product promise.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cs-strategy-detail reverse">
+          <div class="cs-subsection">
+            <div class="cs-subsection-label">Strategy 02 — From a static roadmap to an evolving learning journey</div>
+            <p class="cs-text">Traditional language learning apps often present a predefined sequence of lessons. Mila AI followed a different approach: the learning experience evolved according to the user's performance, preferences and interactions.</p>
+            <p class="cs-text">I designed a progressive roadmap that initially displayed three learning units rather than exposing the entire journey at once. As users completed learning activities, the system generated subsequent units automatically based on their performance.</p>
+            <ul class="cs-list">
+              <li>Displayed three learning units initially to make the next steps manageable.</li>
+              <li>Generated subsequent units based on the user's learning performance.</li>
+              <li>Made completed and upcoming learning units easier to distinguish.</li>
+            </ul>
+          </div>
+          <div class="cs-figure">
+            <video class="cs-figure-video" autoplay playsinline muted loop preload="auto" aria-label="Mila AI learning roadmap demo video">
+              <source src="/Public/Images/Mila%20app.mp4" type="video/mp4">
+            </video>
+            <div class="cs-img-caption">The roadmap provides structure without imposing a fully predefined curriculum, allowing the learning journey to evolve as the user progresses.</div>
+          </div>
+        </div>
+
+        <div class="cs-stage-sequence" aria-label="Three stages of adaptive roadmap">
+          <div class="cs-stage">
+            <span class="cs-stage-num">01</span>
+            <div class="cs-stage-copy">
+              <strong>Start learning</strong>
+              <p>Users begin with three available learning units.</p>
+            </div>
+          </div>
+          <div class="cs-stage-arrow" aria-hidden="true">→</div>
+          <div class="cs-stage">
+            <span class="cs-stage-num">02</span>
+            <div class="cs-stage-copy">
+              <strong>Learn and adapt</strong>
+              <p>The system uses performance and preferences to inform the learning journey.</p>
+            </div>
+          </div>
+          <div class="cs-stage-arrow" aria-hidden="true">→</div>
+          <div class="cs-stage">
+            <span class="cs-stage-num">03</span>
+            <div class="cs-stage-copy">
+              <strong>Reveal what's next</strong>
+              <p>Additional learning units are generated automatically as the user progresses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-strategy-detail">
+          <div class="cs-figure cs-figure-callout">
+            <img src="/Public/Images/mila-practice.jpg" alt="Mila AI practice screen and lesson review screen showing review options and a focused practice plan">
+            <div class="cs-img-caption">The Practice experience brings lesson review and upcoming practice opportunities into one place, helping users understand what they have already reviewed and what comes next.</div>
+          </div>
+          <div class="cs-subsection">
+            <div class="cs-subsection-label">Strategy 03 — Adaptive practice</div>
+            <p class="cs-text">Personalised learning is not only about deciding what users learn next. It also involves identifying what they may need to revisit.</p>
+            <p class="cs-text">Mila AI was designed to recognise when a user needed additional practice and determine how frequently certain concepts should be revisited. My design challenge was to make these recommendations actionable without adding unnecessary complexity to the experience.</p>
+            <ul class="cs-list">
+              <li>Connected practice opportunities to learning performance.</li>
+              <li>Integrated lesson review into the broader learning experience.</li>
+              <li>Made upcoming review activities easier to understand.</li>
+              <li>Designed practice as part of the learning journey rather than as a disconnected feature.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cs-flow-diagram" aria-label="Mila AI learning flow diagram">
+          <span>Learning activity</span>
+          <span class="cs-flow-arrow">→</span>
+          <span>Performance signals</span>
+          <span class="cs-flow-arrow">→</span>
+          <span>Practice recommendation</span>
+          <span class="cs-flow-arrow">→</span>
+          <span>Reinforcement</span>
+        </div>
+      </div>
+
+      <div class="cs-section full-only" id="cs-how-it-works">
+        <div class="cs-section-title">How it works</div>
+        <p class="cs-text">Mila AI was designed around a continuous feedback loop. The user's preferences and learning activity informed an experience that could evolve over time, generating new learning units and identifying opportunities for additional practice.</p>
+
+        <div class="cs-how-grid">
+          <div class="cs-how-step">
+            <div class="cs-how-step-num">01</div>
+            <div class="cs-how-step-copy">
+              <strong>Understand the learner</strong>
+              <p>The onboarding captures the user's language, level, goals and interests.</p>
+            </div>
+          </div>
+          <div class="cs-how-step">
+            <div class="cs-how-step-num">02</div>
+            <div class="cs-how-step-copy">
+              <strong>Learn through conversation</strong>
+              <p>Users engage in AI-powered conversations instead of following a catalogue of predefined classes.</p>
+            </div>
+          </div>
+          <div class="cs-how-step">
+            <div class="cs-how-step-num">03</div>
+            <div class="cs-how-step-copy">
+              <strong>Adapt the learning path</strong>
+              <p>The system uses learning performance and preferences to inform the next learning units.</p>
+            </div>
+          </div>
+          <div class="cs-how-step">
+            <div class="cs-how-step-num">04</div>
+            <div class="cs-how-step-copy">
+              <strong>Identify practice opportunities</strong>
+              <p>The system identifies learning areas that need reinforcement and determines when additional practice may be appropriate.</p>
+            </div>
+          </div>
+          <div class="cs-how-step">
+            <div class="cs-how-step-num">05</div>
+            <div class="cs-how-step-copy">
+              <strong>Continue learning</strong>
+              <p>The journey evolves as the user interacts with the app, creating opportunities for more relevant conversations and targeted practice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section full-only" id="cs-validation">
+        <div class="cs-section-title">Validation</div>
+        <p class="cs-text">The redesigned experience was evaluated through exploratory comparative usability testing with a small group of users who had previously used the web app.</p>
+        <p class="cs-text">During testing, users completed tasks in less time and demonstrated a better understanding of Mila AI's personalised learning proposition. These observations provided an initial indication that the redesigned experience made the product easier to navigate and its value easier to understand.</p>
+        <div class="cs-two">
+          <div class="cs-col before">
+            <div class="cs-col-label">Faster task completion</div>
+            <p>Users completed tasks in less time during comparative usability testing with the previous web app experience.</p>
+          </div>
+          <div class="cs-col after">
+            <div class="cs-col-label">Clearer product value</div>
+            <p>Users demonstrated a better understanding of Mila AI's personalised, AI-driven learning experience.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section full-only" id="cs-outcome">
+        <div class="cs-section-title">Outcome</div>
+        <p class="cs-text">The project resulted in a mobile-first experience designed to make Mila AI's core value proposition more tangible: a language learning journey that evolves with the user.</p>
+        <p class="cs-text">The redesigned experience brought together guided personalisation, progressive learning paths, adaptive practice and easier session continuity. By connecting onboarding, learning progression and practice, the design aimed to make the AI's adaptive capabilities more visible and understandable throughout the user journey.</p>
+
+        <div class="cs-outcome-list">
+          <div class="cs-insight">
+            <div class="cs-insight-i">01</div>
+            <div class="cs-insight-t"><strong>A clearer introduction to personalisation.</strong> The onboarding was redesigned to help users establish their learning preferences through a more guided and focused experience.</div>
+          </div>
+          <div class="cs-insight">
+            <div class="cs-insight-i">02</div>
+            <div class="cs-insight-t"><strong>A progressive learning journey.</strong> The roadmap introduced a more structured way to navigate AI-generated learning content, revealing subsequent units as users progressed.</div>
+          </div>
+          <div class="cs-insight">
+            <div class="cs-insight-i">03</div>
+            <div class="cs-insight-t"><strong>Practice connected to learning needs.</strong> The product's adaptive practice logic was incorporated into the experience strategy, connecting learning performance with opportunities for reinforcement.</div>
+          </div>
+          <div class="cs-insight">
+            <div class="cs-insight-i">04</div>
+            <div class="cs-insight-t"><strong>A mobile experience designed for continuity.</strong> The new information architecture prioritised ongoing learning and made returning to an existing session more straightforward.</div>
+          </div>
+        </div>
+
+        <div class="cs-status-box">
+          <div class="cs-status-label">Project status</div>
+          <div class="cs-status-text">Approximately 85% developed · Not launched</div>
+          <p>The design work established the intended mobile experience and translated the product's adaptive learning capabilities into a more visible, structured user journey. As the app did not launch, post-launch retention, engagement and business impact could not be evaluated.</p>
+        </div>
+
+        <div class="cs-closing-line">The goal was not simply to bring a web app to mobile, but to make adaptive learning feel like a natural, understandable part of the user experience.</div>
+      </div>
+    </div>
   </div>
-
-  <!-- Mockup showcase: onboarding -->
-  <div class="cs-mockup-full full-only">
-    <img src="/Public/Images/mila-onboarding.png" alt="Mila AI — personalised onboarding flow">
-    <div class="cs-mockup-caption">
-      <span class="cs-mockup-label">Onboarding flow</span>
-      <p>Users define goals, level and target language on first launch. The system adapts immediately — AI goes from a hidden backend process to a visible feature users can see and trust from day one.</p>
-    </div>
-  </div>
-
-  <div class="cs-body">
-
-    <!-- Design strategy -->
-    <div class="cs-section full-only" id="cs-strategy">
-      <div class="cs-section-title">Design strategy</div>
-      <div class="cs-steps">
-        <div class="cs-step">
-          <div class="cs-step-num">Strategy 01</div>
-          <div class="cs-step-title">Mobile-first architecture</div>
-          <p class="cs-step-desc">Rebuilt the IA around quick access and clear progression. Fewer steps to the lesson, a clearer sense of where you are in your journey.</p>
-        </div>
-        <div class="cs-step">
-          <div class="cs-step-num">Strategy 02</div>
-          <div class="cs-step-title">Personalised onboarding</div>
-          <p class="cs-step-desc">Users define goals and level on first launch. The system adapts immediately — creating ownership and demonstrating AI value from the very first session.</p>
-        </div>
-        <div class="cs-step">
-          <div class="cs-step-num">Strategy 03</div>
-          <div class="cs-step-title">Adaptive learning roadmap</div>
-          <p class="cs-step-desc">A dynamic roadmap unlocks based on progress — turning AI adaptation from a backend process into something the user can see, feel and trust.</p>
-        </div>
-        <div class="cs-step">
-          <div class="cs-step-num">Strategy 04</div>
-          <div class="cs-step-title">Resume &amp; continuity</div>
-          <p class="cs-step-desc">Progress saves automatically. "Continue Learning" is the primary action on every return. Users re-enter without losing context — one tap to resume.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Mockup showcase: roadmap -->
-  <div class="cs-mockup-full full-only">
-    <img src="/Public/Images/roadmap-mila.png" alt="Mila AI — adaptive learning roadmap">
-    <div class="cs-mockup-caption">
-      <span class="cs-mockup-label">Learning roadmap</span>
-      <p>A dynamic roadmap unlocks content based on performance. Users can finally see where they are, what they've completed, and what's next — making progression tangible and motivating return.</p>
-    </div>
-  </div>
-
-  <div class="cs-body">
-
-    <!-- Outcome -->
-    <div class="cs-section" id="cs-outcome">
-      <div class="cs-section-title">Outcome</div>
-      <div class="cs-insight">
-        <div class="cs-insight-i">✅</div>
-        <div class="cs-insight-t"><strong>85% usability improvement</strong> in structured testing with early users — measured directly against the previous web experience.</div>
-      </div>
-      <div class="cs-insight">
-        <div class="cs-insight-i">✅</div>
-        <div class="cs-insight-t"><strong>Progression clarity resolved</strong> — users knew exactly where they were, what they'd done, and what to do next without any guidance or prompts.</div>
-      </div>
-      <div class="cs-insight">
-        <div class="cs-insight-i">✅</div>
-        <div class="cs-insight-t"><strong>AI perceived as visible and personal</strong> — users described the app as feeling like it was "learning them", rather than serving generic content.</div>
-      </div>
-    </div>
-
-  </div><!-- /cs-body -->
-
-  </div><!-- /cs-layout -->
 </div><!-- /cs-page -->
 
 <!-- CTA — full bleed (sibling of .cs-page so width is always viewport) -->
@@ -448,7 +1084,7 @@ body.view-switching .cs-body {
           <h2 class="cta-big-headline">Building an <em>AI-powered</em> product?</h2>
           <p class="cta-big-sub">Making AI feel useful and visible to non-technical users is one of the hardest UX challenges — it's one I specialise in.</p>
           <div class="cta-btn-row">
-            <a href="/contact/" class="btn btn-white" style="padding:14px 36px">Start a project</a>
+            <a href="/contact/" class="btn btn-white" style="padding:14px 36px">Let's talk</a>
           </div>
         </div>
       </div>
