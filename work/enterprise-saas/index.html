@@ -115,6 +115,9 @@ body.view-switching .cs-body {
   opacity: 0.4;
 }
 
+.cs-subtitle {
+  max-width: 820px;
+}
 
 /* ─────────────────────────────────────────
    STICKY LEFT INDEX — Full case study only
@@ -199,6 +202,22 @@ body.view-switching .cs-body {
   color: #261E48;
 }
 
+#cs-decisions .cs-insight-card {
+  grid-template-columns: 1fr;
+}
+
+#cs-decisions .cs-insight-card-img {
+  height: clamp(240px, 38vw, 460px);
+  min-height: 0;
+  border-left: 0;
+  border-top: 1px solid var(--border);
+}
+
+#cs-decisions .cs-insight-card-img img {
+  object-fit: contain;
+  padding: 16px;
+  box-sizing: border-box;
+}
 
 </style>
 </head>
@@ -247,10 +266,10 @@ body.view-switching .cs-body {
       <div class="cs-htags">
         <span class="cs-htag">Enterprise SaaS</span>
         <span class="cs-htag">Lead Product Designer</span>
-        <span class="cs-htag">UX Architecture</span>
+        <span class="cs-htag">UX Architecture</span>s
       </div>
       <div class="cs-title">Enterprise Compliance &amp; Business Management Platform</div>
-      <p class="cs-subtitle">Designing a compliance-first SaaS that transforms dense legal complexity into intuitive workflows non-technical users can navigate confidently.</p>
+      <p class="cs-subtitle">Transforming complex regulatory requirements into a scalable SaaS platform, with configurable access and guided workflows that help non-technical users navigate with confidence.</p>
       <div class="cs-meta">
         <div><div class="cs-meta-label">Role</div><div class="cs-meta-value">Lead Product Designer / UX Architect</div></div>
         <div><div class="cs-meta-label">Scope</div><div class="cs-meta-value">End-to-end product design</div></div>
@@ -352,38 +371,18 @@ body.view-switching .cs-body {
     <div class="cs-section" id="cs-overview">
       <div class="cs-section-title">Overview</div>
       <p class="cs-text">A law firm was managing a complex compliance operation through Excel, with 850+ rows covering documents, responsibilities, deadlines and follow-up actions.</p>
-      <p class="cs-text">The challenge was to turn this into a SaaS platform that could support 10 different modules, multiple organisations and different roles — while making complex regulatory requirements easier to follow.</p>
-      <p class="cs-text full-only">I joined as Lead Product Designer and UX Architect, defining the product architecture, role and permission model, and workflows that turned these requirements into clear product behaviour.</p>
-      <p class="cs-text full-only">The result was a connected compliance platform where permissions, workflow states and required actions are built into the system, reducing reliance on manual tracking and user memory.</p>
-      <p class="cs-text full-only" style="opacity:0.8;">Due to a signed NDA, all interface visuals have been recreated as representative abstractions. Screen content, workflows, and data structures reflect the actual system design; names, entities, and identifying details are fictional.</p>
+      <p class="cs-text">The challenge was to transform this fragmented process into a SaaS platform supporting 10 specialised modules, multiple organisations and users with different responsibilities.</p>
+      <p class="cs-text">As Lead Product Designer and UX Architect, I defined the product architecture, configurable access model and guided workflows needed to translate complex regulatory requirements into clear, structured product behaviour.</p>
+      <p class="cs-text">My focus was to move complexity out of spreadsheets and manual coordination and into the product itself, through contextual dashboards, configurable permissions and workflows that guide users through the actions required at each stage.</p>
     </div>
 
     <!-- ── The problem (quick + full) ── -->
     <div class="cs-section" id="cs-challenge">
       <div class="cs-section-title">The problem</div>
       <div class="cs-quote">"How do you translate 850 rows of Excel and dense legal documents — written for lawyers — into a system non-technical users can follow without ever making a compliance error?"</div>
-      <div class="cs-two">
-        <div class="cs-col before">
-          <div class="cs-col-label">Before</div>
-          <ul>
-            <li>850+ rows of Excel tracking certifications manually</li>
-            <li>Legal documents written for lawyers, not end users</li>
-            <li>Manual email reminders for every deadline and approval</li>
-            <li>No visibility into who reviewed, approved or signed what</li>
-            <li>Audit processes undocumented and error-prone</li>
-          </ul>
-        </div>
-        <div class="cs-col after">
-          <div class="cs-col-label">The vision</div>
-          <ul>
-            <li>Compliance enforced by structure — not user discipline</li>
-            <li>Legal logic translated into guided, step-by-step UI</li>
-            <li>Automated notifications based on real-time status</li>
-            <li>Full audit trail built into every action</li>
-            <li>Role-based access configured per organisation type</li>
-          </ul>
-        </div>
-      </div>
+      <p class="cs-text">The challenge wasn't simply digitising existing processes. It was deciding how to translate complex legal requirements into a digital experience without overwhelming users with information or exposing them to unnecessary complexity.</p>
+      <p class="cs-text">Legal experts needed the process to preserve the relevant requirements and controls. Non-technical users needed clear instructions, relevant information and a straightforward path to completion.</p>
+      <p class="cs-text">The product had to support both — without turning every workflow into a digital version of a legal document.</p>
     </div>
 
     <!-- ── Dashboard image ── -->
@@ -395,6 +394,7 @@ body.view-switching .cs-body {
     <!-- ── My role (full only) ── -->
     <div class="cs-section full-only" id="cs-role">
       <div class="cs-section-title">My role</div>
+      <p class="cs-text">Beyond defining the product structure, I challenged initial solution proposals when they risked adding unnecessary complexity for users, translating legal and business needs into design decisions that balanced compliance requirements with usability.</p>
       <div class="cs-steps">
         <div class="cs-step">
           <div class="cs-step-num">01</div>
@@ -452,14 +452,18 @@ body.view-switching .cs-body {
     <!-- ── Key decisions (full only) ── -->
     <div class="cs-section full-only" id="cs-decisions">
       <div class="cs-section-title">Key decisions</div>
+      <p class="cs-text">The challenge wasn't simply to digitise existing compliance processes. It was to translate complex legal requirements into a product that could adapt to different organisations, guide users through critical workflows and keep the underlying system consistent.</p>
 
       <div class="cs-insight-flex">
         <div class="cs-insight-card">
           <div class="cs-insight-card-text">
             <div class="cs-insight-i">🏗️</div>
             <div class="cs-insight-t">
-              <strong>System-first architecture</strong>
-              <p><strong>10 modules, one connected product.</strong> The platform needed to support very different areas without becoming a collection of separate tools. Shared rules for data, permissions, workflow states and audit history created consistency across the system while allowing each module to work for its own domain.</p>
+              <strong>SYSTEM ARCHITECTURE</strong>
+              <p><strong>One connected product, not ten separate tools.</strong></p>
+              <p>The platform needed to support 10 specialised modules across different regulatory domains without becoming a collection of disconnected tools.</p>
+              <p>I defined a shared product foundation for data, permissions, workflow states and audit history, allowing each module to address its specific requirements while remaining part of a coherent system.</p>
+              <p><strong>Key principle</strong><br>Shared foundations. Domain-specific workflows.</p>
             </div>
           </div>
           <div class="cs-insight-card-img">
@@ -471,8 +475,11 @@ body.view-switching .cs-body {
           <div class="cs-insight-card-text">
             <div class="cs-insight-i">🔐</div>
             <div class="cs-insight-t">
-              <strong>Roles as configurable containers</strong>
-              <p><strong>A job title couldn't define access on its own.</strong> The same role could have different responsibilities depending on the organisation or context. Instead of creating many fixed permission profiles, roles became configurable containers that organisations could adapt to their own structure.</p>
+              <strong>ROLES ACCESS</strong>
+              <p><strong>Roles needed to reflect real organisational structures.</strong></p>
+              <p>A job title alone couldn't determine what a user should be able to access. Responsibilities could vary across organisations, even when users shared the same role.</p>
+              <p>I designed a configurable access model that allowed administrators to define which modules and actions were available to each user, supporting different organisational needs without relying exclusively on fixed permission profiles.</p>
+              <p><strong>Key principle</strong><br>Configurable access. Structured control.</p>
             </div>
           </div>
           <div class="cs-insight-card-img">
@@ -482,10 +489,31 @@ body.view-switching .cs-body {
 
         <div class="cs-insight-card">
           <div class="cs-insight-card-text">
+            <div class="cs-insight-i">🎛️</div>
+            <div class="cs-insight-t">
+              <strong>EXPERIENCE DESIGN</strong>
+              <p><strong>Show users what they can do, not what they cannot.</strong></p>
+              <p>The initial approach was to restrict access by blocking interface elements that users were not authorised to use.</p>
+              <p>I identified a UX risk: exposing unavailable features could create unnecessary uncertainty and make the interface feel restrictive.</p>
+              <p>I proposed a contextual dashboard that displayed the modules, information and actions available to each user, based on their assigned access.</p>
+              <p><strong>Key principle</strong><br>Relevant by default. Clear by design.</p>
+            </div>
+          </div>
+          <div class="cs-insight-card-img">
+            <img src="/Public/Images/dashboard-2.png" alt="Contextual dashboard showing information and actions based on user access">
+          </div>
+        </div>
+
+        <div class="cs-insight-card">
+          <div class="cs-insight-card-text">
             <div class="cs-insight-i">⚙️</div>
             <div class="cs-insight-t">
-              <strong>Guided compliance workflows</strong>
-              <p><strong>The system controls the process, not the user's memory.</strong> Documents, reviews, approvals and signatures move through predefined states. Required actors, conditions and available actions are built into the workflow, reducing the chance of skipping a required step or losing track of what happens next.</p>
+              <strong>WORKFLOW DESIGN</strong>
+              <p><strong>Guide users through compliance, not through legal documents.</strong></p>
+              <p>Processes such as GDPR and Whistleblowing involved detailed legal requirements and extensive explanatory content.</p>
+              <p>Presenting all this information directly within the user journey risked overwhelming users who simply needed to complete the process.</p>
+              <p>I proposed a step-by-step wizard that presented the information required at each stage, while allowing users to access additional detail when needed.</p>
+              <p><strong>Key principle</strong><br>Simplify the experience, not the legal requirements.</p>
             </div>
           </div>
           <div class="cs-insight-card-img">
@@ -524,72 +552,55 @@ body.view-switching .cs-body {
     <!-- ── Prototype (full only) ── -->
     <div class="cs-section full-only" id="cs-prototype">
       <div class="cs-section-title">Prototype</div>
-      <p class="cs-text">Explore the platform in action. Navigate the platform, explore the compliance dashboard and see how users are guided through complex regulatory workflows.</p>
-      <div class="cs-prototype-card">
-        <div class="cs-prototype-header">
-          <div class="cs-prototype-meta"></div>
-        </div>
-        <div class="cs-prototype-embed">
-          <iframe
-            src="/Public/Lexquoris%20Compliance%20OS%20_standalone_.html"
-            title="Lexquoris Compliance OS Prototype"
-            loading="lazy"
-            style="width: 100%; height: 100%; border: none; border-radius: 12px; background: var(--bg-soft);">
-          </iframe>
-        </div>
-        <div class="cs-prototype-footer">
-          <p class="cs-text">Click through modules, explore the workflow, and see how the system enforces compliance at every step.</p>
-          <p class="cs-text" style="margin-top: 12px;"><a href="/Public/Lexquoris%20Compliance%20OS%20_standalone_.html" class="btn btn-dark" style="display: inline-block; padding: 12px 22px;">Open interactive prototype</a></p>
-        </div>
-      </div>
+      <p class="cs-text">Explore a representative prototype of the platform, including the compliance dashboard, role-based access concepts and guided workflows.</p>
+      <p class="cs-text">The prototype illustrates how complex regulatory requirements can be translated into structured product experiences. All screens have been recreated as representative abstractions to respect confidentiality.</p>
+      <p class="cs-text"><a href="/Public/Lexquoris%20Compliance%20OS%20_standalone_.html" class="btn btn-dark" style="display: inline-block; padding: 12px 22px;">Open interactive prototype</a></p>
     </div>
 
     <!-- ── Outcome (quick + full) ── -->
     <div class="cs-section" id="cs-outcome">
       <div class="cs-section-title">Outcome &amp; impact</div>
-      <p class="cs-text">The project transformed an Excel-based compliance operation into a structured SaaS platform with 10 specialised modules.</p>
-      <div class="cs-insight">
-        <div class="cs-insight-i">🔒</div>
-        <div class="cs-insight-t"><strong>Manual tracking was replaced with guided workflows.</strong> The platform creates a clear process for each action and enforces the right steps, reducing the risk of missed approvals or incomplete records.</div>
+      <p class="cs-text">The project reached approximately 90% design completion, translating complex compliance requirements into a structured SaaS platform spanning 10 specialised modules.</p>
+      <p class="cs-text">Before development was completed, the proposed experience was evaluated with internal participants across technical and non-technical roles, helping assess how the platform could support users with different levels of technical expertise.</p>
+      <div class="cs-insight-grid">
+        <div class="cs-step">
+          <div class="cs-step-num">01</div>
+          <div class="cs-step-title">A connected product architecture</div>
+          <p class="cs-step-desc">The design established a consistent foundation across 10 specialised modules, bringing together permissions, workflows and compliance requirements within a single platform.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">02</div>
+          <div class="cs-step-title">An experience tailored to different users</div>
+          <p class="cs-step-desc">The platform was designed to adapt available information and actions to users' access levels and responsibilities, supporting different roles without exposing everyone to the same complexity.</p>
+        </div>
+        <div class="cs-step">
+          <div class="cs-step-num">03</div>
+          <div class="cs-step-title">Guided, task-oriented workflows</div>
+          <p class="cs-step-desc">Complex regulatory processes were structured into guided steps, making required actions clearer while preserving access to additional information when needed.</p>
+        </div>
       </div>
-      <div class="cs-insight">
-        <div class="cs-insight-i">⚡</div>
-        <div class="cs-insight-t"><strong>Permissions were simplified without losing control.</strong> Configurable roles gave organisations flexibility while keeping access logic structured and auditable.</div>
-      </div>
-      <div class="cs-insight">
-        <div class="cs-insight-i">📈</div>
-        <div class="cs-insight-t"><strong>Compliance became part of the operating model.</strong> Status, states, approvals and deadlines became structured system behaviours rather than informal human memory.</div>
-      </div>
-      <p class="cs-text full-only" style="margin-top: 16px;">Manual tracking was replaced with:</p>
-      <ul class="cs-text full-only" style="margin: 8px 0 0 22px; opacity: 0.9;">
-        <li>guided workflows</li>
-        <li>configurable permissions</li>
-        <li>structured document and approval states</li>
-        <li>automated status-driven actions</li>
-        <li>auditable activity history</li>
-        <li>organisation-level data separation</li>
-      </ul>
-      <p class="cs-text" style="margin-top: 16px;">The result was a product where regulatory requirements became part of the workflow itself, reducing reliance on manual coordination, user memory and spreadsheet-based tracking.</p>
+      <div class="cs-step-title" style="margin-top: 24px;">Internal evaluation</div>
+      <div class="cs-quote">The proposed experience was reviewed with participants from different technical and non-technical roles within the company. This provided an opportunity to assess the design across different user perspectives before development was completed.</div>
     </div>
 
     <!-- ── Key learnings (full only) ── -->
     <div class="cs-section full-only" id="cs-learnings">
       <div class="cs-section-title">Key learnings</div>
       <div class="cs-insight">
-        <div class="cs-insight-i">📖</div>
-        <div class="cs-insight-t"><strong>Regulatory complexity becomes a design problem.</strong> The value wasn't in memorising legislation. It was in understanding the requirements well enough to turn them into product behaviour — rules, workflows, permissions and constraints.</div>
+        <div class="cs-insight-i">01</div>
+        <div class="cs-insight-t"><strong>Simplifying complexity is about deciding what users need to see.</strong> Legal compliance requires detailed rules, but users don't always need to understand the entire regulatory framework to complete a task. I learned to focus on what users need to know at each step, while keeping additional information accessible when necessary.</div>
       </div>
       <div class="cs-insight">
-        <div class="cs-insight-i">🔗</div>
-        <div class="cs-insight-t"><strong>The hardest UX problems were architectural.</strong> Users don't see how 10 modules share data, permissions or audit history. But these relationships are what make the product work as one system.</div>
+        <div class="cs-insight-i">02</div>
+        <div class="cs-insight-t"><strong>Architecture is part of the user experience.</strong> Decisions about roles, permissions and workflow logic directly shape how people experience a product. Designing the underlying system well is essential to creating interfaces that feel clear, relevant and predictable.</div>
       </div>
       <div class="cs-insight">
-        <div class="cs-insight-i">🤝</div>
-        <div class="cs-insight-t"><strong>Cross-functional alignment is a product design skill.</strong> Legal, business and engineering teams bring different requirements to the same problem. A big part of the design work was turning those different views into decisions the product could support.</div>
+        <div class="cs-insight-i">03</div>
+        <div class="cs-insight-t"><strong>Good design requires questioning the proposed solution.</strong> Working with legal stakeholders taught me that translating requirements into interfaces isn't always enough. Understanding the reason behind a requirement made it possible to challenge approaches that introduced unnecessary complexity and propose alternatives that better balanced compliance and usability.</div>
       </div>
       <div class="cs-insight">
-        <div class="cs-insight-i">🗂️</div>
-        <div class="cs-insight-t"><strong>Multi-domain products need strong shared patterns.</strong> Ten modules meant different domains, workflows and mental models. The challenge was allowing each area to work for its users while keeping a consistent product underneath.</div>
+        <div class="cs-insight-i">04</div>
+        <div class="cs-insight-t"><strong>A scalable product needs both consistency and flexibility.</strong> Designing across 10 regulatory modules reinforced the importance of shared patterns and underlying rules. At the same time, different organisations and user responsibilities required flexibility. The challenge was to create a coherent platform without forcing every context into the same experience.</div>
       </div>
     </div>
 
