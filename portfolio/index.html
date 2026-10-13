@@ -3802,7 +3802,7 @@ button.proj-gallery-item {
 .drawer-view-quick .drawer-mila-quick { display: block; }
 .drawer-view-quick .drawer-mila-full { display: none; }
 .drawer-mila-section { scroll-margin-top: 80px; }
-.drawer-mila-full > .drawer-mila-section + .drawer-mila-section { margin-top: 30px; }
+.drawer-mila-full > .drawer-mila-section + .drawer-mila-section { margin-top: 48px; }
 .drawer-mila-section-title {
   margin: 28px 0 14px;
   padding-bottom: 9px;
@@ -3969,7 +3969,7 @@ button.proj-gallery-item {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--light);
-  margin: 32px 0 14px;
+  margin: 48px 0 20px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
@@ -3982,13 +3982,15 @@ button.proj-gallery-item {
   letter-spacing: -0.2px;
   color: var(--dark);
   line-height: 1.35;
-  margin: 28px 0 14px;
+  margin: 48px 0 20px;
   padding-bottom: 9px;
   border-bottom: 1px solid var(--border);
 }
 .drawer-enterprise-joblink .drawer-subsection-title {
-  margin-top: 32px;
+  margin-top: 48px;
 }
+.drawer-enterprise-joblink .drawer-metrics { margin-bottom: 24px; }
+.drawer-enterprise-joblink .drawer-kd-grid { margin-top: 10px; margin-bottom: 40px; }
 .drawer-metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -4102,6 +4104,13 @@ button.proj-gallery-item {
   border-radius: var(--radius);
   background: linear-gradient(135deg, rgba(112, 89, 220, 0.08), rgba(88, 219, 105, 0.06));
   border: 1px solid var(--border);
+}
+.drawer-quote-plain {
+  margin: 12px 0 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
 }
 .drawer-two {
   display: grid;
@@ -4310,6 +4319,19 @@ button.proj-gallery-item {
   gap: 12px;
   margin: 20px 0 24px;
 }
+.drawer-insights-list {
+  margin: 20px 0 24px;
+  padding-left: 20px;
+  color: var(--mid);
+}
+.drawer-insights-list li {
+  padding-left: 4px;
+  margin-bottom: 14px;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+.drawer-insights-list li:last-child { margin-bottom: 0; }
+.drawer-insights-list strong { color: var(--dark); font-weight: 600; }
 .drawer-insight {
   display: flex;
   gap: 12px;
@@ -4530,8 +4552,39 @@ button.proj-gallery-item {
 .drawer-tree-bar-fill.before { background: #E05B5B; }
 .drawer-tree-bar-fill.after { background: #22C55E; }
 .drawer-tree-bar-val { font-size: 0.75rem; font-weight: 700; font-family: var(--font-sans); color: #261E48; width: 32px; text-align: right; flex-shrink: 0; }
-.drawer-subsection-title { font-family: var(--font-display); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light); margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.drawer-subsection-title { font-family: var(--font-display); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light); margin: 48px 0 20px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
 .drawer-subsection-title.drawer-full-only:first-child { margin-top: 0; }
+.drawer-challenge-label { margin: 20px 0 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); }
+.drawer-role-list { margin: 0; padding-left: 20px; color: var(--mid); }
+.drawer-role-list li { padding-left: 4px; margin-bottom: 10px; font-size: 13.5px; line-height: 1.65; }
+.drawer-role-list li:last-child { margin-bottom: 0; }
+.drawer-role-list strong { color: var(--dark); font-weight: 600; }
+.drawer-challenge-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 24px;
+}
+.drawer-challenge-card {
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-soft);
+}
+.drawer-challenge-card strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--dark);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.drawer-challenge-card span {
+  display: block;
+  color: var(--mid);
+  font-size: 12px;
+  line-height: 1.55;
+}
 
 /* ── Drawer before/after (rich) — keep 2 columns in drawer until very narrow viewport ── */
 .drawer-ba {
@@ -4549,6 +4602,7 @@ button.proj-gallery-item {
 
 @media (max-width: 720px) {
   .drawer-ba { grid-template-columns: 1fr; row-gap: 12px; }
+  .drawer-challenge-cards { grid-template-columns: 1fr; }
   .drawer-steps { grid-template-columns: 1fr; }
   .drawer-insights { grid-template-columns: 1fr; }
   .drawer-heuristic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -6885,11 +6939,11 @@ const PROJECTS = [
         { label: "Year", value: "2025–2026" }
       ],
       nda: "Due to a signed NDA, all interface visuals have been recreated as representative abstractions. Screen content, workflows, and data structures reflect the actual system design; names, entities, and identifying details are fictional.",
-      lead: "A law firm was managing a complex compliance operation through Excel, with 850+ rows covering documents, responsibilities, deadlines and follow-up actions.",
+      lead: "<em>Transforming complex regulatory requirements into a structured SaaS product.</em>",
       body: [
-        "The challenge was to transform this fragmented process into a SaaS platform supporting 10 specialised modules, multiple organisations and users with different responsibilities.",
-        "As Lead Product Designer and UX Architect, I defined the product architecture, configurable access model and guided workflows needed to translate complex regulatory requirements into clear, structured product behaviour.",
-        "My focus was to move complexity out of spreadsheets and manual coordination and into the product itself, through contextual dashboards, configurable permissions and workflows that guide users through the actions required at each stage."
+        "A law firm was managing compliance processes through Excel, with more than 850 rows covering documentation, responsibilities, deadlines and follow-up actions.",
+        "I led the product design of a platform intended to bring 10 specialised modules into one coherent system, with configurable access and structured compliance workflows.",
+        "My focus was defining how the product should work across different organisations, user responsibilities and regulatory requirements."
       ],
       sections: [
         {
@@ -6900,73 +6954,99 @@ const PROJECTS = [
       ],
       richSections: [
         {
+          type: "anchor",
+          id: "d-problem"
+        },
+        {
           type: "subheading",
           fullOnly: false,
           text: "The problem"
         },
         {
+          type: "prose",
+          fullOnly: false,
+          text: "<strong>From fragmented spreadsheets to a structured compliance platform.</strong>"
+        },
+        {
+          type: "prose",
+          fullOnly: false,
+          text: "The challenge went beyond digitising existing processes. The platform needed to support different organisations, user responsibilities and regulatory requirements without overwhelming non-technical users."
+        },
+        {
+          type: "label",
+          fullOnly: false,
+          text: "The core challenge"
+        },
+        {
+          type: "challengeCards",
+          fullOnly: false,
+          items: [
+            { title: "Regulatory complexity", desc: "Preserve legal requirements, responsibilities and process controls without oversimplifying compliance processes." },
+            { title: "Guided user experience", desc: "Help users understand what they need to do without overwhelming them with dense legal documentation." },
+            { title: "Contextual access", desc: "Show each user the information and actions relevant to their responsibilities, without making the product feel restricted or blocked." },
+            { title: "Connected product architecture", desc: "Connect multiple specialised modules while adapting the experience, available features and views to each user's role and access permissions." }
+          ]
+        },
+        {
+          type: "label",
+          fullOnly: false,
+          text: "The key question"
+        },
+        {
           type: "quote",
-          text: "How do you translate 850 rows of Excel and dense legal documents — written for lawyers — into a system non-technical users can follow without ever making a compliance error?"
-        },
-        {
-          type: "prose",
-          fullOnly: false,
-          text: "The challenge wasn't simply digitising existing processes. It was deciding how to translate complex legal requirements into a digital experience without overwhelming users with information or exposing them to unnecessary complexity."
-        },
-        {
-          type: "prose",
-          fullOnly: false,
-          text: "Legal experts needed the process to preserve the relevant requirements and controls. Non-technical users needed clear instructions, relevant information and a straightforward path to completion."
-        },
-        {
-          type: "prose",
-          fullOnly: false,
-          text: "The product had to support both — without turning every workflow into a digital version of a legal document."
+          anchor: false,
+          plain: true,
+          text: "How can a complex compliance process become a clear, structured experience that guides users through the right actions?"
         },
         {
           type: "subheading",
+          id: "d-role",
           text: "My role"
         },
         {
           type: "prose",
-          fullOnly: true,
-          text: "Beyond defining the product structure, I challenged initial solution proposals when they risked adding unnecessary complexity for users, translating legal and business needs into design decisions that balanced compliance requirements with usability."
+          text: "I led the end-to-end product design, translating complex business and regulatory requirements into a structured product experience."
         },
         {
-          type: "steps",
+          type: "label",
+          text: "My responsibilities included:"
+        },
+        {
+          type: "roleBullets",
           items: [
-            { num: "01", title: "Translate requirements into product logic", desc: "I reviewed regulatory and business requirements with the relevant stakeholders and translated them into product rules, workflows, permissions, validations and required actions." },
-            { num: "02", title: "Define the product architecture", desc: "I defined the information architecture and interaction model across 10 connected modules, including how data, permissions and audit history would work across the platform." },
-            { num: "03", title: "Design the permission model", desc: "I created a configurable role and access model that could adapt to different organisations, responsibilities and contexts. Access was part of the product architecture, not something added later." },
-            { num: "04", title: "Align different requirements", desc: "I worked across legal, business and technical requirements, turning complex or unclear needs into product decisions that could be understood, designed and built by the team." }
+            { title: "Product architecture", desc: "Defining the information architecture and the relationships between 10 specialised modules." },
+            { title: "Access &amp; permissions", desc: "Designing a configurable access model adapted to different organisations and user responsibilities." },
+            { title: "Workflow design", desc: "Structuring complex compliance processes into clear, guided user journeys." },
+            { title: "Stakeholder collaboration", desc: "Working with business stakeholders and engineering to translate requirements into product decisions and design solutions." }
           ]
         },
         {
-          type: "subheading",
-          text: "Design approach"
+          type: "label",
+          text: "My approach"
         },
         {
           type: "prose",
-          text: "Compliance couldn't be a warning layer. If users have to understand a regulation, interpret a warning and decide what to do next, the product is putting the complexity back on them. The goal was to move that complexity into the system itself — turning requirements into workflows, permissions, validations and states wherever possible. The goal wasn't to teach users the regulatory framework. It was to make the correct path clear through the product."
+          text: "<em>Designing beyond the interface — connecting business requirements, system logic and user needs.</em>"
         }
       ],
-      steps: [
-        { num: "01", title: "Turn requirements into product rules", desc: "Regulatory and business requirements were translated into workflow rules, validations, permissions and required actions instead of being left as information for users to interpret." },
-        { num: "02", title: "Make the system context-aware", desc: "Navigation, data and available actions change depending on the user's organisation, role and responsibilities, so users only see what is relevant to them." },
-        { num: "03", title: "Guide instead of educate", desc: "HR managers, legal assistants and operations staff shouldn't need to understand the whole regulatory process to complete a task. The product provides the right information and next action when they need it." },
-        { num: "04", title: "Design the system before the screens", desc: "The main challenge was understanding how 10 modules would share data, permissions, workflow states and audit history. Individual screens came after the underlying system made sense." }
-      ],
       keyDecisionCards: [
-        { icon: "🏗️", category: "SYSTEM ARCHITECTURE", title: "One connected product, not ten separate tools.", paragraphs: ["The platform needed to support 10 specialised modules across different regulatory domains without becoming a collection of disconnected tools.", "I defined a shared product foundation for data, permissions, workflow states and audit history, allowing each module to address its specific requirements while remaining part of a coherent system."], principle: "Shared foundations. Domain-specific workflows.", fullWidth: true, img: "assets/kd-system.svg", imgHd: "/Public/Images/system.png", imgAlt: "System architecture overview" },
-        { icon: "🔐", category: "ROLES ACCESS", title: "Roles needed to reflect real organisational structures.", paragraphs: ["A job title alone couldn't determine what a user should be able to access. Responsibilities could vary across organisations, even when users shared the same role.", "I designed a configurable access model that allowed administrators to define which modules and actions were available to each user, supporting different organisational needs without relying exclusively on fixed permission profiles."], principle: "Configurable access. Structured control.", fullWidth: true, img: "assets/kd-role.svg", imgHd: "/Public/Images/role.png", imgAlt: "Role-based access configuration" },
+        { icon: "🏗️", category: "SYSTEM ARCHITECTURE", paragraphs: ["The platform brought together 10 modules covering different business and compliance needs, including HR, Appointments, Support, GDPR, Whistleblowing and other regulatory workflows.", "Each module served a specific purpose, with its own processes, information and user requirements. The challenge was to bring them together into one coherent product without creating disconnected experiences or duplicating core functionality.", "I defined a shared product architecture connecting data, permissions, workflow states and audit history across modules, while allowing each area to retain its specific logic and requirements."], fullWidth: true, img: "assets/kd-system.svg", imgHd: "/Public/Images/system.png", imgAlt: "System architecture overview" },
+        { icon: "🔐", category: "ROLE-BASED ACCESS", title: "Roles needed to reflect real organisational structures.", paragraphs: ["A job title alone couldn't determine what a user should be able to access. Responsibilities could vary across organisations, even when users shared the same role.", "I designed a configurable access model that allowed administrators to define which modules and actions were available to each user, supporting different organisational needs without relying exclusively on fixed permission profiles."], principle: "Configurable access. Structured control.", fullWidth: true, img: "assets/kd-role.svg", imgHd: "/Public/Images/role.png", imgAlt: "Role-based access configuration" },
         { icon: "🎛️", category: "EXPERIENCE DESIGN", title: "Show users what they can do, not what they cannot.", paragraphs: ["The initial approach was to restrict access by blocking interface elements that users were not authorised to use.", "I identified a UX risk: exposing unavailable features could create unnecessary uncertainty and make the interface feel restrictive.", "I proposed a contextual dashboard that displayed the modules, information and actions available to each user, based on their assigned access."], principle: "Relevant by default. Clear by design.", fullWidth: true, img: "/Public/Images/dashboard-2.png", imgAlt: "Contextual dashboard showing information and actions based on user access" },
         { icon: "⚙️", category: "WORKFLOW DESIGN", title: "Guide users through compliance, not through legal documents.", paragraphs: ["Processes such as GDPR and Whistleblowing involved detailed legal requirements and extensive explanatory content.", "Presenting all this information directly within the user journey risked overwhelming users who simply needed to complete the process.", "I proposed a step-by-step wizard that presented the information required at each stage, while allowing users to access additional detail when needed."], principle: "Simplify the experience, not the legal requirements.", fullWidth: true, img: "assets/kd-flow.svg", imgHd: "/Public/Images/flow.png", imgAlt: "Guided compliance workflow" }
       ],
       keyDecisionsIntro: "The challenge wasn't simply to digitise existing compliance processes. It was to translate complex legal requirements into a product that could adapt to different organisations, guide users through critical workflows and keep the underlying system consistent.",
       sectionsAfter: [
         {
-          h: "How workflows actually enforce compliance",
+          h: "The logic behind each workflow",
           intro: "The hardest part wasn't designing the flow. It was designing the rules behind it. Each step is linked to the appropriate role. Actions become available only when the required conditions are met. Deadlines and pending actions trigger system-driven follow-up, while important actions are recorded with their actor, timestamp and state. Instead of asking users to remember the process, the system guides them through it.",
+          insights: [
+            { icon: "✅", text: "<strong>Correct actors, every time.</strong> Each workflow step is tied to the right role, and the system only advances once the required conditions are met." },
+            { icon: "🔔", text: "<strong>Automated follow-up replaces manual chasing.</strong> Deadlines and pending actions trigger system-driven reminders and status updates based on the latest state of the workflow." },
+            { icon: "🚫", text: "<strong>Non-compliant paths do not exist.</strong> Users are not asked to interpret a warning or decide whether to proceed — the next action is simply unavailable until the required step is completed." },
+            { icon: "📋", text: "<strong>Every action is auditable.</strong> Actors, timestamps and workflow states are recorded as part of the process, creating a structured trail of compliance activity." }
+          ],
+          closingQuote: "\"Users are never asked what to do next — the system already knows.\"",
           items: []
         },
         {
@@ -6997,6 +7077,7 @@ const PROJECTS = [
       ],
       insightsSectionTitle: "Key learnings",
       insightsFullOnly: true,
+      insightsList: true,
       insights: [
         { icon: "01", text: "<strong>Simplifying complexity is about deciding what users need to see.</strong> Legal compliance requires detailed rules, but users don't always need to understand the entire regulatory framework to complete a task. I learned to focus on what users need to know at each step, while keeping additional information accessible when necessary." },
         { icon: "02", text: "<strong>Architecture is part of the user experience.</strong> Decisions about roles, permissions and workflow logic directly shape how people experience a product. Designing the underlying system well is essential to creating interfaces that feel clear, relevant and predictable." },
@@ -7007,7 +7088,7 @@ const PROJECTS = [
       drawerIndex: [
         { id: "d-overview", label: "Overview" },
         { id: "d-challenge", label: "The problem" },
-        { id: "d-approach", label: "Approach" },
+        { id: "d-role", label: "My role" },
         { id: "d-decisions-kd", label: "Key decisions" },
         { id: "d-learnings", label: "Learnings" }
       ],
@@ -8670,6 +8751,8 @@ function openDrawer(id) {
       ${s.cards && s.cards.length ? `<div class="drawer-outcome-cards">${s.cards.map(card => `<article class="drawer-outcome-card"><div class="drawer-step-num">${card.num}</div><h5>${card.title}</h5><p>${card.desc}</p></article>`).join('')}</div>` : ''}
       ${s.closingTitle ? `<h5 class="drawer-outcome-closing-title">${s.closingTitle}</h5>` : ''}
       ${s.closing ? `<p class="drawer-prose">${s.closing}</p>` : ''}
+      ${s.insights && s.insights.length ? `<div class="drawer-insights">${s.insights.map(i => `<div class="drawer-insight"><span class="drawer-insight-i">${i.icon}</span><div class="drawer-insight-t">${i.text}</div></div>`).join('')}</div>` : ''}
+      ${s.closingQuote ? `<div class="drawer-quote">${s.closingQuote}</div>` : ''}
       ${s.showPrototype && d.prototype ? `<p style="margin-top:16px"><a class="drawer-proto" href="${d.prototype.href}" target="_blank" rel="noopener">${d.prototype.label}</a></p>` : ''}
       ${s.quotes && s.quotes.length ? s.quotes.map(q => `<div class="drawer-quote-user">${q}</div>`).join('') : ''}
       ${s.img ? `<div class="drawer-img-block"><img src="${s.img}" alt="${s.imgAlt||''}" loading="lazy"><div class="drawer-img-caption">${s.imgCaption||''}</div></div>` : ''}
@@ -8746,7 +8829,7 @@ function openDrawer(id) {
             <span class="drawer-kd-card-emoji" aria-hidden="true">${c.icon}</span>
             <div class="drawer-kd-card-body">
               ${c.category ? `<strong class="drawer-kd-category">${c.category}</strong>` : ''}
-              <strong class="drawer-kd-card-title">${c.title}</strong>
+              ${c.title ? `<strong class="drawer-kd-card-title">${c.title}</strong>` : ''}
               ${c.paragraphs ? c.paragraphs.map(paragraph => `<p>${paragraph}</p>`).join('') : `<p>${c.desc}</p>`}
               ${c.principle ? `<p><strong>Key principle</strong><br>${c.principle}</p>` : ''}
             </div>
@@ -8766,14 +8849,18 @@ function openDrawer(id) {
   ` : '';
 
   const insightsHtml = (d.insights && d.insights.length) ? `
-    <div class="drawer-insights">
-      ${d.insights.map(i => `
-        <div class="drawer-insight">
-          <span class="drawer-insight-i">${i.icon}</span>
-          <div class="drawer-insight-t">${i.text}</div>
-        </div>
-      `).join('')}
-    </div>` : '';
+    ${d.insightsList ? `
+      <ul class="drawer-insights-list">
+        ${d.insights.map(i => `<li>${i.text}</li>`).join('')}
+      </ul>` : `
+      <div class="drawer-insights">
+        ${d.insights.map(i => `
+          <div class="drawer-insight">
+            <span class="drawer-insight-i">${i.icon}</span>
+            <div class="drawer-insight-t">${i.text}</div>
+          </div>
+        `).join('')}
+      </div>`}` : '';
 
   const impactIntroHtml = d.impactIntro ? `<h4>Impact on behaviour</h4><p class="drawer-prose">${d.impactIntro}</p>` : '';
   const whyWorkedHtml = d.whyWorked ? `<p class="drawer-prose">${d.whyWorked}</p>` : '';
@@ -8827,13 +8914,23 @@ function openDrawer(id) {
         return `<div class="drawer-method-tags drawer-full-only">${s.tags.map(t => `<span class="drawer-method-tag"><span class="drawer-method-dot"></span>${t}</span>`).join('')}</div>`;
       }
       if (s.type === 'quote') {
-        return `<div id="d-problem" style="scroll-margin-top:80px"></div><div class="drawer-quote">${s.text}</div>`;
+        const anchor = s.anchor === false ? '' : '<div id="d-problem" style="scroll-margin-top:80px"></div>';
+        return `${anchor}<div class="drawer-quote${s.plain ? ' drawer-quote-plain' : ''}">${s.text}</div>`;
       }
       if (s.type === 'beforeAfter') {
         return `<div class="drawer-ba drawer-full-only"><div class="drawer-ba-col"><div class="drawer-ba-label">${s.leftTitle}</div><ul>${s.left.map(i=>`<li>${i}</li>`).join('')}</ul></div><div class="drawer-ba-col"><div class="drawer-ba-label">${s.rightTitle}</div><ul>${s.right.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`;
       }
       if (s.type === 'subheading') {
-        return `<div class="drawer-subsection-title${s.fullOnly === false ? '' : ' drawer-full-only'}">${s.text}</div>`;
+        return `<div${s.id ? ` id="${s.id}" style="scroll-margin-top:80px"` : ''} class="drawer-subsection-title${s.fullOnly === false ? '' : ' drawer-full-only'}">${s.text}</div>`;
+      }
+      if (s.type === 'label') {
+        return `<div class="drawer-challenge-label${s.fullOnly === false ? '' : ' drawer-full-only'}">${s.text}</div>`;
+      }
+      if (s.type === 'roleBullets') {
+        return `<ul class="drawer-role-list">${s.items.map(i => `<li><strong>${i.title}</strong> — ${i.desc}</li>`).join('')}</ul>`;
+      }
+      if (s.type === 'challengeCards') {
+        return `<div class="drawer-challenge-cards${s.fullOnly === false ? '' : ' drawer-full-only'}">${s.items.map(i => `<div class="drawer-challenge-card"><strong>${i.title}</strong><span>${i.desc}</span></div>`).join('')}</div>`;
       }
       if (s.type === 'benchtable') {
         return `<div class="drawer-full-only"><table class="drawer-bench-table"><thead><tr>${s.headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${s.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
@@ -8855,7 +8952,8 @@ function openDrawer(id) {
         return `${head}<div class="drawer-img-block drawer-full-only"><img src="${s.src}" alt="${s.alt||''}" loading="lazy"><div class="drawer-img-caption">${s.caption||''}</div></div>`;
       }
       if (s.type === 'steps') {
-        return `<div id="d-decisions" style="scroll-margin-top:80px"></div><div class="drawer-steps drawer-full-only">${s.items.map(i=>`<div class="drawer-step"><div class="drawer-step-num">${i.num}</div><div class="drawer-step-title">${i.title}</div><p class="drawer-step-desc">${i.desc}</p></div>`).join('')}</div>`;
+        const anchor = s.anchor === false ? '' : '<div id="d-decisions" style="scroll-margin-top:80px"></div>';
+        return `${anchor}<div class="drawer-steps drawer-full-only">${s.items.map(i=>`<div class="drawer-step"><div class="drawer-step-num">${i.num}</div><div class="drawer-step-title">${i.title}</div><p class="drawer-step-desc">${i.desc}</p></div>`).join('')}</div>`;
       }
       if (s.type === 'uxwriting') {
         return `<div class="drawer-writing-example drawer-full-only"><div class="drawer-writing-col bad"><div class="drawer-writing-col-label">✕ Avoid</div><ul>${s.avoid.map(i=>`<li>${i}</li>`).join('')}</ul></div><div class="drawer-writing-col good"><div class="drawer-writing-col-label">✓ Use instead</div><ul>${s.use.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`;
@@ -8869,7 +8967,8 @@ function openDrawer(id) {
       }
       if (s.type === 'twoCols') {
         const head = s.id ? `<div id="${s.id}" style="scroll-margin-top:80px"></div>` : '';
-        return `${head}<div class="drawer-ba drawer-full-only"><div class="drawer-ba-col"><div class="drawer-ba-label">${s.leftTitle}</div><ul>${s.left.map(i=>`<li>${i}</li>`).join('')}</ul></div><div class="drawer-ba-col"><div class="drawer-ba-label">${s.rightTitle}</div><ul>${s.right.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`;
+        const visibility = s.fullOnly === false ? '' : ' drawer-full-only';
+        return `${head}<div class="drawer-ba${visibility}"><div class="drawer-ba-col"><div class="drawer-ba-label">${s.leftTitle}</div><ul>${s.left.map(i=>`<li>${i}</li>`).join('')}</ul></div><div class="drawer-ba-col"><div class="drawer-ba-label">${s.rightTitle}</div><ul>${s.right.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`;
       }
       if (s.type === 'note') {
         return `<div class="drawer-ux-note drawer-full-only">${s.text}</div>`;
@@ -8936,7 +9035,7 @@ function openDrawer(id) {
         ${hmw ? `<div class="drawer-full-only">${hmw}</div>` : ''}
         ${researchBlock ? `<div class="drawer-full-only">${researchBlock}</div>` : ''}
         ${secHtml(d.sectionsMid) ? `<div class="drawer-full-only">${secHtml(d.sectionsMid)}</div>` : ''}
-        <div class="drawer-full-only" id="d-approach" style="scroll-margin-top:80px"><div id="d-process" style="scroll-margin-top:80px"></div>${stepsHdr}${stepsHtml}</div>
+        ${stepsHdr || stepsHtml ? `<div class="drawer-full-only" id="d-approach" style="scroll-margin-top:80px"><div id="d-process" style="scroll-margin-top:80px"></div>${stepsHdr}${stepsHtml}</div>` : ''}
         ${keyDecisionHtml ? `<div class="drawer-full-only" id="d-decisions-kd" style="scroll-margin-top:80px">${keyDecisionHtml}</div>` : ''}
         <div id="d-learnings" style="scroll-margin-top:80px">${sectionsAfterHtml}${proto}</div>
         <div class="drawer-full-only">${impactIntroHtml}${impactCompare}${whyWorkedHtml}</div>
